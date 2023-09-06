@@ -13,7 +13,7 @@ public class GridGeneration : MonoBehaviour
     //[SerializeField] private GameObject roadPrefab; // 4
 
     [SerializeField] private GameObject[] tilePrefabs;
-    [SerializeField] private GameObject buildingPrefab;
+    [SerializeField] private GameObject[] buildingPrefabs;
 
     private int[,] tileState;
     private float[,] builtOnDegree;
@@ -96,7 +96,7 @@ public class GridGeneration : MonoBehaviour
 
                     SpawnBuilding(newTile, randomizedWildness);
                 }
-                else if (randomizedWildness <= 70)
+                else if (randomizedWildness <= 60)
                 {
                     //grass
                     GameObject newTile = Instantiate(tilePrefabs[0], transform);
@@ -117,12 +117,26 @@ public class GridGeneration : MonoBehaviour
 
     private void SpawnBuilding(GameObject parentTile, float wildness)
     {
+
+        parentTile.transform.rotation = Quaternion.Euler(0, 90 * (int)Random.Range(0, 4), 0);
+
+        float var = Random.Range(0.7f, 1f);
+
+        Color buildingColor = new Color(
+            var, var, var
+        //Random.Range(0.7f, 1f),
+        //Random.Range(0.7f, 1f),
+        //Random.Range(0.7f, 1f)
+        );
+
         for(int i = 0; i < (40 - wildness)/6; i++)
         {
-            GameObject newFloor = Instantiate(buildingPrefab, parentTile.transform);
+            GameObject newFloor = Instantiate(buildingPrefabs[Random.Range(0,buildingPrefabs.Length)], parentTile.transform);
 
-            newFloor.transform.position = new Vector3(parentTile.transform.position.x, 0.75f + 0.5f * i, parentTile.transform.position.z);
-
+            newFloor.transform.position = new Vector3(parentTile.transform.position.x, 0.5f + 0.5f * i, parentTile.transform.position.z);
+            newFloor.transform.localScale = new Vector3(0.7f, 0.7f, 1);
+            newFloor.gameObject.GetComponent<MeshRenderer>().materials[0].color = buildingColor;
+            newFloor.gameObject.AddComponent<floorScript>();
         }
     }
 

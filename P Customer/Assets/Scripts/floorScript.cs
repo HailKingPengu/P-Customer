@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class floorScript : MonoBehaviour
 {
 
-
+    //public GameObject building
 
     // Start is called before the first frame update
     void Start()
@@ -15,13 +15,13 @@ public class floorScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, 0.1f);
+        transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.7f, 0.7f, 1f), 0.1f);
     }
 
     public void Hovered()
     {
-        transform.localScale = new Vector3(1.2f, 1, 1.2f);
+        transform.localScale = new Vector3(1.1f, 1, 1.1f);
     }
 }

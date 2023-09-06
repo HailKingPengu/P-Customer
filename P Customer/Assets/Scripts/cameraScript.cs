@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class cameraScript : MonoBehaviour
@@ -18,9 +19,15 @@ public class cameraScript : MonoBehaviour
         // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
-            if(hit.transform.GetComponentInParent<floorScript>() != null)
+
+            //if (hit.transform != null)
+            //{
+            //    Debug.Log(hit.transform);
+            //}
+
+            if (hit.transform.GameObject().GetComponent<floorScript>() != null)
             {
-                hit.transform.GetComponentInParent<floorScript>().Hovered();
+                hit.transform.GameObject().GetComponent<floorScript>().Hovered();
             }
         }
     }
