@@ -589,6 +589,9 @@ MonoBehaviour:
   - {fileID: 5169406230031946292, guid: d4882fca0a9865b45beafe7e0308e850, type: 3}
   - {fileID: 8476405371748272827, guid: 99ad9cdf5c492404baec3b3c390acb41, type: 3}
   - {fileID: 5813702893561729020, guid: 39d007ded774bb84caf45283dbd2f2ac, type: 3}
+  industryPrefabs:
+  - {fileID: 9156294662488290833, guid: 10cc6534adab6d546b41f1f4c79d16cd, type: 3}
+  - {fileID: 9156294662488290833, guid: 10cc6534adab6d546b41f1f4c79d16cd, type: 3}
   mapXSize: 30
   mapYSize: 30
   centerPoint: {x: 15, y: 15}
