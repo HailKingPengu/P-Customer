@@ -590,8 +590,10 @@ MonoBehaviour:
   - {fileID: 8476405371748272827, guid: 99ad9cdf5c492404baec3b3c390acb41, type: 3}
   - {fileID: 5813702893561729020, guid: 39d007ded774bb84caf45283dbd2f2ac, type: 3}
   industryPrefabs:
-  - {fileID: 9156294662488290833, guid: 10cc6534adab6d546b41f1f4c79d16cd, type: 3}
-  - {fileID: 9156294662488290833, guid: 10cc6534adab6d546b41f1f4c79d16cd, type: 3}
+  - {fileID: 6052560234449583596, guid: f92ff0fb5aa79624484917b4e019176c, type: 3}
+  - {fileID: 3936270104790888185, guid: fd20ffcee742058418454d53e006dbfe, type: 3}
+  industryRoofPrefabs:
+  - {fileID: 7056443844487623137, guid: 11e1aa1d30dbbf34095411c5c083cb04, type: 3}
   mapXSize: 30
   mapYSize: 30
   centerPoint: {x: 15, y: 15}

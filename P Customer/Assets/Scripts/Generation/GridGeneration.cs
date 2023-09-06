@@ -15,6 +15,7 @@ public class GridGeneration : MonoBehaviour
     [SerializeField] private GameObject[] tilePrefabs;
     [SerializeField] private GameObject[] buildingPrefabs;
     [SerializeField] private GameObject[] industryPrefabs;
+    [SerializeField] private GameObject[] industryRoofPrefabs;
 
     private int[,] tileState;
     private float[,] builtOnDegree;
@@ -182,11 +183,19 @@ public class GridGeneration : MonoBehaviour
         {
             GameObject newFloor = Instantiate(industryPrefabs[Random.Range(0, industryPrefabs.Length)], parentTile.transform);
 
-            newFloor.transform.position = new Vector3(parentTile.transform.position.x, 0.5f + 0.3f * i, parentTile.transform.position.z);
-            //newFloor.transform.localScale = new Vector3(0.7f, 0.7f, 1);
+            newFloor.transform.position = new Vector3(parentTile.transform.position.x, 0.5f + 0.5f * i, parentTile.transform.position.z);
+            newFloor.transform.localScale = new Vector3(0.7f, 0.7f, 1);
             newFloor.gameObject.GetComponent<MeshRenderer>().materials[0].color = buildingColor;
-            //newFloor.gameObject.AddComponent<floorScript>();
+            newFloor.gameObject.AddComponent<floorScript>();
         }
+
+        GameObject roof = Instantiate(industryRoofPrefabs[Random.Range(0, industryRoofPrefabs.Length)], parentTile.transform);
+
+        roof.transform.position = new Vector3(parentTile.transform.position.x, 0.5f + 0.5f * (((int)(40 - wildness) / 10) + 1), parentTile.transform.position.z);
+        roof.transform.localScale = new Vector3(0.7f, 0.7f, 1);
+        roof.gameObject.GetComponent<MeshRenderer>().materials[1].color = buildingColor;
+        roof.gameObject.AddComponent<floorScript>();
+
     }
 
     // Update is called once per frame
