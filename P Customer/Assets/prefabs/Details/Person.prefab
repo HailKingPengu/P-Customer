@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2984654263928584975}
   - component: {fileID: -3970848339919497292}
   - component: {fileID: -8208730693614240554}
+  - component: {fileID: 260842242910327632}
   m_Layer: 0
   m_Name: Person
   m_TagString: Untagged
@@ -131,7 +132,7 @@ Rigidbody:
   m_GameObject: {fileID: 2056833338724633764}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 10
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -149,3 +150,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &260842242910327632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056833338724633764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493e0a051a89f0a45bd3c806a63c90a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 20
