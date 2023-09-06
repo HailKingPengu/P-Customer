@@ -583,11 +583,12 @@ MonoBehaviour:
   - {fileID: 473095525702175267, guid: 75512826a247ed848929af89be3f8ddf, type: 3}
   - {fileID: 840805206565642382, guid: a077d7482334ba34599dc62261d58a91, type: 3}
   - {fileID: 1615153403414772155, guid: 38c1eaf3d1c38a84abfa7a3db80b7c8a, type: 3}
+  - {fileID: 1615153403414772155, guid: 3858202f011a9ab41ba87d2846820e87, type: 3}
   buildingPrefabs:
-  - {fileID: 6955468290699072264, guid: a55e158058e798a4fb7d714482514157, type: 3}
-  - {fileID: 5757987580817560494, guid: 3b990f758cf439d4b8c8b0f55f206d88, type: 3}
-  - {fileID: 8356300107396978278, guid: 628f3390c64512d449579d3dd21a4b65, type: 3}
-  - {fileID: 564316319388057658, guid: 14bb45192d7141d459fb3ce537e921f0, type: 3}
+  - {fileID: 266844953324127686, guid: da54965e54f1be244bf44d0e434f9e83, type: 3}
+  - {fileID: 5169406230031946292, guid: d4882fca0a9865b45beafe7e0308e850, type: 3}
+  - {fileID: 8476405371748272827, guid: 99ad9cdf5c492404baec3b3c390acb41, type: 3}
+  - {fileID: 5813702893561729020, guid: 39d007ded774bb84caf45283dbd2f2ac, type: 3}
   mapXSize: 30
   mapYSize: 30
   centerPoint: {x: 15, y: 15}
