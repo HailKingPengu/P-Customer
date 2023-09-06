@@ -66,7 +66,25 @@ public class GridGeneration : MonoBehaviour
 
                 float randomizedWildness = wildness + Random.Range(-10, 10);
 
-                if (x == riverPosition)
+                if (y % 4 == 0 && wildness < 50)
+                {
+
+                    if (x == riverPosition)
+                    {
+                        //bridge
+                        GameObject newTile = Instantiate(tilePrefabs[5], transform);
+
+                        newTile.transform.position = new Vector3(x, 0, y);
+                    }
+                    else
+                    {
+                        //road
+                        GameObject newTile = Instantiate(tilePrefabs[4], transform);
+
+                        newTile.transform.position = new Vector3(x, 0, y);
+                    }
+                }
+                else if (x == riverPosition)
                 {
                     //river
                     GameObject newTile = Instantiate(tilePrefabs[3], transform);
@@ -74,13 +92,6 @@ public class GridGeneration : MonoBehaviour
                     newTile.transform.position = new Vector3(x, 0, y);
                 }
                 else if (x % 3 == 0 && wildness < 50)
-                {
-                    //road
-                    GameObject newTile = Instantiate(tilePrefabs[4], transform);
-
-                    newTile.transform.position = new Vector3(x, 0, y);
-                }
-                else if (y % 4 == 0 && wildness < 50)
                 {
                     //road
                     GameObject newTile = Instantiate(tilePrefabs[4], transform);
