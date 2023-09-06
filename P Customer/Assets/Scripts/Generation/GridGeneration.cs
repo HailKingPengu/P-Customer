@@ -10,6 +10,7 @@ public class GridGeneration : MonoBehaviour
     //[SerializeField] private GameObject builtOnPrefab; // 1
     //[SerializeField] private GameObject forestPrefab; // 2
     //[SerializeField] private GameObject waterPrefab; // 3
+    //[SerializeField] private GameObject roadPrefab; // 4
 
     [SerializeField] private GameObject[] tilePrefabs;
     [SerializeField] private GameObject buildingPrefab;
@@ -63,7 +64,7 @@ public class GridGeneration : MonoBehaviour
 
                 wildness *= 100 / maxBuiltOnDegree;
 
-                wildness += Random.Range(-10, 10);
+                float randomizedWildness = wildness + Random.Range(-10, 10);
 
                 if (x == riverPosition)
                 {
@@ -71,17 +72,31 @@ public class GridGeneration : MonoBehaviour
                     GameObject newTile = Instantiate(tilePrefabs[3], transform);
 
                     newTile.transform.position = new Vector3(x, 0, y);
-                } 
-                else if (wildness <= 40)
+                }
+                else if (x % 3 == 0 && wildness < 50)
+                {
+                    //road
+                    GameObject newTile = Instantiate(tilePrefabs[4], transform);
+
+                    newTile.transform.position = new Vector3(x, 0, y);
+                }
+                else if (y % 4 == 0 && wildness < 50)
+                {
+                    //road
+                    GameObject newTile = Instantiate(tilePrefabs[4], transform);
+
+                    newTile.transform.position = new Vector3(x, 0, y);
+                }
+                else if (randomizedWildness <= 40)
                 {
                     //buildings
                     GameObject newTile = Instantiate(tilePrefabs[1], transform);
 
                     newTile.transform.position = new Vector3(x, 0, y);
 
-                    SpawnBuilding(newTile, wildness);
+                    SpawnBuilding(newTile, randomizedWildness);
                 }
-                else if (wildness <= 70)
+                else if (randomizedWildness <= 70)
                 {
                     //grass
                     GameObject newTile = Instantiate(tilePrefabs[0], transform);
