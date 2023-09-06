@@ -7,11 +7,17 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public bool debugMode;
 
-    public int happiness;
-    public int money;
+    [Header("Variable part 1")]
+    public int happiness; 
+    public int money; // money goes up overtime
     public int power;
+    public int powerNeeded; // power thats needed to be sustainable
+    public int happinessNeeded; // power thats needed to be sustainable
+    public int pollution; // 
 
-    public float rebellion; 
+    [Header("Variable part 2")]
+    public float sustainability; // sustainability is when power is over power needed
+    public float rebellion; // rebellion goes up over time
 
     void Awake() {
 
