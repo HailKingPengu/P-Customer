@@ -172,7 +172,7 @@ public class GridGeneration : MonoBehaviour
         float var = Random.Range(0f, 0.3f);
 
         Color buildingColor = new Color(
-            var, var, var
+            Random.Range(0.3f, 0.5f), var, var
         //Random.Range(0.7f, 1f),
         //Random.Range(0.7f, 1f),
         //Random.Range(0.7f, 1f)
