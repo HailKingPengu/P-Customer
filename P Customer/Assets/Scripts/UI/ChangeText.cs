@@ -11,7 +11,9 @@ public class ChangeText : MonoBehaviour
     public enum Functions{
         getMoney,
         getHappiness,
-        getPower
+        getPower,
+        getRebellion,
+        getPollution
     }
 
     public Functions chosenfunction;
@@ -44,5 +46,13 @@ public class ChangeText : MonoBehaviour
     }
     void getPower() {  
         text = gameManager.power.ToString();
+    }
+    void getRebellion()
+    {
+        text = gameManager.rebellion.ToString();
+    }
+    void getPollution()
+    {
+        text = gameManager.pollution.ToString();
     }
 }
