@@ -14,6 +14,7 @@ public class GridGeneration : MonoBehaviour
 
     [SerializeField] private GameObject[] tilePrefabs;
     [SerializeField] private GameObject[] buildingPrefabs;
+    [SerializeField] private GameObject[] industryPrefabs;
 
     private int[,] tileState;
     private float[,] builtOnDegree;
@@ -100,12 +101,24 @@ public class GridGeneration : MonoBehaviour
                 }
                 else if (randomizedWildness <= 40)
                 {
-                    //buildings
-                    GameObject newTile = Instantiate(tilePrefabs[1], transform);
+                    if (x < riverPosition)
+                    {
+                        //buildings
+                        GameObject newTile = Instantiate(tilePrefabs[1], transform);
 
-                    newTile.transform.position = new Vector3(x, 0, y);
+                        newTile.transform.position = new Vector3(x, 0, y);
 
-                    SpawnBuilding(newTile, randomizedWildness);
+                        SpawnBuilding(newTile, randomizedWildness);
+                    }
+                    else
+                    {
+                        //industry
+                        GameObject newTile = Instantiate(tilePrefabs[1], transform);
+
+                        newTile.transform.position = new Vector3(x, 0, y);
+
+                        SpawnIndustryBuilding(newTile, randomizedWildness);
+                    }
                 }
                 else if (randomizedWildness <= 60)
                 {
@@ -148,6 +161,31 @@ public class GridGeneration : MonoBehaviour
             newFloor.transform.localScale = new Vector3(0.7f, 0.7f, 1);
             newFloor.gameObject.GetComponent<MeshRenderer>().materials[0].color = buildingColor;
             newFloor.gameObject.AddComponent<floorScript>();
+        }
+    }
+
+    private void SpawnIndustryBuilding(GameObject parentTile, float wildness)
+    {
+
+        parentTile.transform.rotation = Quaternion.Euler(0, 90 * (int)Random.Range(0, 4), 0);
+
+        float var = Random.Range(0f, 0.3f);
+
+        Color buildingColor = new Color(
+            var, var, var
+        //Random.Range(0.7f, 1f),
+        //Random.Range(0.7f, 1f),
+        //Random.Range(0.7f, 1f)
+        );
+
+        for (int i = 0; i < (40 - wildness) / 10; i++)
+        {
+            GameObject newFloor = Instantiate(industryPrefabs[Random.Range(0, industryPrefabs.Length)], parentTile.transform);
+
+            newFloor.transform.position = new Vector3(parentTile.transform.position.x, 0.5f + 0.3f * i, parentTile.transform.position.z);
+            //newFloor.transform.localScale = new Vector3(0.7f, 0.7f, 1);
+            newFloor.gameObject.GetComponent<MeshRenderer>().materials[0].color = buildingColor;
+            //newFloor.gameObject.AddComponent<floorScript>();
         }
     }
 

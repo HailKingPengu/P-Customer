@@ -22,6 +22,6 @@ public class floorScript : MonoBehaviour
 
     public void Hovered()
     {
-        transform.localScale = new Vector3(1.1f, 1, 1.1f);
+        transform.localScale = new Vector3(1f, 1, 1f);
     }
 }
