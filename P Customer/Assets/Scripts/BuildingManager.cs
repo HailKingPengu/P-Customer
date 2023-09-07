@@ -31,7 +31,7 @@ public class BuildingManager : MonoBehaviour
         
     }
 
-    public void fetchData()
+    public float[] FetchData()
     {
         //powerUse, happiness, pollution
 
@@ -50,5 +50,7 @@ public class BuildingManager : MonoBehaviour
         }
 
         happiness = totalHappiness / floors.Length;
+
+        return (new float[] { powerUse, happiness, pollution });
     }
 }

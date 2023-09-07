@@ -38,7 +38,7 @@ public class GridGeneration : MonoBehaviour
 
         float maxDistance = mapXSize;
 
-        buildingDataHub.buildingManagers = new BuildingManager[mapXSize, mapYSize];
+        buildingDataHub.buildingManagersGrid = new BuildingManager[mapXSize, mapYSize];
 
 
         tileState = new int[mapXSize, mapYSize];
@@ -148,7 +148,7 @@ public class GridGeneration : MonoBehaviour
 
 
 
-        buildingDataHub.buildingManagersArray = bmList.ToArray();
+        buildingDataHub.buildingManagers = bmList.ToArray();
 
 
 
@@ -163,7 +163,7 @@ public class GridGeneration : MonoBehaviour
 
         buildingManager.transform.parent = buildingDataHub.transform;
 
-        buildingDataHub.buildingManagers[x, y] = connectedManager;
+        buildingDataHub.buildingManagersGrid[x, y] = connectedManager;
         bmList.Add(connectedManager);
 
         connectedManager.floors = new floorScript[(int)((40 - wildness) / 6) + 1];

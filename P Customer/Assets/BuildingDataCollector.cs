@@ -6,9 +6,16 @@ public class BuildingDataCollector : MonoBehaviour
 {
 
     //public for now
-    public BuildingManager[,] buildingManagers;
+    public BuildingManager[,] buildingManagersGrid;
 
-    public BuildingManager[] buildingManagersArray;
+    public BuildingManager[] buildingManagers;
+
+    [Header("yo, thats stuff")] 
+    [SerializeField] private float powerUse;
+
+    [SerializeField] private float happiness;
+
+    [SerializeField] private float pollution;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +27,21 @@ public class BuildingDataCollector : MonoBehaviour
     void Update()
     {
 
-        //Debug.Log(buildingManagers.GetLength(0));
-        //Debug.Log(buildingManagers.GetLength(1));
+        powerUse = 0;
+        pollution = 0;
 
-        foreach (BuildingManager bm in buildingManagersArray)
+        float totalHappiness = 0;
+
+        foreach (BuildingManager bm in buildingManagers)
         {
-            bm.fetchData();
+            float[] buildingData = bm.FetchData();
+
+            powerUse += buildingData[0];
+            totalHappiness += buildingData[1];
+            pollution += buildingData[2];
         }
+
+        happiness = totalHappiness / buildingManagers.Length;
+
     }
 }
