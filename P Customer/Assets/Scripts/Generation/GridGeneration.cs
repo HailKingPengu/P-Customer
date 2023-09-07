@@ -61,6 +61,8 @@ public class GridGeneration : MonoBehaviour
         }
 
 
+        List<BuildingManager> bmList = new List<BuildingManager>();
+
 
         for (int x = 0; x < mapXSize; x++)
         {
@@ -114,7 +116,7 @@ public class GridGeneration : MonoBehaviour
 
                         newTile.transform.position = new Vector3(x, 0, y);
 
-                        SpawnBuilding(newTile, randomizedWildness, x, y);
+                        SpawnBuilding(newTile, randomizedWildness, x, y, bmList);
                     }
                     else
                     {
@@ -143,9 +145,16 @@ public class GridGeneration : MonoBehaviour
             }
         }
 
+
+
+
+        buildingDataHub.buildingManagersArray = bmList.ToArray();
+
+
+
     }
 
-    private void SpawnBuilding(GameObject parentTile, float wildness, int x, int y)
+    private void SpawnBuilding(GameObject parentTile, float wildness, int x, int y, List<BuildingManager> bmList)
     {
 
         GameObject buildingManager = new GameObject("buildingManager");
@@ -155,6 +164,7 @@ public class GridGeneration : MonoBehaviour
         buildingManager.transform.parent = buildingDataHub.transform;
 
         buildingDataHub.buildingManagers[x, y] = connectedManager;
+        bmList.Add(connectedManager);
 
         connectedManager.floors = new floorScript[(int)((40 - wildness) / 6) + 1];
 
