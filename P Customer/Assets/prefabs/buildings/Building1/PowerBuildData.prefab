@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7689694442603541532}
   - component: {fileID: -6901925059561683464}
   m_Layer: 0
-  m_Name: B1F4
+  m_Name: PowerBuildData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,15 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc25b8b86220db459d3be38c4a61362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 0
+  cost: 5
   levelModels:
-  - {fileID: 564316319388057658, guid: 14bb45192d7141d459fb3ce537e921f0, type: 3}
-  - {fileID: 5813702893561729020, guid: 39d007ded774bb84caf45283dbd2f2ac, type: 3}
+  - {fileID: 6955468290699072264, guid: a55e158058e798a4fb7d714482514157, type: 3}
+  - {fileID: 266844953324127686, guid: da54965e54f1be244bf44d0e434f9e83, type: 3}
   currentLevel: 0
   valuesArray:
-  - powerUse: 20
-    happiness: 100
-    pollution: 5
-  - powerUse: 20
-    happiness: 105
-    pollution: 3
+  - powerUse: -10
+    happiness: 0
+    pollution: 20
+  - powerUse: -4
+    happiness: -1
+    pollution: 0
