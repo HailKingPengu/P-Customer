@@ -27,7 +27,7 @@ public class RebellionTimer : MonoBehaviour
         }
         if (gameOver)
         {
-            Debug.Log("Time's up, dumbass");
+            //Debug.Log("Time's up, dumbass");
         }
     }
 }

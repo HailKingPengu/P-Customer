@@ -36,8 +36,8 @@ public class MoveRandom : MonoBehaviour
 
     Vector3 ChooseRandom ()
     {
-        float r1 = Random.Range(0f, 1f);
-        float r2 = Random.Range(0f, 1f);
-        return (new Vector3(r1, 0f, r1));
+        float r1 = Random.Range(-1f, 1f);
+        float r2 = Random.Range(-1f, 1f);
+        return (new Vector3(r1, 0f, r2));
     }
 }
