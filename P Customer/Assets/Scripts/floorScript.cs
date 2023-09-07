@@ -11,12 +11,11 @@ public class floorScript : MonoBehaviour
     [Header("Designer variables")]
     [SerializeField] private float cost = 0;
 
-    [SerializeField] private float powerGain = 0;
-    [SerializeField] private float powerDrain = 0;
+    [SerializeField] private float powerUse = 0;
 
-    [SerializeField] private float happinessGain = 0;
+    [SerializeField] private float happiness = 100;
 
-    [SerializeField] private float pollutionGain = 0;
+    [SerializeField] private float pollution = 5;
 
 
     // Start is called before the first frame update
@@ -37,9 +36,9 @@ public class floorScript : MonoBehaviour
         transform.localScale = new Vector3(1f, 1, 1f);
     }
 
-    public void FetchData()
+    public float[] FetchData()
     {
-
+        return (new float[] { powerUse, happiness, pollution });
     }
     
 }
