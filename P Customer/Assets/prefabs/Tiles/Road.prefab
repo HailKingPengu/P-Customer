@@ -232,7 +232,7 @@ PrefabInstance:
     - target: {fileID: 3716383615279323169, guid: 97f3fdd581ff6db4986404cad5c980a3, type: 3}
       propertyPath: m_Icon
       value: 
-      objectReference: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+      objectReference: {fileID: 0}
     - target: {fileID: 3716383615279323169, guid: 97f3fdd581ff6db4986404cad5c980a3, type: 3}
       propertyPath: m_Name
       value: navpoint

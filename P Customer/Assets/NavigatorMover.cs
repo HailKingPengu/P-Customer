@@ -47,12 +47,10 @@ public class NavigatorMover : MonoBehaviour
     {
         RaycastHit hit;
 
-        Debug.DrawRay(transform.position, direction * rayLength, Color.green);
         // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(transform.position, direction, out hit, rayLength, layermask))
         {
                 Debug.DrawRay(transform.position, direction * hit.distance, Color.yellow);
-                Debug.Log("Did Hit");
                 return (hit.transform.gameObject);
         }
         return (null);

@@ -12,6 +12,8 @@ public class MoveRandom : MonoBehaviour
     public float force;
     int timer = 30;
     bool imready = false;
+    float wait = 0;
+    Vector3 dirChange = new Vector3(0f,0f,0f);
 
     float objectdistance = 0.5f;
 
@@ -31,21 +33,38 @@ public class MoveRandom : MonoBehaviour
 
         if (Vector3.Distance(this.transform.position, desiredPosition) <= objectdistance)
         {
+            // choose something new to do
+            if (Random.Range(0,10)>7){
+                wait = Random.Range(20,80);
+            }
 
             mymover = mymover.GetNewLocation();
 
+            float difference = 0.2f;
+            desiredPosition = getPosition(mymover) + new Vector3(Random.Range(-difference,difference),0f,Random.Range(-difference,difference));
+            
+
         }
-        desiredPosition = getPosition(mymover);
-        dir = getDirection(mymover);
+
+        float dirChangeIntensity = 0.1f;
+        dirChange.x += Random.Range(-dirChangeIntensity,dirChangeIntensity);
+        dirChange.z += Random.Range(-dirChangeIntensity,dirChangeIntensity);
+        dirChange.x = Mathf.Clamp(dirChange.x,-1f,1f);
+        dirChange.z = Mathf.Clamp(dirChange.y,-1f,1f);
+
+        dir = getDirection(desiredPosition)+dirChange;
     }
 
 
 
     private void FixedUpdate()
     {
-        rb.AddForce(dir * force);
-        Debug.DrawRay(transform.position, dir * objectdistance, Color.red);
-        Debug.DrawRay(transform.position, dir * objectdistance, Color.red);
+        if(wait<=0){
+            rb.AddForce(dir * force);
+            Debug.DrawRay(transform.position, dir * objectdistance, Color.red);
+        }else{
+            wait--;
+        }
     }
 
     Vector3 ChooseRandom ()
@@ -55,10 +74,10 @@ public class MoveRandom : MonoBehaviour
         return (new Vector3(r1, 0f, r2));
     }
 
-    Vector3 getDirection(NavigatorMover nav)
+    Vector3 getDirection(Vector3 nav)
     {
 
-        Vector3 dir = nav.myposition - this.transform.position;
+        Vector3 dir = nav - this.transform.position;
         dir.Normalize();
         return new Vector3(dir.x,dir.y,dir.z);
     }
