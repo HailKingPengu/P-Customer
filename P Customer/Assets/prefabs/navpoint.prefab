@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1027837215435479179}
-  m_Layer: 0
+  - component: {fileID: -6944632447860889614}
+  - component: {fileID: 1328981022704173452}
+  m_Layer: 6
   m_Name: navpoint
   m_TagString: navpoint
   m_Icon: {fileID: 0}
@@ -31,3 +33,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6944632447860889614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3716383615279323169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 123192cfce7d59d46a93bd02756d4d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NavObjects: []
+  rayLength: 1
+  findNav: 1
+  layermask:
+    serializedVersion: 2
+    m_Bits: 64
+  ready: 0
+  NorthPath: {fileID: 0}
+  SouthPath: {fileID: 0}
+  EastPath: {fileID: 0}
+  WestPath: {fileID: 0}
+  myposition: {x: 0, y: 0, z: 0}
+--- !u!65 &1328981022704173452
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3716383615279323169}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2, y: 0.2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}

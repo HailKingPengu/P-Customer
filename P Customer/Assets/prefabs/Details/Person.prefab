@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3970848339919497292}
   - component: {fileID: -8208730693614240554}
   - component: {fileID: 260842242910327632}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Person
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -163,3 +163,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 20
+  mymover: {fileID: 0}
