@@ -12,11 +12,14 @@ public class BuildingManager : MonoBehaviour
     [Header("Engineer variables")]
     public GameObject[] levelModels;
 
-    [SerializeField] private float powerUse;
+    //[SerializeField] private float totalPowerUse;
 
-    [SerializeField] private float happiness;
+    //[SerializeField] private float totalHappiness;
 
-    [SerializeField] private float pollution;
+    //[SerializeField] private float totalPollution;
+
+    [SerializeField] private Values values;
+
 
 
     // Start is called before the first frame update
@@ -31,26 +34,26 @@ public class BuildingManager : MonoBehaviour
         
     }
 
-    public float[] FetchData()
+    public Values FetchData()
     {
         //powerUse, happiness, pollution
 
-        powerUse = 0;
-        pollution = 0;
+        values.powerUse = 0;
+        values.pollution = 0;
 
         float totalHappiness = 0;
 
         foreach(floorScript floor in floors)
         {
-            float[] floorData = floor.FetchData();
+            Values floorData = floor.FetchData();
 
-            powerUse += floorData[0];
-            totalHappiness += floorData[1];
-            pollution += floorData[2];
+            values.powerUse += floorData.powerUse;
+            totalHappiness += floorData.happiness;
+            values.pollution += floorData.pollution;
         }
 
-        happiness = totalHappiness / floors.Length;
+        values.happiness = totalHappiness / floors.Length;
 
-        return (new float[] { powerUse, happiness, pollution });
+        return values;
     }
 }

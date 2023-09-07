@@ -7,13 +7,15 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public bool debugMode;
 
+    [SerializeField] private BuildingDataCollector buildingDataHub;
+
     [Header("Variable part 1")]
-    public int happiness; 
+    public float happiness; 
     public int money; // money goes up overtime
-    public int power;
-    public int powerNeeded; // power thats needed to be sustainable
-    public int happinessNeeded; // power thats needed to be sustainable
-    public int pollution; // 
+    public float power;
+    public float powerNeeded; // power thats needed to be sustainable
+    public float happinessNeeded; // power thats needed to be sustainable
+    public float pollution; // 
 
     [Header("Variable part 2")]
     public float sustainability; // sustainability is when power is over power needed
@@ -37,6 +39,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        Values currentValues = buildingDataHub.values;
+
+        power = -currentValues.powerUse;
+        happiness = currentValues.happiness;
+        pollution = currentValues.pollution;
 
     }
 

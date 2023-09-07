@@ -25,9 +25,9 @@ public class cameraScript : MonoBehaviour
             //    Debug.Log(hit.transform);
             //}
 
-            if (hit.transform.GameObject().GetComponent<floorScript>() != null)
+            if (hit.transform.GetComponentInParent<floorScript>() != null)
             {
-                hit.transform.GameObject().GetComponent<floorScript>().Hovered();
+                hit.transform.GetComponentInParent<floorScript>().Hovered();
             }
         }
     }

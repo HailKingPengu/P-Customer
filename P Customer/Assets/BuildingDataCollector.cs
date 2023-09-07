@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class BuildingDataCollector : MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class BuildingDataCollector : MonoBehaviour
 
     public BuildingManager[] buildingManagers;
 
-    [Header("yo, thats stuff")] 
-    [SerializeField] private float powerUse;
+    [Header("yo, thats stuff")]
 
-    [SerializeField] private float happiness;
+    [SerializeField] public Values values;
 
-    [SerializeField] private float pollution;
+    //[SerializeField] private float powerUse;
+
+    //[SerializeField] private float happiness;
+
+    //[SerializeField] private float pollution;
 
     // Start is called before the first frame update
     void Start()
@@ -27,21 +31,21 @@ public class BuildingDataCollector : MonoBehaviour
     void Update()
     {
 
-        powerUse = 0;
-        pollution = 0;
+        values.powerUse = 0;
+        values.pollution = 0;
 
         float totalHappiness = 0;
 
         foreach (BuildingManager bm in buildingManagers)
         {
-            float[] buildingData = bm.FetchData();
+            Values buildingData = bm.FetchData();
 
-            powerUse += buildingData[0];
-            totalHappiness += buildingData[1];
-            pollution += buildingData[2];
+            values.powerUse += buildingData.powerUse;
+            totalHappiness += buildingData.happiness;
+            values.pollution += buildingData.pollution;
         }
 
-        happiness = totalHappiness / buildingManagers.Length;
+        values.happiness = totalHappiness / buildingManagers.Length;
 
     }
 }

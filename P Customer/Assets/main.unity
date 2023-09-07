@@ -217,7 +217,7 @@ Transform:
   m_GameObject: {fileID: 182359252}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.4856567, y: -0.50600195, z: 8.746868}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -856,6 +856,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9b0e86c7f02cd43b84093d9bceb009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingPrefabs:
+  - floor:
+    - {fileID: 4816527713559463708, guid: e6ec1fb966a4e2149a7946f2afefef95, type: 3}
+    - {fileID: 7834789187070106997, guid: 74e95c65a892d934dac031e5d2a508a7, type: 3}
+    - {fileID: 7834789187070106997, guid: 10cdf0b7065ddc347865c7f6c9965ef7, type: 3}
+    - {fileID: 7834789187070106997, guid: dc1da289f57837d48b2f50af12f0a908, type: 3}
+    - {fileID: 7834789187070106997, guid: 3a00a5a536674554484bcd2c347b3b01, type: 3}
   tilePrefabs:
   - {fileID: 3402509735497949068, guid: f9a48192084e35a429f2dbd630347311, type: 3}
   - {fileID: 1615153403414772155, guid: 5177507a82e6ee14daa85ab14b47c233, type: 3}
@@ -863,11 +870,6 @@ MonoBehaviour:
   - {fileID: 840805206565642382, guid: a077d7482334ba34599dc62261d58a91, type: 3}
   - {fileID: 1615153403414772155, guid: 38c1eaf3d1c38a84abfa7a3db80b7c8a, type: 3}
   - {fileID: 1615153403414772155, guid: 3858202f011a9ab41ba87d2846820e87, type: 3}
-  buildingPrefabs:
-  - {fileID: 266844953324127686, guid: da54965e54f1be244bf44d0e434f9e83, type: 3}
-  - {fileID: 5169406230031946292, guid: d4882fca0a9865b45beafe7e0308e850, type: 3}
-  - {fileID: 8476405371748272827, guid: 99ad9cdf5c492404baec3b3c390acb41, type: 3}
-  - {fileID: 5813702893561729020, guid: 39d007ded774bb84caf45283dbd2f2ac, type: 3}
   industryPrefabs:
   - {fileID: 6052560234449583596, guid: f92ff0fb5aa79624484917b4e019176c, type: 3}
   - {fileID: 3936270104790888185, guid: fd20ffcee742058418454d53e006dbfe, type: 3}
