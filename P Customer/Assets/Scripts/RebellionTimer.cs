@@ -20,7 +20,7 @@ public class RebellionTimer : MonoBehaviour
     private void FixedUpdate()
     {
         currentRebellion += (Time.deltaTime * rebellionModifier);
-        Debug.Log(Mathf.Round(currentRebellion/3));
+        //Debug.Log(Mathf.Round(currentRebellion/3));
         if(currentRebellion >= maxRebellion)
         {
             gameOver = true;

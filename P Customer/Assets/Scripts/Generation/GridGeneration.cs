@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GridGeneration : MonoBehaviour
@@ -27,6 +28,8 @@ public class GridGeneration : MonoBehaviour
 
     [SerializeField] private int riverPosition;
 
+    [SerializeField] private BuildingDataCollector buildingDataHub;
+
     void Start()
     {
 
@@ -34,6 +37,8 @@ public class GridGeneration : MonoBehaviour
 
 
         float maxDistance = mapXSize;
+
+        buildingDataHub.buildingManagers = new BuildingManager[mapXSize, mapYSize];
 
 
         tileState = new int[mapXSize, mapYSize];
@@ -109,7 +114,7 @@ public class GridGeneration : MonoBehaviour
 
                         newTile.transform.position = new Vector3(x, 0, y);
 
-                        SpawnBuilding(newTile, randomizedWildness);
+                        SpawnBuilding(newTile, randomizedWildness, x, y);
                     }
                     else
                     {
@@ -140,8 +145,18 @@ public class GridGeneration : MonoBehaviour
 
     }
 
-    private void SpawnBuilding(GameObject parentTile, float wildness)
+    private void SpawnBuilding(GameObject parentTile, float wildness, int x, int y)
     {
+
+        GameObject buildingManager = new GameObject("buildingManager");
+        buildingManager.AddComponent<BuildingManager>();
+        BuildingManager connectedManager = buildingManager.GetComponent<BuildingManager>();
+
+        buildingManager.transform.parent = buildingDataHub.transform;
+
+        buildingDataHub.buildingManagers[x, y] = connectedManager;
+
+        connectedManager.floors = new floorScript[(int)((40 - wildness) / 6) + 1];
 
         parentTile.transform.rotation = Quaternion.Euler(0, 90 * (int)Random.Range(0, 4), 0);
 
@@ -156,12 +171,14 @@ public class GridGeneration : MonoBehaviour
 
         for(int i = 0; i < (40 - wildness)/6; i++)
         {
-            GameObject newFloor = Instantiate(buildingPrefabs[Random.Range(0,buildingPrefabs.Length)], parentTile.transform);
+            GameObject newFloor = Instantiate(buildingPrefabs[Random.Range(0,buildingPrefabs.Length)], buildingManager.transform);
 
             newFloor.transform.position = new Vector3(parentTile.transform.position.x, 0.5f + 0.5f * i, parentTile.transform.position.z);
             newFloor.transform.localScale = new Vector3(0.7f, 0.7f, 1);
             newFloor.gameObject.GetComponent<MeshRenderer>().materials[0].color = buildingColor;
             newFloor.gameObject.AddComponent<floorScript>();
+
+            connectedManager.floors[i] = newFloor.gameObject.GetComponent<floorScript>();
         }
     }
 
