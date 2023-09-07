@@ -178,7 +178,7 @@ public class GridGeneration : MonoBehaviour
 
         connectedManager.floors = new floorScript[(int)((40 - wildness) / 6) + 1];
 
-        parentTile.transform.rotation = Quaternion.Euler(0, 90 * (int)Random.Range(0, 4), 0);
+        buildingManager.transform.rotation = Quaternion.Euler(0, 90 * (int)Random.Range(0, 4), 0);
 
         float var = Random.Range(0.7f, 1f);
 
