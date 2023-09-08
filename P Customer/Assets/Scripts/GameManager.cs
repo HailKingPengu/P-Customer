@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private BuildingDataCollector buildingDataHub;
 
+    [Header ("Rebellion timer")]
+    RebellionTimer Timer;
+
     [Header("Variable part 1")]
     public float happiness; 
     public int money; // money goes up overtime
@@ -34,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        Timer = GetComponent<RebellionTimer>();
     }
 
     void Update()
@@ -44,6 +47,7 @@ public class GameManager : MonoBehaviour
         power = -currentValues.powerUse;
         happiness = currentValues.happiness;
         pollution = currentValues.pollution;
+        rebellion = (Mathf.Round((Timer.currentRebellion)/3));
 
     }
 
