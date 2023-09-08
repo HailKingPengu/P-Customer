@@ -97,6 +97,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: smokeParticles
       objectReference: {fileID: 0}
+    - target: {fileID: 5999129062814338808, guid: bf90a5add8632bd4aabe6e03e95de533, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9186275840742465268, guid: bf90a5add8632bd4aabe6e03e95de533, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5

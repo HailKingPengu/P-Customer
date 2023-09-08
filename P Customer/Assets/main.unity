@@ -236,9 +236,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingManagers: []
-  powerUse: 0
-  happiness: 0
-  pollution: 0
+  values:
+    powerUse: 0
+    happiness: 0
+    pollution: 0
 --- !u!1001 &354944991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1127,6 +1128,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4830819831595209455, guid: 17179e0cbae73cb43a87749eb539250e, type: 3}
+      propertyPath: buildingDataHub
+      value: 
+      objectReference: {fileID: 182359254}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
