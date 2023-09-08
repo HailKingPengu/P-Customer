@@ -33,7 +33,7 @@ public class ChangeText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Invoke(chosenfunction.ToString(),1f);
+        Invoke(chosenfunction.ToString(),0f);
         textmesh.text = headertext+text+footertext;
     }
 
