@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
         happiness = currentValues.happiness;
         pollution = currentValues.pollution;
         rebellion = (Mathf.Round((Timer.currentRebellion)/3));
+        Debug.Log(rebellion);
 
     }
 

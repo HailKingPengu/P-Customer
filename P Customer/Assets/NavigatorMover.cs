@@ -63,7 +63,7 @@ public class NavigatorMover : MonoBehaviour
         GameObject returnal = null;
         int tries = 0;
 
-        if (NorthPath == null && SouthPath == null && EastPath == null && WestPath == null) { Debug.Log("HEEELPEF"); }
+        if (NorthPath == null && SouthPath == null && EastPath == null && WestPath == null) { /*Debug.Log("HEEELPEF");*/ }
 
         while (returnal == null && tries < 100) {
             tries++;
