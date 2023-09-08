@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
         happiness = currentValues.happiness;
         pollution = currentValues.pollution;
         rebellion = (Mathf.Round((Timer.currentRebellion)/3));
+
         switch (currentState)
         {
             case Gamestate.Playing:
@@ -72,6 +73,10 @@ public class GameManager : MonoBehaviour
             case Gamestate.Title:
                 Debug.Log("We're so Barack");
                 break;
+        }
+        if (rebellion >= 10)
+        {
+            currentState = Gamestate.gameOver;
         }
 
     }
