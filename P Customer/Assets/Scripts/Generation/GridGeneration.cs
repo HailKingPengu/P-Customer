@@ -14,7 +14,7 @@ public class GridGeneration : MonoBehaviour
     }
 
     public BuildingArray[] buildingPrefabs;
-
+    public BuildingArray[] industryPrefabs;
 
     //[SerializeField] private GameObject emptyPrefab; // 0
     //[SerializeField] private GameObject builtOnPrefab; // 1
@@ -24,8 +24,9 @@ public class GridGeneration : MonoBehaviour
 
     [SerializeField] private GameObject[] tilePrefabs;
     //[SerializeField] private GameObject[][] buildingPrefabs;
-    [SerializeField] private GameObject[] industryPrefabs;
+    //[SerializeField] private GameObject[] industryPrefabs;
     [SerializeField] private GameObject[] industryRoofPrefabs;
+    [SerializeField] private GameObject[] powerPlantPrefab;
 
     private int[,] tileState;
     private float[,] builtOnDegree;
@@ -87,6 +88,8 @@ public class GridGeneration : MonoBehaviour
                 if (y % 4 == 0 && wildness < 50)
                 {
 
+                    tileState[x, y] = 4;
+
                     if (x == riverPosition)
                     {
                         //bridge
@@ -108,6 +111,8 @@ public class GridGeneration : MonoBehaviour
                     GameObject newTile = Instantiate(tilePrefabs[3], transform);
 
                     newTile.transform.position = new Vector3(x, 0, y);
+
+                    tileState[x, y] = 3;
                 }
                 else if (x % 3 == 0 && wildness < 50)
                 {
@@ -115,6 +120,8 @@ public class GridGeneration : MonoBehaviour
                     GameObject newTile = Instantiate(tilePrefabs[4], transform);
 
                     newTile.transform.position = new Vector3(x, 0, y);
+
+                    tileState[x, y] = 4;
                 }
                 else if (randomizedWildness <= 40)
                 {
@@ -125,16 +132,44 @@ public class GridGeneration : MonoBehaviour
 
                         newTile.transform.position = new Vector3(x, 0, y);
 
-                        SpawnBuilding(newTile, randomizedWildness, x, y, bmList);
+                        SpawnBuilding(buildingPrefabs, newTile, randomizedWildness, x, y, 6, bmList);
+
+                        tileState[x, y] = 1;
                     }
                     else
                     {
+
+                        //if (tileState[x-1, y] == 1 && tileState[x - 1, y - 1] == 1 && tileState[x - 1, y - 1] == 1)
+                        //{
+                        //    if (buildingDataHub.buildingManagersGrid[x-1, y] != null)
+                        //    {
+                        //        buildingDataHub.buildingManagersGrid[x - 1, y].transform.gameObject.SetActive(false);
+
+                        //        Debug.Log(buildingDataHub.buildingManagersGrid[x - 1, y].transform.gameObject);
+                        //    }
+                        //    if (buildingDataHub.buildingManagersGrid[x - 1, y - 1] != null)
+                        //    {
+                        //        buildingDataHub.buildingManagersGrid[x - 1, y - 1].transform.gameObject.SetActive(false);
+                        //    }
+                        //    if (buildingDataHub.buildingManagersGrid[x, y - 1] != null)
+                        //    {
+                        //        buildingDataHub.buildingManagersGrid[x, y - 1].transform.gameObject.SetActive(false);
+                        //    }
+
+                        //    Debug.Log("DO YOU WORK????");
+                        //}
+
+                        //Debug.Log(tileState[x - 1, y] + "" + tileState[x - 1, y - 1] + "" + tileState[x - 1, y - 1]);
+
+
                         //industry
                         GameObject newTile = Instantiate(tilePrefabs[1], transform);
 
                         newTile.transform.position = new Vector3(x, 0, y);
 
-                        SpawnIndustryBuilding(newTile, randomizedWildness);
+                        SpawnBuilding(industryPrefabs, newTile, randomizedWildness, x, y, 12, bmList);
+
+                        tileState[x, y] = 1;
                     }
                 }
                 else if (randomizedWildness <= 60)
@@ -143,6 +178,8 @@ public class GridGeneration : MonoBehaviour
                     GameObject newTile = Instantiate(tilePrefabs[0], transform);
 
                     newTile.transform.position = new Vector3(x, 0, y);
+
+                    tileState[x, y] = 0;
                 }
                 else
                 {
@@ -150,6 +187,8 @@ public class GridGeneration : MonoBehaviour
                     GameObject newTile = Instantiate(tilePrefabs[2], transform);
 
                     newTile.transform.position = new Vector3(x, 0, y);
+
+                    tileState[x, y] = 2;
                 }
             }
         }
@@ -163,79 +202,85 @@ public class GridGeneration : MonoBehaviour
 
     }
 
-    private void SpawnBuilding(GameObject parentTile, float wildness, int x, int y, List<BuildingManager> bmList)
+    private GameObject InitializeBuildingManager(int buildingType, Transform parent)
     {
-
-        int buildingType = Random.Range(0, buildingPrefabs.Length);
-
-        GameObject buildingManager = Instantiate(buildingPrefabs[buildingType].floor[0], parentTile.transform);
+        GameObject buildingManager = Instantiate(buildingPrefabs[buildingType].floor[0], parent);
         BuildingManager connectedManager = buildingManager.GetComponent<BuildingManager>();
 
         buildingManager.transform.parent = buildingDataHub.transform;
+        buildingManager.transform.rotation = Quaternion.Euler(0, 90 * (int)Random.Range(0, 4), 0);
+
+        return buildingManager;
+    }
+
+    private void SpawnBuilding(BuildingArray[] buildingTypes, GameObject parentTile, float wildness, int x, int y, int floorFac, List<BuildingManager> bmList)
+    {
+
+        int buildingVariant = Random.Range(0, buildingTypes.Length);
+
+
+        GameObject buildingManager = InitializeBuildingManager(buildingVariant, parentTile.transform);
+        BuildingManager connectedManager = buildingManager.GetComponent<BuildingManager>();
+
+
+        float var = Random.Range(0.7f, 1f);
+        Color buildingColor = new Color(var, var, var);
+
 
         buildingDataHub.buildingManagersGrid[x, y] = connectedManager;
         bmList.Add(connectedManager);
-
-        connectedManager.floors = new floorScript[(int)((40 - wildness) / 6) + 1];
-
-        buildingManager.transform.rotation = Quaternion.Euler(0, 90 * (int)Random.Range(0, 4), 0);
-
-        float var = Random.Range(0.7f, 1f);
-
-        Color buildingColor = new Color(
-            var, var, var
-        //Random.Range(0.7f, 1f),
-        //Random.Range(0.7f, 1f),
-        //Random.Range(0.7f, 1f)
-        );
+        connectedManager.floors = new floorScript[(int)((40 - wildness) / floorFac) + 1];
 
 
-        for (int i = 0; i < (40 - wildness)/6; i++)
+        for (int i = 0; i < connectedManager.floors.Length; i++)
         {
 
-            GameObject newFloor = Instantiate(buildingPrefabs[buildingType].floor[Random.Range(1, buildingPrefabs[buildingType].floor.Length)], buildingManager.transform);
+            GameObject newFloor = Instantiate(buildingTypes[buildingVariant].floor[Random.Range(1, buildingTypes[buildingVariant].floor.Length)], connectedManager.transform);
+
 
             newFloor.transform.position = new Vector3(parentTile.transform.position.x, 0.5f + 0.5f * i, parentTile.transform.position.z);
             newFloor.transform.localScale = new Vector3(0.7f, 1, 0.7f);
-            //newFloor.gameObject.transform.GetComponentInChildren<MeshRenderer>().materials[0].color = buildingColor;
-            //newFloor.gameObject.AddComponent<floorScript>();
+
 
             connectedManager.floors[i] = newFloor.gameObject.GetComponent<floorScript>();
         }
     }
 
-    private void SpawnIndustryBuilding(GameObject parentTile, float wildness)
-    {
+    //private void SpawnIndustryBuilding(GameObject parentTile, float wildness, int x, int y, List<BuildingManager> bmList)
+    //{
 
-        parentTile.transform.rotation = Quaternion.Euler(0, 90 * (int)Random.Range(0, 4), 0);
+    //    int buildingType = Random.Range(0, buildingPrefabs.Length);
 
-        float var = Random.Range(0f, 0.3f);
+    //    parentTile.transform.rotation = Quaternion.Euler(0, 90 * (int)Random.Range(0, 4), 0);
 
-        Color buildingColor = new Color(
-            Random.Range(0.3f, 0.5f), var, var
-        //Random.Range(0.7f, 1f),
-        //Random.Range(0.7f, 1f),
-        //Random.Range(0.7f, 1f)
-        );
+    //    GameObject buildingManager = Instantiate(industryPrefabs[buildingType].floor[Random.Range(1, buildingPrefabs[buildingType].floor.Length)], parentTile.transform);
+    //    BuildingManager connectedManager = buildingManager.GetComponent<BuildingManager>();
+    //    buildingDataHub.buildingManagersGrid[x, y] = connectedManager;
 
-        for (int i = 0; i < (40 - wildness) / 10; i++)
-        {
-            GameObject newFloor = Instantiate(industryPrefabs[Random.Range(0, industryPrefabs.Length)], parentTile.transform);
+    //    float var = Random.Range(0f, 0.3f);
 
-            newFloor.transform.position = new Vector3(parentTile.transform.position.x, 0.5f + 0.5f * i, parentTile.transform.position.z);
-            newFloor.transform.localScale = new Vector3(0.7f, 0.7f, 1);
-            newFloor.gameObject.GetComponent<MeshRenderer>().materials[0].color = buildingColor;
-            newFloor.gameObject.AddComponent<floorScript>();
-        }
+    //    Color buildingColor = new Color(
+    //        Random.Range(0.3f, 0.5f), var, var
+    //    );
 
-        GameObject roof = Instantiate(industryRoofPrefabs[Random.Range(0, industryRoofPrefabs.Length)], parentTile.transform);
+    //    for (int i = 0; i < (40 - wildness) / 10; i++)
+    //    {
+    //        GameObject newFloor = Instantiate(industryPrefabs[Random.Range(0, industryPrefabs.Length)], parentTile.transform);
 
-        roof.transform.position = new Vector3(parentTile.transform.position.x, 0.5f + 0.5f * (((int)(40 - wildness) / 10) + 1), parentTile.transform.position.z);
-        roof.transform.localScale = new Vector3(0.7f, 0.7f, 1);
-        roof.gameObject.GetComponent<MeshRenderer>().materials[1].color = buildingColor;
-        roof.gameObject.AddComponent<floorScript>();
+    //        newFloor.transform.position = new Vector3(parentTile.transform.position.x, 0.5f + 0.5f * i, parentTile.transform.position.z);
+    //        newFloor.transform.localScale = new Vector3(0.7f, 0.7f, 1);
+    //        newFloor.gameObject.GetComponent<MeshRenderer>().materials[0].color = buildingColor;
+    //        newFloor.gameObject.AddComponent<floorScript>();
+    //    }
 
-    }
+    //    GameObject roof = Instantiate(industryRoofPrefabs[Random.Range(0, industryRoofPrefabs.Length)], parentTile.transform);
+
+    //    roof.transform.position = new Vector3(parentTile.transform.position.x, 0.5f + 0.5f * (((int)(40 - wildness) / 10) + 1), parentTile.transform.position.z);
+    //    roof.transform.localScale = new Vector3(0.7f, 0.7f, 1);
+    //    roof.gameObject.GetComponent<MeshRenderer>().materials[1].color = buildingColor;
+    //    roof.gameObject.AddComponent<floorScript>();
+
+    //}
 
     // Update is called once per frame
     void Update()

@@ -3,24 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class floorScript : MonoBehaviour
+public class floorScript : ValuesScript
 {
-
-    [Header("Engineer variables")]
-
-    [SerializeField] public float cost;
-
-    public GameObject[] levelModels;
-
-    public int currentLevel;
-
-    [Header("Designer variables")]
-    [Header("position in array applies to prefab level")]
-
-    public Values[] valuesArray;
-
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -38,14 +22,6 @@ public class floorScript : MonoBehaviour
     public void Hovered()
     {
         transform.localScale = new Vector3(1f, 1, 1f);
-    }
-
-    public Values FetchData()
-    {
-
-        //Values values = new Values;
-
-        return valuesArray[currentLevel];
     }
     
 }

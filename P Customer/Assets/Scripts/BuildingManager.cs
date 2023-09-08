@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuildingManager : MonoBehaviour
 {
 
-    public floorScript[] floors;
+    public ValuesScript[] floors;
 
 
 
@@ -43,7 +43,7 @@ public class BuildingManager : MonoBehaviour
 
         float totalHappiness = 0;
 
-        foreach(floorScript floor in floors)
+        foreach(ValuesScript floor in floors)
         {
             Values floorData = floor.FetchData();
 
