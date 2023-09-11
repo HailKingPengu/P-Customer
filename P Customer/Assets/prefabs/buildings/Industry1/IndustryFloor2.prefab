@@ -56,3 +56,4 @@ MonoBehaviour:
   - powerUse: 50
     happiness: 95
     pollution: 10
+  UpgradeParticles: {fileID: 2576916445792989148, guid: bef0ac835ea3cd145b5eeacce437a55e, type: 3}

@@ -31,15 +31,17 @@ public class floorScript : ValuesScript
         transform.localScale = new Vector3(1f, 1, 1f);
     }
 
-    public void Upgrade()
+    public void Upgrade(int level)
     {
-        model.SetActive(false);
-        model = Instantiate(levelModels[1], transform);
-
-        if(UpgradeParticles != null)
+        if (level < levelModels.Length)
         {
-            UpgradeParticles.Emit(4);
-            //UpgradeParticles.Stop();
+            Destroy(model);
+            model = Instantiate(levelModels[level], transform);
+
+            if (UpgradeParticles != null)
+            {
+                UpgradeParticles.Emit(4);
+            }
         }
     }
 
