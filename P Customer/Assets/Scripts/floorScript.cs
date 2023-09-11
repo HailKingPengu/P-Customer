@@ -6,10 +6,17 @@ using UnityEngine.UIElements;
 public class floorScript : ValuesScript
 {
 
+    private GameObject model;
+    [SerializeField] private ParticleSystem UpgradeParticles;
+
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(levelModels[0], transform);
+        model = Instantiate(levelModels[0], transform);
+        ParticleSystem instantiatedParticles = Instantiate(UpgradeParticles, transform);
+        UpgradeParticles = instantiatedParticles;
+        UpgradeParticles.Stop();
+
     }
 
     // Update is called once per frame
@@ -23,5 +30,17 @@ public class floorScript : ValuesScript
     {
         transform.localScale = new Vector3(1f, 1, 1f);
     }
-    
+
+    public void Upgrade()
+    {
+        model.SetActive(false);
+        model = Instantiate(levelModels[1], transform);
+
+        if(UpgradeParticles != null)
+        {
+            UpgradeParticles.Emit(4);
+            //UpgradeParticles.Stop();
+        }
+    }
+
 }

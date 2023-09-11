@@ -28,6 +28,10 @@ public class cameraScript : MonoBehaviour
             if (hit.transform.GetComponentInParent<floorScript>() != null)
             {
                 hit.transform.GetComponentInParent<floorScript>().Hovered();
+                if(Input.GetMouseButton(0))
+                {
+                    hit.transform.GetComponentInParent<floorScript>().Upgrade();
+                }
             }
         }
     }
