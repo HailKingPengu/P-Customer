@@ -16,6 +16,8 @@ public class GridGeneration : MonoBehaviour
     public BuildingArray[] buildingPrefabs;
     public BuildingArray[] industryPrefabs;
 
+    [SerializeField] public GameObject buildingManagerPrefab;
+
     //[SerializeField] private GameObject emptyPrefab; // 0
     //[SerializeField] private GameObject builtOnPrefab; // 1
     //[SerializeField] private GameObject forestPrefab; // 2
@@ -26,7 +28,7 @@ public class GridGeneration : MonoBehaviour
     //[SerializeField] private GameObject[][] buildingPrefabs;
     //[SerializeField] private GameObject[] industryPrefabs;
     [SerializeField] private GameObject[] industryRoofPrefabs;
-    [SerializeField] private GameObject[] powerPlantPrefab;
+    [SerializeField] private GameObject powerPlantPrefab;
 
     private int[,] tileState;
     private float[,] builtOnDegree;
@@ -45,6 +47,7 @@ public class GridGeneration : MonoBehaviour
 
         float maxBuiltOnDegree = 0;
 
+        bool powerPlantBuilt = false;
 
         float maxDistance = mapXSize;
 
@@ -138,38 +141,48 @@ public class GridGeneration : MonoBehaviour
                     }
                     else
                     {
+                        if (powerPlantBuilt == false && tileState[x - 1, y] == 1 && tileState[x - 1, y - 1] == 1 && tileState[x - 1, y - 1] == 1 && x - 1 != riverPosition)
+                        {
+                            if (buildingDataHub.buildingManagersGrid[x - 1, y] != null)
+                            {
+                                buildingDataHub.buildingManagersGrid[x - 1, y].transform.gameObject.SetActive(false);
 
-                        //if (tileState[x-1, y] == 1 && tileState[x - 1, y - 1] == 1 && tileState[x - 1, y - 1] == 1)
-                        //{
-                        //    if (buildingDataHub.buildingManagersGrid[x-1, y] != null)
-                        //    {
-                        //        buildingDataHub.buildingManagersGrid[x - 1, y].transform.gameObject.SetActive(false);
+                                Debug.Log(buildingDataHub.buildingManagersGrid[x - 1, y].transform.gameObject);
+                            }
+                            if (buildingDataHub.buildingManagersGrid[x - 1, y - 1] != null)
+                            {
+                                buildingDataHub.buildingManagersGrid[x - 1, y - 1].transform.gameObject.SetActive(false);
+                            }
+                            if (buildingDataHub.buildingManagersGrid[x, y - 1] != null)
+                            {
+                                buildingDataHub.buildingManagersGrid[x, y - 1].transform.gameObject.SetActive(false);
+                            }
 
-                        //        Debug.Log(buildingDataHub.buildingManagersGrid[x - 1, y].transform.gameObject);
-                        //    }
-                        //    if (buildingDataHub.buildingManagersGrid[x - 1, y - 1] != null)
-                        //    {
-                        //        buildingDataHub.buildingManagersGrid[x - 1, y - 1].transform.gameObject.SetActive(false);
-                        //    }
-                        //    if (buildingDataHub.buildingManagersGrid[x, y - 1] != null)
-                        //    {
-                        //        buildingDataHub.buildingManagersGrid[x, y - 1].transform.gameObject.SetActive(false);
-                        //    }
+                            powerPlantBuilt = true;
 
-                        //    Debug.Log("DO YOU WORK????");
-                        //}
+                            GameObject newTile = Instantiate(tilePrefabs[1], transform);
+                            newTile.transform.position = new Vector3(x, 0, y);
 
-                        //Debug.Log(tileState[x - 1, y] + "" + tileState[x - 1, y - 1] + "" + tileState[x - 1, y - 1]);
+                            SpawnSingleBuilding(powerPlantPrefab, newTile, x, y, bmList);
 
+                            tileState[x, y] = 1;
 
-                        //industry
-                        GameObject newTile = Instantiate(tilePrefabs[1], transform);
+                            //return;
+                            //Debug.Log("DO YOU WORK????");
+                        }
+                        else
+                        {
 
-                        newTile.transform.position = new Vector3(x, 0, y);
+                            //industry
+                            GameObject newTile = Instantiate(tilePrefabs[1], transform);
 
-                        SpawnBuilding(industryPrefabs, newTile, randomizedWildness, x, y, 12, bmList);
+                            newTile.transform.position = new Vector3(x, 0, y);
 
-                        tileState[x, y] = 1;
+                            SpawnBuilding(industryPrefabs, newTile, randomizedWildness, x, y, 12, bmList);
+
+                            tileState[x, y] = 1;
+
+                        }
                     }
                 }
                 else if (randomizedWildness <= 60)
@@ -205,10 +218,19 @@ public class GridGeneration : MonoBehaviour
     private GameObject InitializeBuildingManager(int buildingType, Transform parent)
     {
         GameObject buildingManager = Instantiate(buildingPrefabs[buildingType].floor[0], parent);
-        BuildingManager connectedManager = buildingManager.GetComponent<BuildingManager>();
 
         buildingManager.transform.parent = buildingDataHub.transform;
         buildingManager.transform.rotation = Quaternion.Euler(0, 90 * (int)Random.Range(0, 4), 0);
+
+        return buildingManager;
+    }
+
+    private GameObject InitializeSingleBuildingManager(Transform parent)
+    {
+        GameObject buildingManager = Instantiate(buildingManagerPrefab, parent);
+
+        buildingManager.transform.parent = buildingDataHub.transform;
+        //buildingManager.transform.rotation = Quaternion.Euler(0, 90 * (int)Random.Range(0, 4), 0);
 
         return buildingManager;
     }
@@ -244,6 +266,30 @@ public class GridGeneration : MonoBehaviour
 
             connectedManager.floors[i] = newFloor.gameObject.GetComponent<floorScript>();
         }
+    }
+
+    private void SpawnSingleBuilding(GameObject building, GameObject parentTile, int x, int y, List<BuildingManager> bmList)
+    {
+
+        GameObject buildingManager = InitializeSingleBuildingManager(parentTile.transform);
+        BuildingManager connectedManager = buildingManager.GetComponent<BuildingManager>();
+
+
+        buildingDataHub.buildingManagersGrid[x, y] = connectedManager;
+        bmList.Add(connectedManager);
+        connectedManager.floors = new floorScript[1];
+
+
+
+        GameObject newBuilding = Instantiate(building, connectedManager.transform);
+
+
+        newBuilding.transform.position = new Vector3(parentTile.transform.position.x, 0.5f, parentTile.transform.position.z);
+        newBuilding.transform.localScale = new Vector3(0.7f, 1, 0.7f);
+
+
+        connectedManager.floors[0] = newBuilding.gameObject.GetComponent<floorScript>();
+
     }
 
     //private void SpawnIndustryBuilding(GameObject parentTile, float wildness, int x, int y, List<BuildingManager> bmList)
