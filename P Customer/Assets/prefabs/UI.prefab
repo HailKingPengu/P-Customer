@@ -579,7 +579,6 @@ GameObject:
   - component: {fileID: 3091397609053242221}
   - component: {fileID: 4900788460537107089}
   - component: {fileID: 4792587906123158474}
-  - component: {fileID: 5935684976942633932}
   m_Layer: 5
   m_Name: smiley
   m_TagString: Untagged
@@ -655,66 +654,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Textures:
-  - {fileID: 2800000, guid: 33823e9402eb6c64c92bbb95fbca7ee9, type: 3}
-  - {fileID: 2800000, guid: 66b66748280831349bc3352e1cd09765, type: 3}
-  - {fileID: 2800000, guid: 6a8e86de09347434c8364732bb049b37, type: 3}
   - {fileID: 2800000, guid: 6d2468fa3e14f94418e7007d27d43646, type: 3}
---- !u!114 &5935684976942633932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5768018805069026378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 4900788460537107089}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4792587906123158474}
-        m_TargetAssemblyTypeName: SmileyModifier, Assembly-CSharp
-        m_MethodName: TaskOnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  - {fileID: 2800000, guid: 6a8e86de09347434c8364732bb049b37, type: 3}
+  - {fileID: 2800000, guid: 66b66748280831349bc3352e1cd09765, type: 3}
+  - {fileID: 2800000, guid: 33823e9402eb6c64c92bbb95fbca7ee9, type: 3}
+  followingVariableChosen: 1
+  CorrectSpriteIndex: 2
 --- !u!1 &5770377773507739121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,7 +1680,6 @@ GameObject:
   - component: {fileID: 3366069110216578053}
   - component: {fileID: 7803120651575421052}
   - component: {fileID: 9182894953983008008}
-  - component: {fileID: 6612178307522045737}
   m_Layer: 5
   m_Name: power
   m_TagString: Untagged
@@ -1815,59 +1759,5 @@ MonoBehaviour:
   - {fileID: 2800000, guid: d2c5fdcc02596744b8efec88cc5ca021, type: 3}
   - {fileID: 2800000, guid: c0d51f44398bcad41b7fdb70fd541f81, type: 3}
   - {fileID: 2800000, guid: c6480abc7c774084a962621fe550bb43, type: 3}
---- !u!114 &6612178307522045737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8966174968163058685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 7803120651575421052}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9182894953983008008}
-        m_TargetAssemblyTypeName: SmileyModifier, Assembly-CSharp
-        m_MethodName: TaskOnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  followingVariableChosen: 0
+  CorrectSpriteIndex: 2

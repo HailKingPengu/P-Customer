@@ -9,12 +9,23 @@ public class SmileyModifier : MonoBehaviour
 
     [SerializeField] private Texture[] m_Textures;
 
+    private enum followingVariable {
+        power,
+        happiness
+    };
+    [SerializeField] private followingVariable followingVariableChosen;
+    [SerializeField] private int CorrectSpriteIndex;
+
     int listCount;
     int TextNow = 0;
+
+    GameManager gameManager;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.Instance;
         m_RawImage = GetComponent<RawImage>();
         listCount = m_Textures.Length;
         m_RawImage.texture = m_Textures[TextNow];
@@ -23,7 +34,28 @@ public class SmileyModifier : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateSprite();
+    }
+
+    void UpdateSprite () {
+    float calc = 0;
+    switch(followingVariableChosen) {
+        case followingVariable.power :
+            calc =  (gameManager.power / gameManager.powerNeeded) * (CorrectSpriteIndex) ;
+        break;
+        case followingVariable.happiness :
+            calc =  (gameManager.happiness / gameManager.happinessNeeded) * (CorrectSpriteIndex) ;
+        break;
+    }
+        calc = Mathf.Clamp(calc,0,listCount-1);
+    ChangeTextureIndex(Mathf.RoundToInt(calc));
+
+    }
+
+    void ChangeTextureIndex (int newIndex) {
+        TextNow = newIndex;
+        if (TextNow >= listCount) { TextNow = 0; }
+        m_RawImage.texture = m_Textures[TextNow];
     }
 
 
@@ -31,7 +63,6 @@ public class SmileyModifier : MonoBehaviour
     {
         Debug.Log("You have clicked the button!");
         TextNow++;
-        if (TextNow >= listCount) { TextNow = 0; }
-        m_RawImage.texture = m_Textures[TextNow];
+        ChangeTextureIndex(TextNow);
     }
 }
