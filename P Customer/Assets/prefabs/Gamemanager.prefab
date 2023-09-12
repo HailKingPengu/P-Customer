@@ -45,7 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugMode: 0
+  buildingDataHub: {fileID: 0}
   happiness: 0
-  money: 0
   power: 0
+  powerNeeded: 0
+  happinessNeeded: 0
+  pollution: 0
+  money: 0
+  moneyTimer: 20
+  moneyAmountPerTime: 20
+  sustainability: 0
   rebellion: 0
+  currentState: 0

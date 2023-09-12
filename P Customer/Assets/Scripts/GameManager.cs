@@ -13,12 +13,19 @@ public class GameManager : MonoBehaviour
     RebellionTimer Timer;
 
     [Header("Variable part 1")]
-    public float happiness; 
-    public int money; // money goes up overtime
+    public float happiness;
+
     public float power;
     public float powerNeeded; // power thats needed to be sustainable
     public float happinessNeeded; // power thats needed to be sustainable
     public float pollution; // 
+
+    [Header("Money increasing")]
+    public int money; // money goes up overtime
+    float moneyTime;
+    public float moneyTimer;
+    public int moneyAmountPerTime;
+
 
     [Header("Variable part 2")]
     public float sustainability; // sustainability is when power is over power needed
@@ -61,6 +68,13 @@ public class GameManager : MonoBehaviour
         happiness = currentValues.happiness;
         pollution = currentValues.pollution;
         rebellion = (Mathf.Round((Timer.currentRebellion)/3));
+
+        moneyTime += Time.deltaTime;
+        if (moneyTime >= moneyTimer)
+        {
+            moneyTime -= moneyTimer;
+            money += moneyAmountPerTime;
+        }
 
         switch (currentState)
         {
