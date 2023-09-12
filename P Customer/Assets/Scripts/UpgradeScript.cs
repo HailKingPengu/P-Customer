@@ -54,6 +54,10 @@ public class UpgradeScript : MonoBehaviour
                 //    //hit.transform.GetComponentInParent<floorScript>().Upgrade(1);
                 //}
             }
+            else if (isOverUI)
+            {
+                return;
+            }
             else
             {
                 lastHit = new RaycastHit();
@@ -69,16 +73,17 @@ public class UpgradeScript : MonoBehaviour
 
             bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
 
-            Console.
+            //Debug.Log(lastHit.transform.GetComponentInParent<floorScript>());
+            //Debug.Log(lastHit.transform.parent);
 
-            if (lastHit.transform.GetComponentInParent<floorScript>() != null && !isOverUI)
+            if (lastFloorScript != null && !isOverUI)
             {
                 upgradeMenu.transform.position = Camera.main.WorldToScreenPoint(lastHit.transform.position);
                 upgradeMenu.SetActive(true);
             }
             else if (isOverUI)
             {
-                return;
+                //return;
             }
             else
             {
@@ -92,6 +97,7 @@ public class UpgradeScript : MonoBehaviour
         if(lastFloorScript != null)
         {
             lastFloorScript.Upgrade(level);
+            lastFloorScript = lastFloorScript.transform.GetComponent<floorScript>();
         }
     }
 }

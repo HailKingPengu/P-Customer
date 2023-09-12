@@ -9,6 +9,8 @@ public class floorScript : ValuesScript
     private GameObject model;
     [SerializeField] private ParticleSystem UpgradeParticles;
 
+    //private BuildingManager connectedManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,14 +35,16 @@ public class floorScript : ValuesScript
 
     public void Upgrade(int level)
     {
-        if (level < levelModels.Length)
+        if (level < levelModels.Length && currentLevel != level)
         {
             Destroy(model);
             model = Instantiate(levelModels[level], transform);
 
+            currentLevel = level;
+
             if (UpgradeParticles != null)
             {
-                UpgradeParticles.Emit(4);
+                UpgradeParticles.Emit(80);
             }
         }
     }
