@@ -42,13 +42,14 @@ public class UpgradeScript : MonoBehaviour
             //{
             //    Debug.Log(hit.transform);
             //}
-
+            //if (Input.GetMouseButtonDown(0))
+            //{
             if (hit.transform.GetComponentInParent<floorScript>() != null && !isOverUI)
             {
                 lastHit = hit;
-                lastFloorScript = hit.transform.GetComponentInParent<floorScript>();
 
-                lastFloorScript.Hovered();
+
+                hit.transform.GetComponentInParent<floorScript>().Hovered();
                 //if(Input.GetMouseButton(0))
                 //{
                 //    //hit.transform.GetComponentInParent<floorScript>().Upgrade(1);
@@ -56,36 +57,50 @@ public class UpgradeScript : MonoBehaviour
             }
             else if (isOverUI)
             {
-                return;
+                //return;
             }
             else
             {
                 lastHit = new RaycastHit();
                 lastFloorScript = null;
             }
+            //}
         }
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
 
             bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
+            //lastFloorScript = lastHit.transform.GetComponentInParent<floorScript>();
 
             //Debug.Log(lastHit.transform.GetComponentInParent<floorScript>());
             //Debug.Log(lastHit.transform.parent);
 
-            if (lastFloorScript != null && !isOverUI)
+            if (!isOverUI)
             {
+                lastFloorScript = lastHit.transform.GetComponentInParent<floorScript>();
+
                 upgradeMenu.transform.position = Camera.main.WorldToScreenPoint(lastHit.transform.position);
                 upgradeMenu.SetActive(true);
             }
+            //else if(lastFloorScript == null && !isOverUI)
+            //{
+            //    lastFloorScript = lastHit.transform.GetComponentInParent<floorScript>();
+            //}
+            //if (lastFloorScript != null && !isOverUI)
+            //{
+            //    upgradeMenu.transform.position = Camera.main.WorldToScreenPoint(lastHit.transform.position);
+            //    upgradeMenu.SetActive(true);
+            //}
             else if (isOverUI)
             {
                 //return;
             }
-            else
+            
+            if (!isOverUI && lastFloorScript == null)
             {
                 upgradeMenu.SetActive(false);
             }

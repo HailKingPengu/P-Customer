@@ -47,8 +47,17 @@ MonoBehaviour:
   cost: 0
   levelModels:
   - {fileID: 3529145989530928531, guid: 2babe35a60b80074c9a2d3b7554ba045, type: 3}
+  - {fileID: 3529145989530928531, guid: 91b3bb5f2d41f014b882e30457c81521, type: 3}
+  - {fileID: 3529145989530928531, guid: ae37f979d638357419ea60ef27540ee6, type: 3}
   currentLevel: 0
   valuesArray:
   - powerUse: -12000
     happiness: 50
     pollution: 2000
+  - powerUse: -8000
+    happiness: 70
+    pollution: 10
+  - powerUse: -15000
+    happiness: 20
+    pollution: 10
+  UpgradeParticles: {fileID: 2576916445792989148, guid: bef0ac835ea3cd145b5eeacce437a55e, type: 3}
