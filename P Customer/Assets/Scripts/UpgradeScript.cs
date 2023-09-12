@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,10 +10,18 @@ using UnityEngine.EventSystems;
 public class UpgradeScript : MonoBehaviour
 {
 
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject upgradeMenu;
     private RaycastHit lastHit;
 
     private floorScript lastFloorScript;
+
+    [SerializeField] private GameObject upgradeLevel1;
+    [SerializeField] private TMP_Text level1Text;
+    [SerializeField] private GameObject upgradeLevel2;
+    [SerializeField] private TMP_Text level2Text;
+    //[SerializeField] private GameObject upgradeLevel3;
+    //[SerializeField] private TextMeshPro level3Text;
 
     // Start is called before the first frame update
     void Start()
@@ -93,6 +102,13 @@ public class UpgradeScript : MonoBehaviour
 
                     upgradeMenu.transform.position = Camera.main.WorldToScreenPoint(lastHit.transform.position);
                     upgradeMenu.SetActive(true);
+
+
+                    Values lVal1 = lastFloorScript.valuesArray[1];
+
+                    level1Text.text = 
+                    "power use:" + lVal1.powerUse + "\nhappiness:" + lVal1.happiness + "\npollution:" + lVal1.pollution + "\n\ncost:" + lastFloorScript.cost[lastFloorScript.currentLevel];
+
                 }
                 else
                 {
@@ -123,10 +139,19 @@ public class UpgradeScript : MonoBehaviour
     public void upgradeCurrent(int level)
     {
         if(lastFloorScript != null)
-        {   
+        {
+            if (gameManager.money >= lastFloorScript.cost[level] && level != lastFloorScript.currentLevel)
+            {
+                lastFloorScript.Upgrade(level);
+                lastFloorScript = lastFloorScript.transform.GetComponent<floorScript>();
 
-            lastFloorScript.Upgrade(level);
-            lastFloorScript = lastFloorScript.transform.GetComponent<floorScript>();
+                gameManager.money -= lastFloorScript.cost[level];
+            }
+            else
+            {
+                //Debug.Log(gameManager.money + "" + lastFloorScript.cost[level]);
+                //Debug.Log("BROKE");
+            }
         }
         else
         {

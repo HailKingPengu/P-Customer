@@ -7,7 +7,7 @@ public class ValuesScript : MonoBehaviour
 
     [Header("Engineer variables")]
 
-    [SerializeField] public float cost;
+    [SerializeField] public int[] cost;
 
     public GameObject[] levelModels;
 
