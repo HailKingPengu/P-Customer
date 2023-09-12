@@ -78,17 +78,7 @@ public class GameManager : MonoBehaviour
 
         switch (currentState)
         {
-<<<<<<< main
-            case Gamestate.Playing:
-                //Debug.Log("I'm Gamign BATMAN");
-                break;
-            case Gamestate.gameOver:
-                //Debug.Log("It's so Joever");
-                break;
-            case Gamestate.Title:
-                //Debug.Log("We're so Barack");
-                break;
-=======
+
             //case Gamestate.Playing:
             //    Debug.Log("I'm Gamign BATMAN");
             //    break;
@@ -98,7 +88,6 @@ public class GameManager : MonoBehaviour
             //case Gamestate.Title:
             //    Debug.Log("We're so Barack");
             //    break;
->>>>>>> Upgrading works
         }
         if (rebellion >= 10)
         {
