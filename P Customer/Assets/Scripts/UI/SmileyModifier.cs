@@ -16,7 +16,7 @@ public class SmileyModifier : MonoBehaviour
     [SerializeField] private followingVariable followingVariableChosen;
     [SerializeField] private int CorrectSpriteIndex;
 
-    int listCount;
+    int listCount = 0;
     int TextNow = 0;
 
     GameManager gameManager;
@@ -53,6 +53,7 @@ public class SmileyModifier : MonoBehaviour
     }
 
     void ChangeTextureIndex (int newIndex) {
+        if (listCount < 1) { return; }
         TextNow = newIndex;
         Mathf.Clamp(TextNow, 0, listCount - 1);
         m_RawImage.texture = m_Textures[TextNow];
