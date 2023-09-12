@@ -59,13 +59,17 @@ public class UpgradeScript : MonoBehaviour
             {
                 //return;
             }
-            else
+            
+            if(hit.transform.GetComponentInParent<floorScript>() == null)
             {
                 lastHit = new RaycastHit();
-                lastFloorScript = null;
+                //lastFloorScript = null;
             }
             //}
         }
+
+        //Debug.Log(lastHit.transform);
+
     }
 
     private void Update()
@@ -81,10 +85,19 @@ public class UpgradeScript : MonoBehaviour
 
             if (!isOverUI)
             {
-                lastFloorScript = lastHit.transform.GetComponentInParent<floorScript>();
 
-                upgradeMenu.transform.position = Camera.main.WorldToScreenPoint(lastHit.transform.position);
-                upgradeMenu.SetActive(true);
+                if (lastHit.transform != null)
+                {
+                    lastFloorScript = lastHit.transform.GetComponentInParent<floorScript>();
+
+
+                    upgradeMenu.transform.position = Camera.main.WorldToScreenPoint(lastHit.transform.position);
+                    upgradeMenu.SetActive(true);
+                }
+                else
+                {
+                    upgradeMenu.SetActive(false);
+                }
             }
             //else if(lastFloorScript == null && !isOverUI)
             //{
@@ -99,11 +112,11 @@ public class UpgradeScript : MonoBehaviour
             {
                 //return;
             }
-            
-            if (!isOverUI && lastFloorScript == null)
-            {
-                upgradeMenu.SetActive(false);
-            }
+
+            //if (!isOverUI && lastHit.transform.GetComponentInParent<floorScript>() == null)
+            //{
+
+            //}
         }
     }
 
@@ -114,6 +127,11 @@ public class UpgradeScript : MonoBehaviour
 
             lastFloorScript.Upgrade(level);
             lastFloorScript = lastFloorScript.transform.GetComponent<floorScript>();
+        }
+        else
+        {
+            Debug.Log(lastFloorScript);
+            Debug.Log("IT WENT WROOOONG");
         }
     }
 }
