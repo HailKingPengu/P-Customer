@@ -10,8 +10,6 @@ public class MoveRandom : MonoBehaviour
     Vector3 dir;
     Vector3 desiredPosition;
     public float force;
-    int timer = 30;
-    bool imready = false;
     float wait = 0;
     Vector3 dirChange = new Vector3(0f,0f,0f);
 

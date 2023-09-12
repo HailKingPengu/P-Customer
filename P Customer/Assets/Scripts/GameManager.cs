@@ -65,13 +65,13 @@ public class GameManager : MonoBehaviour
         switch (currentState)
         {
             case Gamestate.Playing:
-                Debug.Log("I'm Gamign BATMAN");
+                //Debug.Log("I'm Gamign BATMAN");
                 break;
             case Gamestate.gameOver:
-                Debug.Log("It's so Joever");
+                //Debug.Log("It's so Joever");
                 break;
             case Gamestate.Title:
-                Debug.Log("We're so Barack");
+                //Debug.Log("We're so Barack");
                 break;
         }
         if (rebellion >= 10)

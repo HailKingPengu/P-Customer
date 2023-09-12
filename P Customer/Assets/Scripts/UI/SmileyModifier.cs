@@ -54,15 +54,8 @@ public class SmileyModifier : MonoBehaviour
 
     void ChangeTextureIndex (int newIndex) {
         TextNow = newIndex;
-        if (TextNow >= listCount) { TextNow = 0; }
+        Mathf.Clamp(TextNow, 0, listCount - 1);
         m_RawImage.texture = m_Textures[TextNow];
     }
 
-
-    public void TaskOnClick()
-    {
-        Debug.Log("You have clicked the button!");
-        TextNow++;
-        ChangeTextureIndex(TextNow);
-    }
 }
