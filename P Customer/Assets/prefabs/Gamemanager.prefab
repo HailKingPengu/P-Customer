@@ -49,7 +49,7 @@ MonoBehaviour:
   happiness: 0
   power: 0
   powerNeeded: 0
-  happinessNeeded: 0
+  happinessNeeded: 75
   pollution: 0
   money: 0
   moneyTimer: 20

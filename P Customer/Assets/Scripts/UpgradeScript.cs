@@ -110,7 +110,8 @@ public class UpgradeScript : MonoBehaviour
     public void upgradeCurrent(int level)
     {
         if(lastFloorScript != null)
-        {
+        {   
+
             lastFloorScript.Upgrade(level);
             lastFloorScript = lastFloorScript.transform.GetComponent<floorScript>();
         }

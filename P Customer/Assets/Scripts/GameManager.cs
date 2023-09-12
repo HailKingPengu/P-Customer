@@ -67,17 +67,16 @@ public class GameManager : MonoBehaviour
         power = -currentValues.powerUse;
         happiness = currentValues.happiness;
         pollution = currentValues.pollution;
+
+        // RULE #3 REBELLION GOES UP OVER TIME
         rebellion = (Mathf.Round((Timer.currentRebellion)/3));
 
-        moneyTime += Time.deltaTime;
-        if (moneyTime >= moneyTimer)
-        {
-            moneyTime -= moneyTimer;
-            money += moneyAmountPerTime;
-        }
 
         switch (currentState)
         {
+        case Gamestate.Playing:
+                Playing();
+        break;
 
             //case Gamestate.Playing:
             //    Debug.Log("I'm Gamign BATMAN");
@@ -88,10 +87,6 @@ public class GameManager : MonoBehaviour
             //case Gamestate.Title:
             //    Debug.Log("We're so Barack");
             //    break;
-        }
-        if (rebellion >= 10)
-        {
-            currentState = Gamestate.gameOver;
         }
 
     }
@@ -104,9 +99,23 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("We're so Barack");
     }
+
+    // the script that activates when we are playing
     void Playing()
     {
-        Debug.Log("I'm Gamign BATMAN");
+        // RULE #1 GET MONEY OVER TIME
+        moneyTime += Time.deltaTime;
+        if (moneyTime >= moneyTimer)
+        {
+            moneyTime -= moneyTimer;
+            money += moneyAmountPerTime;
+        }
+
+        // RULE #2 GAME OVER WHEN REBELLION TOO MUCH
+        if (Timer.gameOver)
+        {
+            currentState = Gamestate.gameOver;
+        }
     }
 
 
