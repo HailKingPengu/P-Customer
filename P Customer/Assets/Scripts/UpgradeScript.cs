@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class UpgradeScript : MonoBehaviour
@@ -21,6 +22,10 @@ public class UpgradeScript : MonoBehaviour
 
     [SerializeField] private float menuOffset;
     [SerializeField] private float distanceFac;
+
+
+    [SerializeField] private GameObject buildingStats;
+    [SerializeField] private TMP_Text buildingStatsText;
 
     //[SerializeField] private GameObject upgradeLevel1;
     //[SerializeField] private TMP_Text level1Text;
@@ -120,6 +125,7 @@ public class UpgradeScript : MonoBehaviour
 
                     upgradeMenu.transform.position = Camera.main.WorldToScreenPoint(lastHit.transform.position);
                     upgradeMenu.SetActive(true);
+                    buildingStats.SetActive(true);
                     ShowBuilding(true, targetedFloorScript);
                     usedMask = buildingMask;
 
@@ -138,6 +144,7 @@ public class UpgradeScript : MonoBehaviour
                 else
                 {
                     upgradeMenu.SetActive(false);
+                    buildingStats.SetActive(false);
                     ShowBuilding(false, targetedFloorScript);
                     usedMask = defaultMask;
                 }
@@ -163,6 +170,13 @@ public class UpgradeScript : MonoBehaviour
         {
             upgradeMenu.transform.position = Camera.main.WorldToScreenPoint(lastFloorScript.transform.position);
             upgradeMenu.transform.position -= new Vector3(menuOffset + distanceFac * Mathf.Sqrt(Vector3.Distance(mainCam.transform.position, lastFloorScript.transform.position)), 0, 0);
+
+            buildingStats.transform.position = Camera.main.WorldToScreenPoint(lastFloorScript.transform.position);
+            buildingStats.transform.position -= new Vector3(-menuOffset - distanceFac * Mathf.Sqrt(Vector3.Distance(mainCam.transform.position, lastFloorScript.transform.position)), 0, 0);
+
+            Values bVal = lastFloorScript.transform.parent.GetComponent<BuildingManager>().values;
+
+            buildingStatsText.text = "power use:" + bVal.powerUse + "\nhappiness:" + bVal.happiness + "\npollution:" + bVal.pollution + "\nfloors: " + lastFloorScript.transform.parent.childCount;
         }
     }
 

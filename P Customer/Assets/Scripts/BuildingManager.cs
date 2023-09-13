@@ -18,7 +18,7 @@ public class BuildingManager : MonoBehaviour
 
     //[SerializeField] private float totalPollution;
 
-    [SerializeField] private Values values;
+    [SerializeField] public Values values;
 
 
 
