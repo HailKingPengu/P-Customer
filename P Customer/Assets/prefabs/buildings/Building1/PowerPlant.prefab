@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc25b8b86220db459d3be38c4a61362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 000000000000000000000000
+  cost: 000000007800000090010000
   levelModels:
   - {fileID: 3529145989530928531, guid: 2babe35a60b80074c9a2d3b7554ba045, type: 3}
   - {fileID: 3529145989530928531, guid: 91b3bb5f2d41f014b882e30457c81521, type: 3}

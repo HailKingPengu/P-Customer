@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour
     public float happiness;
 
     public float power;
+    public float powerProduction;
+    public float powerUse;
     public float powerNeeded; // power thats needed to be sustainable
     public float happinessNeeded; // power thats needed to be sustainable
     public float pollution; // 
@@ -30,6 +33,16 @@ public class GameManager : MonoBehaviour
     [Header("Variable part 2")]
     public float sustainability; // sustainability is when power is over power needed
     public float rebellion; // rebellion goes up over time
+
+    [Header("other affectors")]
+    public float anger;
+    [SerializeField] private float angerReduction = 0.0001f;
+    public float pollutionAnger;
+    [SerializeField] private float pollutionResistance = 0.0003f;
+
+    [Header("affected UI")]
+    [SerializeField] private AlertPopup alertText;
+
 
     public enum Gamestate
     {
@@ -64,13 +77,36 @@ public class GameManager : MonoBehaviour
     {
         Values currentValues = buildingDataHub.values;
 
-        power = -currentValues.powerUse;
+        power = currentValues.powerUse;
+        powerProduction = buildingDataHub.powerProduction;
+        powerUse = buildingDataHub.powerUse;
+
         happiness = currentValues.happiness;
         pollution = currentValues.pollution;
 
         // RULE #3 REBELLION GOES UP OVER TIME
         rebellion = (Mathf.Round((Timer.currentRebellion)/3));
 
+        //pollution resistance
+        pollutionAnger = (pollution - 500) * (pollutionResistance * ((Time.time * Time.time) / 450));
+
+        happiness -= pollutionAnger;
+
+        //outrage for insufficient power
+        if (power < 0)
+        {
+            anger += Time.deltaTime;
+        }
+
+        anger = Mathf.Lerp(anger, 0, angerReduction);
+
+        happiness -= anger;
+
+
+        if (power < 0)
+        {
+            alertText.Popup("Your city has run out of power!", 0.1f);
+        }
 
         switch (currentState)
         {

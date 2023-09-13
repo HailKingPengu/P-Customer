@@ -34,6 +34,8 @@ public class UpgradeScript : MonoBehaviour
     //[SerializeField] private GameObject upgradeLevel3;
     //[SerializeField] private TextMeshPro level3Text;
 
+    [SerializeField] private AlertPopup alertPopup;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -156,13 +158,24 @@ public class UpgradeScript : MonoBehaviour
 
                     }
 
-                    level1Text.text = 
-                    "power use:" + (lVal1.powerUse - lVal0.powerUse) + "\nhappiness:" + (lVal1.happiness - lVal0.happiness) + "\npollution:" + (lVal1.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[1];
+                    if (lVal0.powerUse >= 0)
+                    {
+                        level1Text.text =
+                        "power use:" + (lVal1.powerUse - lVal0.powerUse) + "\nhappiness:" + (lVal1.happiness - lVal0.happiness) + "\npollution:" + (lVal1.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[1];
 
 
-                    level2Text.text =
-                    "power use:" + (lVal2.powerUse - lVal0.powerUse) + "\nhappiness:" + (lVal2.happiness - lVal0.happiness) + "\npollution:" + (lVal2.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[2];
+                        level2Text.text =
+                        "power use:" + (lVal2.powerUse - lVal0.powerUse) + "\nhappiness:" + (lVal2.happiness - lVal0.happiness) + "\npollution:" + (lVal2.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[2];
+                    }
+                    else
+                    {
+                        level1Text.text =
+                        "power production:" + (-lVal1.powerUse) + "\nhappiness:" + (lVal1.happiness - lVal0.happiness) + "\npollution:" + (lVal1.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[1];
 
+
+                        level2Text.text =
+                        "power production:" + (-lVal2.powerUse) + "\nhappiness:" + (lVal2.happiness - lVal0.happiness) + "\npollution:" + (lVal2.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[2];
+                    }
                 }
                 else
                 {
@@ -218,6 +231,8 @@ public class UpgradeScript : MonoBehaviour
             }
             else
             {
+                alertPopup.Popup("You don't have enough money to do this.", 3f);
+
                 //Debug.Log(gameManager.money + "" + lastFloorScript.cost[level]);
                 //Debug.Log("BROKE");
             }
