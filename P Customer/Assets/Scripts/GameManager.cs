@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
 
     [Header("affected UI")]
     [SerializeField] private AlertPopup alertText;
+    [SerializeField] private GameObject gameOverScreen;
 
 
     public enum Gamestate
@@ -106,6 +107,11 @@ public class GameManager : MonoBehaviour
         if (power < 0)
         {
             alertText.Popup("Your city has run out of power!", 0.1f);
+        }
+
+        if(happiness < 0)
+        {
+            gameOverScreen.SetActive(true);
         }
 
         switch (currentState)
