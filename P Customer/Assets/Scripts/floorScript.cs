@@ -9,6 +9,8 @@ public class floorScript : ValuesScript
     private GameObject model;
     [SerializeField] private ParticleSystem UpgradeParticles;
 
+    private int upgradeTo;
+
     //private BuildingManager connectedManager;
 
     // Start is called before the first frame update
@@ -41,6 +43,34 @@ public class floorScript : ValuesScript
             model = Instantiate(levelModels[level], transform);
 
             currentLevel = level;
+
+            if (UpgradeParticles != null)
+            {
+                UpgradeParticles.Emit(80);
+            }
+        }
+    }
+
+    public void UpgradeAfter(int level, float delay)
+    {
+        upgradeTo = level;
+        Invoke("UpgradeDelay", delay);
+
+        //for (int i = 0; i < transform.childCount; i++)
+        //{
+        //    transform.GetChild(i).gameObject.layer = 8;
+        //}
+    }
+
+    private void UpgradeDelay()
+    {
+        if (upgradeTo < levelModels.Length && currentLevel != upgradeTo)
+        {
+            Destroy(model);
+            model = Instantiate(levelModels[upgradeTo], transform);
+            model.layer = 8;
+
+            currentLevel = upgradeTo;
 
             if (UpgradeParticles != null)
             {

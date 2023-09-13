@@ -1,11 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.Burst.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class UpgradeScript : MonoBehaviour
 {
@@ -15,18 +9,30 @@ public class UpgradeScript : MonoBehaviour
     private RaycastHit lastHit;
 
     private floorScript lastFloorScript;
+    private floorScript targetedFloorScript;
 
-    [SerializeField] private GameObject upgradeLevel1;
-    [SerializeField] private TMP_Text level1Text;
-    [SerializeField] private GameObject upgradeLevel2;
-    [SerializeField] private TMP_Text level2Text;
+    [SerializeField] private Camera mainCam;
+    [SerializeField] private Camera buildingCam;
+    [SerializeField] private GameObject overlayEffect;
+
+    private LayerMask usedMask;
+    private LayerMask defaultMask;
+    private LayerMask buildingMask;
+
+    //[SerializeField] private GameObject upgradeLevel1;
+    //[SerializeField] private TMP_Text level1Text;
+    //[SerializeField] private GameObject upgradeLevel2;
+    //[SerializeField] private TMP_Text level2Text;
     //[SerializeField] private GameObject upgradeLevel3;
     //[SerializeField] private TextMeshPro level3Text;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        defaultMask = LayerMask.GetMask("Default");
+        buildingMask = LayerMask.GetMask("SelectedBuilding");
+
+        usedMask = defaultMask;
     }
 
     // Update is called once per frame
@@ -35,7 +41,7 @@ public class UpgradeScript : MonoBehaviour
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, usedMask))
         {
 
             bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
@@ -68,8 +74,8 @@ public class UpgradeScript : MonoBehaviour
             {
                 //return;
             }
-            
-            if(hit.transform.GetComponentInParent<floorScript>() == null)
+
+            if (hit.transform.GetComponentInParent<floorScript>() == null)
             {
                 lastHit = new RaycastHit();
                 //lastFloorScript = null;
@@ -99,20 +105,38 @@ public class UpgradeScript : MonoBehaviour
                 {
                     lastFloorScript = lastHit.transform.GetComponentInParent<floorScript>();
 
+                    if (targetedFloorScript != lastFloorScript && targetedFloorScript != null)
+                    {
+                        ShowBuilding(false, targetedFloorScript);
+                    }
+
+                    targetedFloorScript = lastFloorScript;
+
+
+
 
                     upgradeMenu.transform.position = Camera.main.WorldToScreenPoint(lastHit.transform.position);
                     upgradeMenu.SetActive(true);
+                    ShowBuilding(true, targetedFloorScript);
+                    usedMask = buildingMask;
 
 
                     Values lVal1 = lastFloorScript.valuesArray[1];
 
-                    level1Text.text = 
-                    "power use:" + lVal1.powerUse + "\nhappiness:" + lVal1.happiness + "\npollution:" + lVal1.pollution + "\n\ncost:" + lastFloorScript.cost[lastFloorScript.currentLevel];
+                    for (int i = 0; i < lastFloorScript.valuesArray.Length; i++)
+                    {
+
+                    }
+
+                    //level1Text.text = 
+                    //"power use:" + lVal1.powerUse + "\nhappiness:" + lVal1.happiness + "\npollution:" + lVal1.pollution + "\n\ncost:" + lastFloorScript.cost[lastFloorScript.currentLevel];
 
                 }
                 else
                 {
                     upgradeMenu.SetActive(false);
+                    ShowBuilding(false, targetedFloorScript);
+                    usedMask = defaultMask;
                 }
             }
             //else if(lastFloorScript == null && !isOverUI)
@@ -138,7 +162,7 @@ public class UpgradeScript : MonoBehaviour
 
     public void upgradeCurrent(int level)
     {
-        if(lastFloorScript != null)
+        if (lastFloorScript != null)
         {
             if (gameManager.money >= lastFloorScript.cost[level] && level != lastFloorScript.currentLevel)
             {
@@ -146,6 +170,8 @@ public class UpgradeScript : MonoBehaviour
                 lastFloorScript = lastFloorScript.transform.GetComponent<floorScript>();
 
                 gameManager.money -= lastFloorScript.cost[level];
+
+                ShowBuilding(true, targetedFloorScript);
             }
             else
             {
@@ -156,7 +182,94 @@ public class UpgradeScript : MonoBehaviour
         else
         {
             Debug.Log(lastFloorScript);
-            Debug.Log("IT WENT WROOOONG");
+            Debug.Log("no floor script");
+        }
+    }
+
+    public void upgradeBuilding(int level)
+    {
+        if (lastFloorScript != null)
+        {
+
+            Transform building = lastFloorScript.transform.parent;
+            floorScript[] floors = new floorScript[building.childCount];
+
+            int upgradeCost = 0;
+
+            for (int i = 0; i < building.childCount; i++)
+            {
+                floors[i] = building.GetChild(i).GetComponent<floorScript>();
+                if (floors[i].currentLevel != level)
+                {
+                    upgradeCost += floors[i].cost[level];
+                }
+            }
+
+
+            if (gameManager.money >= upgradeCost)
+            {
+
+                for(int i = 0; i < building.childCount; i++)
+                {
+                    if(floors[i].currentLevel != level)
+                    {
+                        floors[i].UpgradeAfter(level, i * 0.1f);
+                    }
+                }
+
+
+                lastFloorScript = lastFloorScript.transform.GetComponent<floorScript>();
+
+                gameManager.money -= upgradeCost;
+
+                ShowBuilding(true, targetedFloorScript);
+            }
+            else
+            {
+                //Debug.Log(gameManager.money + "" + lastFloorScript.cost[level]);
+                //Debug.Log("BROKE");
+            }
+        }
+        else
+        {
+            Debug.Log(lastFloorScript);
+            Debug.Log("no floor script");
+        }
+    }
+
+    private void ShowBuilding(bool show, floorScript floorScr)
+    {
+
+        Transform building = floorScr.transform.parent;
+
+        if (show)
+        {
+            for (int i = 0; i < building.childCount; i++)
+            {
+                Transform floor = building.GetChild(i);
+
+                for (int j = 0; j < floor.childCount; j++)
+                {
+                    floor.GetChild(j).gameObject.layer = 8;
+                }
+            }
+
+            overlayEffect.SetActive(true);
+
+        }
+        else
+        {
+            for (int i = 0; i < building.childCount; i++)
+            {
+                Transform floor = building.GetChild(i);
+
+                for (int j = 0; j < floor.childCount; j++)
+                {
+                    floor.GetChild(j).gameObject.layer = 0;
+                }
+            }
+
+            overlayEffect.SetActive(false);
         }
     }
 }
