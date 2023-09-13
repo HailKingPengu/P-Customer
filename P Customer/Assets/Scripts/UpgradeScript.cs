@@ -19,6 +19,9 @@ public class UpgradeScript : MonoBehaviour
     private LayerMask defaultMask;
     private LayerMask buildingMask;
 
+    [SerializeField] private float menuOffset;
+    [SerializeField] private float distanceFac;
+
     //[SerializeField] private GameObject upgradeLevel1;
     //[SerializeField] private TMP_Text level1Text;
     //[SerializeField] private GameObject upgradeLevel2;
@@ -154,9 +157,12 @@ public class UpgradeScript : MonoBehaviour
             }
 
             //if (!isOverUI && lastHit.transform.GetComponentInParent<floorScript>() == null)
-            //{
+        }
 
-            //}
+        if (lastFloorScript.transform != null)
+        {
+            upgradeMenu.transform.position = Camera.main.WorldToScreenPoint(lastFloorScript.transform.position);
+            upgradeMenu.transform.position -= new Vector3(menuOffset + distanceFac * Mathf.Sqrt(Vector3.Distance(mainCam.transform.position, lastFloorScript.transform.position)), 0, 0);
         }
     }
 
