@@ -8,13 +8,16 @@ public class AlertPopup : MonoBehaviour
 
     [SerializeField] private TMP_Text text;
     [SerializeField] private float disappearIn;
-    [SerializeField] private float yInside;
-    [SerializeField] private float yOutside;
+    [SerializeField] private Vector3 inside;
+    [SerializeField] private Vector3 outside;
+
+    [SerializeField] private RectTransform tf;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        inside = tf.anchoredPosition;
+        outside = new Vector3(100000, 100000, 100000);
     }
 
     // Update is called once per frame
@@ -25,12 +28,12 @@ public class AlertPopup : MonoBehaviour
 
         if (disappearIn < 0)
         {
-            transform.localPosition = new Vector3(0, yOutside, 0);
+            tf.anchoredPosition = outside;
             //Debug.Log("HUH");
         }
         else
         {
-            transform.localPosition = new Vector3(0, yInside, 0);
+            tf.anchoredPosition = inside;
             //Debug.Log("WHAT");
         }
     }
