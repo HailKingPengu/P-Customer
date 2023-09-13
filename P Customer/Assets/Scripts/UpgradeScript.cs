@@ -27,10 +27,10 @@ public class UpgradeScript : MonoBehaviour
     [SerializeField] private GameObject buildingStats;
     [SerializeField] private TMP_Text buildingStatsText;
 
-    //[SerializeField] private GameObject upgradeLevel1;
-    //[SerializeField] private TMP_Text level1Text;
-    //[SerializeField] private GameObject upgradeLevel2;
-    //[SerializeField] private TMP_Text level2Text;
+    [SerializeField] private GameObject upgradeLevel1;
+    [SerializeField] private TMP_Text level1Text;
+    [SerializeField] private GameObject upgradeLevel2;
+    [SerializeField] private TMP_Text level2Text;
     //[SerializeField] private GameObject upgradeLevel3;
     //[SerializeField] private TextMeshPro level3Text;
 
@@ -129,16 +129,39 @@ public class UpgradeScript : MonoBehaviour
                     ShowBuilding(true, targetedFloorScript);
                     usedMask = buildingMask;
 
+                    Values lVal0 = lastFloorScript.valuesArray[0];
+                    Values lVal1 = new Values();
+                    Values lVal2 = new Values();
 
-                    Values lVal1 = lastFloorScript.valuesArray[1];
-
+                    if(lastFloorScript.valuesArray.Length >= 2)
+                    {
+                        upgradeLevel1.SetActive(true);
+                        lVal1 = lastFloorScript.valuesArray[1];
+                    }
+                    else
+                    {
+                        upgradeLevel1.SetActive(false);
+                    }
+                    if (lastFloorScript.valuesArray.Length >= 3)
+                    {
+                        upgradeLevel2.SetActive(true);
+                        lVal2 = lastFloorScript.valuesArray[2];
+                    }
+                    else
+                    {
+                        upgradeLevel2.SetActive(false);
+                    }
                     for (int i = 0; i < lastFloorScript.valuesArray.Length; i++)
                     {
 
                     }
 
-                    //level1Text.text = 
-                    //"power use:" + lVal1.powerUse + "\nhappiness:" + lVal1.happiness + "\npollution:" + lVal1.pollution + "\n\ncost:" + lastFloorScript.cost[lastFloorScript.currentLevel];
+                    level1Text.text = 
+                    "power use:" + (lVal1.powerUse - lVal0.powerUse) + "\nhappiness:" + (lVal1.happiness - lVal0.happiness) + "\npollution:" + (lVal1.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[1];
+
+
+                    level2Text.text =
+                    "power use:" + (lVal2.powerUse - lVal0.powerUse) + "\nhappiness:" + (lVal2.happiness - lVal0.happiness) + "\npollution:" + (lVal2.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[2];
 
                 }
                 else
