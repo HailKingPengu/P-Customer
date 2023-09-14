@@ -124,6 +124,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1310052793854722080, guid: bf90a5add8632bd4aabe6e03e95de533, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310052793854722080, guid: bf90a5add8632bd4aabe6e03e95de533, type: 3}
       propertyPath: NoiseModule.strength.scalar
       value: 0.03
       objectReference: {fileID: 0}

@@ -47,17 +47,17 @@ MonoBehaviour:
   cost: 000000000100000001000000
   levelModels:
   - {fileID: 5560834101568312364, guid: 4dde5a9c0222eb842a54df30f49f00f7, type: 3}
+  - {fileID: 8403227017418529566, guid: 135ec8ef50802044fbdd44db969d44bf, type: 3}
   - {fileID: 5854593591330567267, guid: a93d049f96a2d6345a2ebb2ef4db03ac, type: 3}
-  - {fileID: 2478683966776946011, guid: fa8d6ad0adedc2e43b27275a062007ad, type: 3}
   currentLevel: 0
   valuesArray:
-  - powerUse: 20
-    happiness: 100
-    pollution: 5
-  - powerUse: 25
+  - powerUse: 0
+    happiness: 0
+    pollution: 10
+  - powerUse: -50
+    happiness: 0
+    pollution: 0
+  - powerUse: 0
     happiness: 100
     pollution: 0
-  - powerUse: 10
-    happiness: 95
-    pollution: 5
   UpgradeParticles: {fileID: 2576916445792989148, guid: bef0ac835ea3cd145b5eeacce437a55e, type: 3}
