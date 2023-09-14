@@ -284,6 +284,8 @@ public class UpgradeScript : MonoBehaviour
             }
             else
             {
+                alertPopup.Popup("You don't have enough money to do this.", 3f);
+
                 //Debug.Log(gameManager.money + "" + lastFloorScript.cost[level]);
                 //Debug.Log("BROKE");
             }
