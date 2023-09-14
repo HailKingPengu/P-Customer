@@ -47,6 +47,7 @@ public class floorScript : ValuesScript
             if (UpgradeParticles != null)
             {
                 UpgradeParticles.Emit(80);
+                transform.localScale = new Vector3(1f, 1, 1f);
             }
         }
     }
@@ -75,6 +76,7 @@ public class floorScript : ValuesScript
             if (UpgradeParticles != null)
             {
                 UpgradeParticles.Emit(80);
+                transform.localScale = new Vector3(1f, 1, 1f);
             }
         }
     }
