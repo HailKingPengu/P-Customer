@@ -23,7 +23,7 @@ public class RebellionTimer : MonoBehaviour
         //Debug.Log(Mathf.Round(currentRebellion/3));
         if(currentRebellion >= maxRebellion)
         {
-            gameOver = true;
+            //gameOver = true;
         }
         if (gameOver)
         {

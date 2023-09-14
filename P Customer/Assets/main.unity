@@ -3212,11 +3212,16 @@ MonoBehaviour:
     - {fileID: 4007063242098289402, guid: c39a4d3407933e84ca6c86a8d7458f93, type: 3}
     - {fileID: 4007063242098289402, guid: 69aaa274c0367104c9d7acce90992430, type: 3}
     - {fileID: 7834789187070106997, guid: 8a741ba184f829e4cb4cb316420ada8a, type: 3}
+  buildingRoofPrefabs:
+  - floor:
+    - {fileID: 7834789187070106997, guid: 8a741ba184f829e4cb4cb316420ada8a, type: 3}
   industryPrefabs:
   - floor:
     - {fileID: 4816527713559463708, guid: e6ec1fb966a4e2149a7946f2afefef95, type: 3}
     - {fileID: 658658776538269773, guid: e1e6572a1e8f25a4ca81c2bf7b5e1e74, type: 3}
     - {fileID: 658658776538269773, guid: 736934e1c1a1f424eac928f0701962ac, type: 3}
+  industryRoofPrefabs:
+  - floor:
     - {fileID: 658658776538269773, guid: ae91210b033058041b9247bdacc71587, type: 3}
   buildingManagerPrefab: {fileID: 4816527713559463708, guid: e6ec1fb966a4e2149a7946f2afefef95, type: 3}
   tilePrefabs:
@@ -3226,8 +3231,6 @@ MonoBehaviour:
   - {fileID: 840805206565642382, guid: a077d7482334ba34599dc62261d58a91, type: 3}
   - {fileID: 1615153403414772155, guid: 38c1eaf3d1c38a84abfa7a3db80b7c8a, type: 3}
   - {fileID: 1615153403414772155, guid: 3858202f011a9ab41ba87d2846820e87, type: 3}
-  industryRoofPrefabs:
-  - {fileID: 7056443844487623137, guid: 11e1aa1d30dbbf34095411c5c083cb04, type: 3}
   powerPlantPrefab: {fileID: 8490117261656662554, guid: 35c9c2506fde53446ad6f1c5b74d0f70, type: 3}
   mapXSize: 30
   mapYSize: 30
@@ -5303,6 +5306,10 @@ PrefabInstance:
       propertyPath: buildingDataHub
       value: 
       objectReference: {fileID: 182359254}
+    - target: {fileID: 4830819831595209455, guid: 17179e0cbae73cb43a87749eb539250e, type: 3}
+      propertyPath: pollutionResistance
+      value: 0.0002
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

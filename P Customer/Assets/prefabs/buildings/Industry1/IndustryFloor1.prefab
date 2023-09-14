@@ -50,10 +50,10 @@ MonoBehaviour:
   - {fileID: 6052560234449583596, guid: f92ff0fb5aa79624484917b4e019176c, type: 3}
   currentLevel: 0
   valuesArray:
-  - powerUse: 100
+  - powerUse: 80
     happiness: 90
-    pollution: 20
-  - powerUse: 50
-    happiness: 95
     pollution: 10
+  - powerUse: 40
+    happiness: 95
+    pollution: 5
   UpgradeParticles: {fileID: 2576916445792989148, guid: bef0ac835ea3cd145b5eeacce437a55e, type: 3}
