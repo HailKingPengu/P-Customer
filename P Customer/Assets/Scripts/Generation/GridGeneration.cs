@@ -251,13 +251,13 @@ public class GridGeneration : MonoBehaviour
 
         buildingDataHub.buildingManagersGrid[x, y] = connectedManager;
         bmList.Add(connectedManager);
-        connectedManager.floors = new floorScript[(int)((40 - wildness) / floorFac) + 1];
+        connectedManager.floors = new floorScript[(int)((40 - wildness) / floorFac) + 2];
 
 
-        for (int i = 0; i < connectedManager.floors.Length; i++)
+        for (int i = 0; i < connectedManager.floors.Length - 1; i++)
         {
 
-            GameObject newFloor = Instantiate(buildingTypes[buildingVariant].floor[Random.Range(1, buildingTypes[buildingVariant].floor.Length)], connectedManager.transform);
+            GameObject newFloor = Instantiate(buildingTypes[buildingVariant].floor[Random.Range(1, buildingTypes[buildingVariant].floor.Length - 1)], connectedManager.transform);
 
 
             newFloor.transform.position = new Vector3(parentTile.transform.position.x, 0.5f + 0.5f * i, parentTile.transform.position.z);
@@ -266,6 +266,16 @@ public class GridGeneration : MonoBehaviour
 
             connectedManager.floors[i] = newFloor.gameObject.GetComponent<floorScript>();
         }
+
+        //roof
+        GameObject newRoof = Instantiate(buildingTypes[buildingVariant].floor[buildingTypes[buildingVariant].floor.Length - 1], connectedManager.transform);
+
+
+        newRoof.transform.position = new Vector3(parentTile.transform.position.x, 0.5f + 0.5f * (connectedManager.floors.Length - 1), parentTile.transform.position.z);
+        newRoof.transform.localScale = new Vector3(0.7f, 1, 0.7f);
+
+
+        connectedManager.floors[connectedManager.floors.Length - 1] = newRoof.gameObject.GetComponent<floorScript>();
     }
 
     private void SpawnSingleBuilding(GameObject building, GameObject parentTile, int x, int y, List<BuildingManager> bmList)
