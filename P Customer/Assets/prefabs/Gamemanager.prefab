@@ -48,6 +48,8 @@ MonoBehaviour:
   buildingDataHub: {fileID: 0}
   happiness: 0
   power: 0
+  powerProduction: 0
+  powerUse: 0
   powerNeeded: 0
   happinessNeeded: 75
   pollution: 0
@@ -56,4 +58,10 @@ MonoBehaviour:
   moneyAmountPerTime: 20
   sustainability: 0
   rebellion: 0
+  anger: 0
+  angerReduction: 0
+  pollutionAnger: 0
+  pollutionResistance: 0.0003
+  alertText: {fileID: 0}
+  gameOverScreen: {fileID: 0}
   currentState: 0
