@@ -31,7 +31,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8265072173188591774}
+  - {fileID: 5638125096192226465}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5483230864812858928
@@ -108,3 +110,151 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.24592496, y: 0.25514632, z: 0.1790373}
   m_Center: {x: 0, y: 0, z: 0.08258301}
+--- !u!1001 &6546507534026508498
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2342718951511827799}
+    m_Modifications:
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.079
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0048
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0598
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.48788035
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5192598
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.48046434
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.51136684
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 179.124
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 89.945
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 86.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449685138809905376, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_Name
+      value: Person Waving (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+--- !u!4 &5638125096192226465 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+  m_PrefabInstance: {fileID: 6546507534026508498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7373543040432868589
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2342718951511827799}
+    m_Modifications:
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0858
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0593
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6847431
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7287845
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 93.569
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449685138809905376, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_Name
+      value: Person Waving
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+--- !u!4 &8265072173188591774 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1506305701160500339, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+  m_PrefabInstance: {fileID: 7373543040432868589}
+  m_PrefabAsset: {fileID: 0}

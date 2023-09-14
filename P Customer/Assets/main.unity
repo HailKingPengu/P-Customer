@@ -3211,7 +3211,7 @@ MonoBehaviour:
     - {fileID: 4007063242098289402, guid: 7855fe27f83682c47bde0086c3b4c973, type: 3}
     - {fileID: 4007063242098289402, guid: c39a4d3407933e84ca6c86a8d7458f93, type: 3}
     - {fileID: 4007063242098289402, guid: 69aaa274c0367104c9d7acce90992430, type: 3}
-    - {fileID: 7834789187070106997, guid: 8a741ba184f829e4cb4cb316420ada8a, type: 3}
+    - {fileID: 7834789187070106997, guid: bc27ebdfe4dda334a91e7923e3747a91, type: 3}
   industryPrefabs:
   - floor:
     - {fileID: 4816527713559463708, guid: e6ec1fb966a4e2149a7946f2afefef95, type: 3}
@@ -5223,7 +5223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132358266}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23396733, y: 0.3702089, z: -0.096912436, w: 0.89376324}
+  m_LocalRotation: {x: 0.23396732, y: 0.3702089, z: -0.09691244, w: 0.89376324}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
