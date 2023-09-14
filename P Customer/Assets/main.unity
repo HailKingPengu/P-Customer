@@ -3088,7 +3088,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25014302, y: 0.36838987, z: -0.10361265, w: 0.88937163}
+  m_LocalRotation: {x: 0.250143, y: 0.36838987, z: -0.10361263, w: 0.88937163}
   m_LocalPosition: {x: 0.50430965, y: 14.57, z: 0.50431156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3211,12 +3211,19 @@ MonoBehaviour:
     - {fileID: 4007063242098289402, guid: 7855fe27f83682c47bde0086c3b4c973, type: 3}
     - {fileID: 4007063242098289402, guid: c39a4d3407933e84ca6c86a8d7458f93, type: 3}
     - {fileID: 4007063242098289402, guid: 69aaa274c0367104c9d7acce90992430, type: 3}
+  buildingRoofPrefabs:
+  - floor:
     - {fileID: 7834789187070106997, guid: bc27ebdfe4dda334a91e7923e3747a91, type: 3}
+    - {fileID: 8002225589034318035, guid: 5be2f9cd95cf9c64296eb6740b6f7468, type: 3}
+    - {fileID: 8002225589034318035, guid: 111fd54e941d8d24d8f0ce809309d135, type: 3}
   industryPrefabs:
   - floor:
     - {fileID: 4816527713559463708, guid: e6ec1fb966a4e2149a7946f2afefef95, type: 3}
     - {fileID: 658658776538269773, guid: e1e6572a1e8f25a4ca81c2bf7b5e1e74, type: 3}
     - {fileID: 658658776538269773, guid: 736934e1c1a1f424eac928f0701962ac, type: 3}
+    - {fileID: 658658776538269773, guid: ae91210b033058041b9247bdacc71587, type: 3}
+  industryRoofPrefabs:
+  - floor:
     - {fileID: 658658776538269773, guid: ae91210b033058041b9247bdacc71587, type: 3}
   buildingManagerPrefab: {fileID: 4816527713559463708, guid: e6ec1fb966a4e2149a7946f2afefef95, type: 3}
   tilePrefabs:
@@ -3226,8 +3233,6 @@ MonoBehaviour:
   - {fileID: 840805206565642382, guid: a077d7482334ba34599dc62261d58a91, type: 3}
   - {fileID: 1615153403414772155, guid: 38c1eaf3d1c38a84abfa7a3db80b7c8a, type: 3}
   - {fileID: 1615153403414772155, guid: 3858202f011a9ab41ba87d2846820e87, type: 3}
-  industryRoofPrefabs:
-  - {fileID: 7056443844487623137, guid: 11e1aa1d30dbbf34095411c5c083cb04, type: 3}
   powerPlantPrefab: {fileID: 8490117261656662554, guid: 35c9c2506fde53446ad6f1c5b74d0f70, type: 3}
   mapXSize: 30
   mapYSize: 30
@@ -3634,7 +3639,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113754699}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.250143, y: 0.36838982, z: -0.10361262, w: 0.88937163}
+  m_LocalRotation: {x: 0.25014296, y: 0.3683898, z: -0.1036126, w: 0.88937163}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5223,7 +5228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132358266}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23396732, y: 0.3702089, z: -0.09691244, w: 0.89376324}
+  m_LocalRotation: {x: 0.23396733, y: 0.3702089, z: -0.09691244, w: 0.89376324}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
