@@ -51,13 +51,13 @@ MonoBehaviour:
   - {fileID: 7362744238669779968, guid: 0249ef5f30a22e445aacbf7935c3a664, type: 3}
   currentLevel: 0
   valuesArray:
-  - powerUse: -12000
+  - powerUse: -17000
     happiness: 50
     pollution: 2000
-  - powerUse: -8000
+  - powerUse: -12000
     happiness: 70
     pollution: 10
-  - powerUse: -15000
+  - powerUse: -17000
     happiness: 20
     pollution: 10
   UpgradeParticles: {fileID: 2576916445792989148, guid: bef0ac835ea3cd145b5eeacce437a55e, type: 3}
