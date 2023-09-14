@@ -69,6 +69,8 @@ public class floorScript : ValuesScript
         {
             Destroy(model);
             model = Instantiate(levelModels[upgradeTo], transform);
+
+            
             model.layer = 8;
 
             currentLevel = upgradeTo;

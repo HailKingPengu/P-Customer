@@ -14,7 +14,9 @@ public class GridGeneration : MonoBehaviour
     }
 
     public BuildingArray[] buildingPrefabs;
+    public BuildingArray[] buildingRoofPrefabs;
     public BuildingArray[] industryPrefabs;
+    public BuildingArray[] industryRoofPrefabs;
 
     [SerializeField] public GameObject buildingManagerPrefab;
 
@@ -27,7 +29,7 @@ public class GridGeneration : MonoBehaviour
     [SerializeField] private GameObject[] tilePrefabs;
     //[SerializeField] private GameObject[][] buildingPrefabs;
     //[SerializeField] private GameObject[] industryPrefabs;
-    [SerializeField] private GameObject[] industryRoofPrefabs;
+    //[SerializeField] private GameObject[] industryRoofPrefabs;
     [SerializeField] private GameObject powerPlantPrefab;
 
     private int[,] tileState;
@@ -135,7 +137,7 @@ public class GridGeneration : MonoBehaviour
 
                         newTile.transform.position = new Vector3(x, 0, y);
 
-                        SpawnBuilding(buildingPrefabs, newTile, randomizedWildness, x, y, 6, bmList);
+                        SpawnBuilding(buildingPrefabs, buildingRoofPrefabs, newTile, randomizedWildness, x, y, 6, bmList);
 
                         tileState[x, y] = 1;
                     }
@@ -178,7 +180,7 @@ public class GridGeneration : MonoBehaviour
 
                             newTile.transform.position = new Vector3(x, 0, y);
 
-                            SpawnBuilding(industryPrefabs, newTile, randomizedWildness, x, y, 12, bmList);
+                            SpawnBuilding(industryPrefabs, industryRoofPrefabs, newTile, randomizedWildness, x, y, 12, bmList);
 
                             tileState[x, y] = 1;
 
@@ -235,7 +237,7 @@ public class GridGeneration : MonoBehaviour
         return buildingManager;
     }
 
-    private void SpawnBuilding(BuildingArray[] buildingTypes, GameObject parentTile, float wildness, int x, int y, int floorFac, List<BuildingManager> bmList)
+    private void SpawnBuilding(BuildingArray[] buildingTypes, BuildingArray[] buildingRoofTypes, GameObject parentTile, float wildness, int x, int y, int floorFac, List<BuildingManager> bmList)
     {
 
         int buildingVariant = Random.Range(0, buildingTypes.Length);
@@ -257,7 +259,7 @@ public class GridGeneration : MonoBehaviour
         for (int i = 0; i < connectedManager.floors.Length - 1; i++)
         {
 
-            GameObject newFloor = Instantiate(buildingTypes[buildingVariant].floor[Random.Range(1, buildingTypes[buildingVariant].floor.Length - 1)], connectedManager.transform);
+            GameObject newFloor = Instantiate(buildingTypes[buildingVariant].floor[Random.Range(1, buildingTypes[buildingVariant].floor.Length)], connectedManager.transform);
 
 
             newFloor.transform.position = new Vector3(parentTile.transform.position.x, 0.5f + 0.5f * i, parentTile.transform.position.z);
@@ -268,7 +270,7 @@ public class GridGeneration : MonoBehaviour
         }
 
         //roof
-        GameObject newRoof = Instantiate(buildingTypes[buildingVariant].floor[buildingTypes[buildingVariant].floor.Length - 1], connectedManager.transform);
+        GameObject newRoof = Instantiate(buildingRoofTypes[buildingVariant].floor[Random.Range(0, buildingRoofTypes[buildingVariant].floor.Length)], connectedManager.transform);
 
 
         newRoof.transform.position = new Vector3(parentTile.transform.position.x, 0.5f + 0.5f * (connectedManager.floors.Length - 1), parentTile.transform.position.z);
