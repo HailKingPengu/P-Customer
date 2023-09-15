@@ -267,7 +267,7 @@ public class GridGeneration : MonoBehaviour
 
         buildingDataHub.buildingManagersGrid[x, y] = connectedManager;
         bmList.Add(connectedManager);
-        connectedManager.floors = new floorScript[(int)((40 - wildness) / floorFac) + 2];
+        connectedManager.floors = new floorScript[(int)(((40 - wildness) / floorFac)/2) + 2];
 
 
         for (int i = 0; i < connectedManager.floors.Length - 1; i++)
