@@ -8,14 +8,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -6901925059561683464, guid: b43ae187bb8f2fa4ca0687fe5f3d976d, type: 3}
-      propertyPath: levelModels.Array.data[0]
-      value: 
-      objectReference: {fileID: 8356300107396978278, guid: 628f3390c64512d449579d3dd21a4b65, type: 3}
-    - target: {fileID: -6901925059561683464, guid: b43ae187bb8f2fa4ca0687fe5f3d976d, type: 3}
-      propertyPath: levelModels.Array.data[1]
-      value: 
-      objectReference: {fileID: 8476405371748272827, guid: 99ad9cdf5c492404baec3b3c390acb41, type: 3}
     - target: {fileID: 7689694442603541532, guid: b43ae187bb8f2fa4ca0687fe5f3d976d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
