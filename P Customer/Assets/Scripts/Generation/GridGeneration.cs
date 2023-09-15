@@ -276,7 +276,7 @@ public class GridGeneration : MonoBehaviour
             GameObject newFloor = Instantiate(buildingTypes[buildingVariant].floor[Random.Range(1, buildingTypes[buildingVariant].floor.Length)], connectedManager.transform);
 
 
-            newFloor.transform.position = new Vector3(parentTile.transform.position.x, 0.5f + 0.5f * i, parentTile.transform.position.z);
+            newFloor.transform.position = new Vector3(parentTile.transform.position.x, 1f + 1f * i, parentTile.transform.position.z);
             newFloor.transform.localScale = new Vector3(0.7f, 1, 0.7f);
 
 
@@ -287,7 +287,7 @@ public class GridGeneration : MonoBehaviour
         GameObject newRoof = Instantiate(buildingRoofTypes[buildingVariant].floor[Random.Range(0, buildingRoofTypes[buildingVariant].floor.Length)], connectedManager.transform);
 
 
-        newRoof.transform.position = new Vector3(parentTile.transform.position.x, 0.5f + 0.5f * (connectedManager.floors.Length - 1), parentTile.transform.position.z);
+        newRoof.transform.position = new Vector3(parentTile.transform.position.x, 0.5f + 1f * (connectedManager.floors.Length - 1), parentTile.transform.position.z);
         newRoof.transform.localScale = new Vector3(0.7f, 1, 0.7f);
 
 
