@@ -28,6 +28,7 @@ public class GridGeneration : MonoBehaviour
     //[SerializeField] private GameObject roadPrefab; // 4
 
     [SerializeField] private GameObject[] tilePrefabs;
+    [SerializeField] private GameObject[] roadPrefabs;
     //[SerializeField] private GameObject[][] buildingPrefabs;
     //[SerializeField] private GameObject[] industryPrefabs;
     //[SerializeField] private GameObject[] industryRoofPrefabs;
@@ -106,7 +107,7 @@ public class GridGeneration : MonoBehaviour
                     else
                     {
                         //road
-                        GameObject newTile = Instantiate(tilePrefabs[4], transform);
+                        GameObject newTile = Instantiate(roadPrefabs[1], transform);
 
                         newTile.transform.position = new Vector3(x, 0, y);
                     }
@@ -123,8 +124,9 @@ public class GridGeneration : MonoBehaviour
                 else if (x % 3 == 0 && wildness < 50)
                 {
                     //road
-                    GameObject newTile = Instantiate(tilePrefabs[4], transform);
+                    GameObject newTile = Instantiate(roadPrefabs[1], transform);
 
+                    newTile.transform.rotation = Quaternion.Euler(-90, 90, 0);
                     newTile.transform.position = new Vector3(x, 0, y);
 
                     tileState[x, y] = 4;
