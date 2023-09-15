@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1417646655162686852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6937346059983643348}
+  - component: {fileID: 1579414253888604641}
+  m_Layer: 0
+  m_Name: Grid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6937346059983643348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417646655162686852}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1579414253888604641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417646655162686852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9b0e86c7f02cd43b84093d9bceb009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingPrefabs:
+  - floor:
+    - {fileID: 4816527713559463708, guid: e6ec1fb966a4e2149a7946f2afefef95, type: 3}
+    - {fileID: 7834789187070106997, guid: b43ae187bb8f2fa4ca0687fe5f3d976d, type: 3}
+    - {fileID: 4007063242098289402, guid: 7855fe27f83682c47bde0086c3b4c973, type: 3}
+    - {fileID: 4007063242098289402, guid: c39a4d3407933e84ca6c86a8d7458f93, type: 3}
+    - {fileID: 4007063242098289402, guid: 69aaa274c0367104c9d7acce90992430, type: 3}
+  buildingRoofPrefabs:
+  - floor:
+    - {fileID: 7834789187070106997, guid: bc27ebdfe4dda334a91e7923e3747a91, type: 3}
+    - {fileID: 8002225589034318035, guid: 5be2f9cd95cf9c64296eb6740b6f7468, type: 3}
+    - {fileID: 8002225589034318035, guid: 111fd54e941d8d24d8f0ce809309d135, type: 3}
+  industryPrefabs:
+  - floor:
+    - {fileID: 4816527713559463708, guid: e6ec1fb966a4e2149a7946f2afefef95, type: 3}
+    - {fileID: 658658776538269773, guid: e1e6572a1e8f25a4ca81c2bf7b5e1e74, type: 3}
+    - {fileID: 658658776538269773, guid: 736934e1c1a1f424eac928f0701962ac, type: 3}
+    - {fileID: 658658776538269773, guid: ae91210b033058041b9247bdacc71587, type: 3}
+  industryRoofPrefabs:
+  - floor:
+    - {fileID: 658658776538269773, guid: ae91210b033058041b9247bdacc71587, type: 3}
+  buildingManagerPrefab: {fileID: 4816527713559463708, guid: e6ec1fb966a4e2149a7946f2afefef95, type: 3}
+  tilePrefabs:
+  - {fileID: 3402509735497949068, guid: f9a48192084e35a429f2dbd630347311, type: 3}
+  - {fileID: 1615153403414772155, guid: 5177507a82e6ee14daa85ab14b47c233, type: 3}
+  - {fileID: 473095525702175267, guid: 75512826a247ed848929af89be3f8ddf, type: 3}
+  - {fileID: 840805206565642382, guid: a077d7482334ba34599dc62261d58a91, type: 3}
+  - {fileID: 1615153403414772155, guid: 38c1eaf3d1c38a84abfa7a3db80b7c8a, type: 3}
+  - {fileID: 1615153403414772155, guid: 3858202f011a9ab41ba87d2846820e87, type: 3}
+  roadPrefabs: []
+  powerPlantPrefab: {fileID: 8490117261656662554, guid: 35c9c2506fde53446ad6f1c5b74d0f70, type: 3}
+  mapXSize: 30
+  mapYSize: 30
+  centerPoint: {x: 15, y: 15}
+  riverPosition: 18
+  buildingDataHub: {fileID: 0}
