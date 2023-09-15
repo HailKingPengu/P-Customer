@@ -10,6 +10,8 @@ public class MoveRandom : MonoBehaviour
     Vector3 dir;
     Vector3 desiredPosition;
     public float force;
+    [SerializeField] private bool canStop = true;
+    [SerializeField] private bool followSidewalks = true;
     float wait = 0;
     Vector3 dirChange = new Vector3(0f,0f,0f);
 
@@ -32,14 +34,22 @@ public class MoveRandom : MonoBehaviour
         if (Vector3.Distance(this.transform.position, desiredPosition) <= objectdistance)
         {
             // choose something new to do
-            if (Random.Range(0,10)>7){
-                wait = Random.Range(20,80);
+            if (canStop)
+            {
+                if (Random.Range(0, 10) > 7)
+                {
+                    wait = Random.Range(20, 80);
+                }
             }
 
             mymover = mymover.GetNewLocation();
 
             float difference = 0.2f;
-            desiredPosition = getPosition(mymover) + new Vector3(Random.Range(-difference,difference),0f,Random.Range(-difference,difference));
+            desiredPosition = getPosition(mymover);
+            if (followSidewalks)
+            {
+                desiredPosition += new Vector3(Random.Range(-difference, difference), 0f, Random.Range(-difference, difference));
+            }
             
 
         }
