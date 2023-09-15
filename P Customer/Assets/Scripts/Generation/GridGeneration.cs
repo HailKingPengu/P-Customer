@@ -1,8 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+
 
 public class GridGeneration : MonoBehaviour
 {
@@ -202,6 +203,7 @@ public class GridGeneration : MonoBehaviour
                     GameObject newTile = Instantiate(tilePrefabs[2], transform);
 
                     newTile.transform.position = new Vector3(x, 0, y);
+                    newTile.transform.rotation = Quaternion.Euler(0, 90 * (int)Random.Range(0, 4), 0);
 
                     tileState[x, y] = 2;
                 }
