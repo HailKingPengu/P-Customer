@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8111345827734079035}
   - component: {fileID: 5133700710464014750}
   - component: {fileID: 6979003621814844756}
+  - component: {fileID: -3498334783805249768}
   m_Layer: 0
   m_Name: low_poly_roof_v2
   m_TagString: Untagged
@@ -84,3 +85,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-3498334783805249768
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8924615629527293057}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2296247, y: 1.2757318, z: 0.8510294}
+  m_Center: {x: -0.3466246, y: 0.18743026, z: 0.5127145}
