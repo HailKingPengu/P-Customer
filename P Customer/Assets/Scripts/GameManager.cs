@@ -16,10 +16,7 @@ public class GameManager : MonoBehaviour
     [Header("Variable part 1")]
     public float happiness;
 
-    public float power;
-    public float powerProduction;
-    public float powerUse;
-    public float powerNeeded; // power thats needed to be sustainable
+
     public float happinessNeeded; // power thats needed to be sustainable
     public float pollution; // 
 
@@ -28,7 +25,18 @@ public class GameManager : MonoBehaviour
     float moneyTime;
     public float moneyTimer;
     public int moneyAmountPerTime;
+    float moneyIncrementor;
+    public float happinessMoneyMultiplier;
 
+    [Header("Power Needs and Gains")]
+    public float power;
+    public float powerProduction;
+    public float powerUse;
+    public float powerNeeded; // power thats needed to be sustainable
+    float powerDeficiency;
+    public float powerDeficiencyHappinessInfluence;
+    public float happinessRageThreshold;
+    float rageThreshold;
 
     [Header("Variable part 2")]
     public float sustainability; // sustainability is when power is over power needed
@@ -89,19 +97,19 @@ public class GameManager : MonoBehaviour
         rebellion = (Mathf.Round((Timer.currentRebellion)/3));
 
         //pollution resistance
-        pollutionAnger = (pollution - 500) * (pollutionResistance * ((Time.time * Time.time) / 450));
+        //pollutionAnger = (pollution - 500) * (pollutionResistance * ((Time.time * Time.time) / 450));
 
-        happiness -= pollutionAnger;
+        //happiness -= pollutionAnger;
 
         //outrage for insufficient power
-        if (power < 0)
-        {
-            anger += Time.deltaTime;
-        }
+        //if (power < 0)
+        //{
+        //    anger += Time.deltaTime;
+        //}
 
-        anger = Mathf.Lerp(anger, 0, angerReduction);
+        //anger = Mathf.Lerp(anger, 0, angerReduction);
 
-        happiness -= anger;
+        //happiness -= anger;
 
 
         if (power < 0)
@@ -145,13 +153,13 @@ public class GameManager : MonoBehaviour
     // the script that activates when we are playing
     void Playing()
     {
-        // RULE #1 GET MONEY OVER TIME
-        moneyTime += Time.deltaTime;
-        if (moneyTime >= moneyTimer)
-        {
-            moneyTime -= moneyTimer;
-            money += moneyAmountPerTime;
-        }
+
+        MoneyUpdateBehavior();
+
+        PowerUpdateBehavior();
+
+        HappinessUpdateBehavior();
+
 
         // RULE #2 GAME OVER WHEN REBELLION TOO MUCH
         if (Timer.gameOver)
@@ -160,5 +168,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    
+    void MoneyUpdateBehavior ()
+    {
+        moneyIncrementor = moneyAmountPerTime * ((happiness / happinessNeeded) * happinessMoneyMultiplier);
+        
+        // RULE #1 GET MONEY OVER TIME
+        moneyTime += Time.deltaTime;
+        if (moneyTime >= moneyTimer)
+        {
+            moneyTime -= moneyTimer;
+            money += Mathf.RoundToInt(moneyIncrementor);
+        }
+    }
 
+    void PowerUpdateBehavior ()
+    {
+        powerDeficiency = Mathf.Max(powerUse - powerProduction, 0f);
+    }
+
+    void HappinessUpdateBehavior ()
+    {
+        happiness = happiness - (powerDeficiency / powerDeficiencyHappinessInfluence);
+
+        rageThreshold = Mathf.Max(happinessRageThreshold - happiness, 0);
+
+        Timer.rebellionModifier = 1 + rageThreshold;
+    }
 }
