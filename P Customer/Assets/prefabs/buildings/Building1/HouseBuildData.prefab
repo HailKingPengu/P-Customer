@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 000000000100000001000000
   levelModels:
-  - {fileID: 728627471103102300, guid: 8d447db3b7cc7934db6e4e4ed3ae5518, type: 3}
-  - {fileID: 6351394403141565976, guid: 6ec4126daa9b5164ea976859d1564653, type: 3}
+  - {fileID: 8019056600199278777, guid: 09ba8c5e5697f2743a6bbf97d2a0be57, type: 3}
+  - {fileID: 7867982797874108420, guid: ad39e0f20397e0e4e8989e20fb9a5151, type: 3}
   - {fileID: 1269366052437808480, guid: 3d119235d267d9d48802e69de235b4f1, type: 3}
   currentLevel: 0
   valuesArray:

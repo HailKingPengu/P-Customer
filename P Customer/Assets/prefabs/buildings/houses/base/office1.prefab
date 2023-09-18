@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2113638867584970217}
   - component: {fileID: -9012967572819971290}
   m_Layer: 0
-  m_Name: building_block_office
+  m_Name: office1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
