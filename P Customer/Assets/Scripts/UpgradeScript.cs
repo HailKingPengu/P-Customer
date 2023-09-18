@@ -99,7 +99,7 @@ public class UpgradeScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
 
             bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();

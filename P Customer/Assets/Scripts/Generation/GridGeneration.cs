@@ -92,7 +92,11 @@ public class GridGeneration : MonoBehaviour
 
                 float randomizedWildness = wildness + Random.Range(-10, 10);
 
-                if (x % 3 == 0 && y % 4 == 0 && x != riverPosition && wildness < 50)
+                if (Vector3.Distance(centerPoint, new Vector3(x, y, 0)) > (mapXSize / 2))
+                {
+
+                }
+                else if (x % 3 == 0 && y % 4 == 0 && x != riverPosition && wildness < 50)
                 {
                     //road
                     GameObject newTile = Instantiate(roadPrefabs[0], transform);
