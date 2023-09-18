@@ -560,7 +560,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: de9013f3f04a44d41b90cfce4b997414, type: 3}
+  m_Texture: {fileID: 2800000, guid: 366eaf91aeacb944e833ab9411e66d97, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -634,7 +634,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 33823e9402eb6c64c92bbb95fbca7ee9, type: 3}
+  m_Texture: {fileID: 2800000, guid: e8faf23ab33c32f40ac6db3ded5f5fd4, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -654,12 +654,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Textures:
-  - {fileID: 2800000, guid: 6d2468fa3e14f94418e7007d27d43646, type: 3}
-  - {fileID: 2800000, guid: 6a8e86de09347434c8364732bb049b37, type: 3}
-  - {fileID: 2800000, guid: 66b66748280831349bc3352e1cd09765, type: 3}
-  - {fileID: 2800000, guid: 33823e9402eb6c64c92bbb95fbca7ee9, type: 3}
+  - {fileID: 2800000, guid: e8faf23ab33c32f40ac6db3ded5f5fd4, type: 3}
+  - {fileID: 2800000, guid: 6f3e785f3de3db14a8d7dd0873fe5957, type: 3}
+  - {fileID: 2800000, guid: 183ba40673c246b43ac4bdb8cbd1f83f, type: 3}
+  - {fileID: 2800000, guid: 0dfa4eca3852c31468784d79bcb1fd49, type: 3}
+  - {fileID: 2800000, guid: 0c7a4e6f668157042909effded5a7e26, type: 3}
   followingVariableChosen: 1
-  CorrectSpriteIndex: 2
+  CorrectSpriteIndex: 1
 --- !u!1 &5770377773507739121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,7 +1736,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: c0d51f44398bcad41b7fdb70fd541f81, type: 3}
+  m_Texture: {fileID: 2800000, guid: 0694e94b350378044a81a3ae781472e3, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1755,9 +1756,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Textures:
-  - {fileID: 2800000, guid: b601ad0565e81304e95fbb3dee87762f, type: 3}
-  - {fileID: 2800000, guid: d2c5fdcc02596744b8efec88cc5ca021, type: 3}
-  - {fileID: 2800000, guid: c0d51f44398bcad41b7fdb70fd541f81, type: 3}
-  - {fileID: 2800000, guid: c6480abc7c774084a962621fe550bb43, type: 3}
+  - {fileID: 2800000, guid: 88194fafa58a7174ab57b0c54bf043be, type: 3}
+  - {fileID: 2800000, guid: 11a72b3d87f56854c8bf83227becbb5b, type: 3}
+  - {fileID: 2800000, guid: 05122780e756d384690baf4271a323ad, type: 3}
+  - {fileID: 2800000, guid: 73f4f5c3614eab246aae34872dd75b6b, type: 3}
+  - {fileID: 2800000, guid: 0694e94b350378044a81a3ae781472e3, type: 3}
   followingVariableChosen: 0
   CorrectSpriteIndex: 2
