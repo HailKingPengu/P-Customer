@@ -202,7 +202,7 @@ public class UpgradeScript : MonoBehaviour
             //if (!isOverUI && lastHit.transform.GetComponentInParent<floorScript>() == null)
         }
 
-        if (lastFloorScript.transform != null)
+        if (lastFloorScript!=null && lastFloorScript.transform != null)
         {
             upgradeMenu.transform.position = Camera.main.WorldToScreenPoint(lastFloorScript.transform.position);
             upgradeMenu.transform.position -= new Vector3(menuOffset + distanceFac * Mathf.Sqrt(Vector3.Distance(mainCam.transform.position, lastFloorScript.transform.position)), 0, 0);
