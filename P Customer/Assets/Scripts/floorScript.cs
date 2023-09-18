@@ -11,6 +11,8 @@ public class floorScript : ValuesScript
 
     private int upgradeTo;
 
+    public bool isSelected;
+
     //private BuildingManager connectedManager;
 
     // Start is called before the first frame update
@@ -70,8 +72,10 @@ public class floorScript : ValuesScript
             Destroy(model);
             model = Instantiate(levelModels[upgradeTo], transform);
 
-            
-            model.layer = 8;
+            if(isSelected)
+            {
+                model.layer = 8;
+            }
 
             currentLevel = upgradeTo;
 

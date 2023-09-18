@@ -314,6 +314,7 @@ public class UpgradeScript : MonoBehaviour
                 for (int j = 0; j < floor.childCount; j++)
                 {
                     floor.GetChild(j).gameObject.layer = 8;
+                    floor.GetComponent<floorScript>().isSelected = true;
                 }
             }
 
@@ -330,6 +331,7 @@ public class UpgradeScript : MonoBehaviour
                 for (int j = 0; j < floor.childCount; j++)
                 {
                     floor.GetChild(j).gameObject.layer = 0;
+                    floor.GetComponent<floorScript>().isSelected = false;
                 }
             }
 
