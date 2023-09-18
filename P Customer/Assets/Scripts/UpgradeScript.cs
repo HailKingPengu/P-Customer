@@ -15,6 +15,7 @@ public class UpgradeScript : MonoBehaviour
     [SerializeField] private Camera mainCam;
     [SerializeField] private Camera buildingCam;
     [SerializeField] private GameObject overlayEffect;
+    [SerializeField] private GameObject target;
 
     private LayerMask usedMask;
     private LayerMask defaultMask;
@@ -35,6 +36,8 @@ public class UpgradeScript : MonoBehaviour
     //[SerializeField] private TextMeshPro level3Text;
 
     [SerializeField] private AlertPopup alertPopup;
+
+    [SerializeField] private CameraMove cameraMove;
 
     // Start is called before the first frame update
     void Start()
@@ -314,6 +317,7 @@ public class UpgradeScript : MonoBehaviour
                 }
             }
 
+            cameraMove.targetPosition = new Vector3(floorScr.transform.position.x, 1, floorScr.transform.position.z);
             overlayEffect.SetActive(true);
 
         }
@@ -329,6 +333,7 @@ public class UpgradeScript : MonoBehaviour
                 }
             }
 
+            cameraMove.ResetPosition();
             overlayEffect.SetActive(false);
         }
     }
