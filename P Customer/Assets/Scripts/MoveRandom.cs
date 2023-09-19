@@ -12,12 +12,15 @@ public class MoveRandom : MonoBehaviour
     public float force;
     [SerializeField] private bool canStop = true;
     [SerializeField] private bool followSidewalks = true;
+    [SerializeField] private bool doRotate = false;
     float wait = 0;
     Vector3 dirChange = new Vector3(0f,0f,0f);
 
     float objectdistance = 0.5f;
 
     [SerializeField] private NavigatorMover mymover;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +55,12 @@ public class MoveRandom : MonoBehaviour
             }
             
 
+        }
+        if (doRotate)
+        {
+            Vector3 relativePos = desiredPosition - transform.position;
+            Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+            transform.rotation = rotation;
         }
 
         float dirChangeIntensity = 0.1f;
