@@ -157,6 +157,9 @@ public class TutorialScript : MonoBehaviour
                 cameraMove.ResetPosition();
                 upgradeScript.scriptActivated = true;
                 break;
+            case 3:
+
+                break;
         }
     }
 }

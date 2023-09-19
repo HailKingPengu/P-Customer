@@ -9,6 +9,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: bfda68d71815b2c4aa17110873f4657a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.081326
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bfda68d71815b2c4aa17110873f4657a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.081326
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bfda68d71815b2c4aa17110873f4657a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.081326
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bfda68d71815b2c4aa17110873f4657a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
       objectReference: {fileID: 0}
@@ -48,6 +60,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bfda68d71815b2c4aa17110873f4657a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bfda68d71815b2c4aa17110873f4657a, type: 3}
       propertyPath: m_Name
       value: RoofGrass3
@@ -55,5 +71,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bfda68d71815b2c4aa17110873f4657a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 366875973917345839}
   m_SourcePrefab: {fileID: 100100000, guid: bfda68d71815b2c4aa17110873f4657a, type: 3}
+--- !u!1 &5958050403765002388 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bfda68d71815b2c4aa17110873f4657a, type: 3}
+  m_PrefabInstance: {fileID: 6804471295863168453}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &366875973917345839
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958050403765002388}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 13.78047, y: 13.3613405, z: 5.7357583}
+  m_Center: {x: -0.2505086, y: -0.053895712, z: 2.896976}

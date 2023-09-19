@@ -46,9 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 000000000100000001000000
   levelModels:
-  - {fileID: 749067739268931958, guid: 6b3e5258c1e6423488550093bcf7a50b, type: 3}
+  - {fileID: 1597110269299860745, guid: ac2347b0dcccc5247ba0639fb248f487, type: 3}
   - {fileID: 7128117789505636494, guid: 135ec8ef50802044fbdd44db969d44bf, type: 3}
-  - {fileID: 6301339509160822710, guid: c8271c6c8dcdc274ca01c71da08b868a, type: 3}
+  - {fileID: 4648689567628037813, guid: b794118186f69ae4ba29c6d327634f66, type: 3}
   currentLevel: 0
   valuesArray:
   - powerUse: 0
@@ -61,3 +61,4 @@ MonoBehaviour:
     happiness: 100
     pollution: 0
   UpgradeParticles: {fileID: 2576916445792989148, guid: bef0ac835ea3cd145b5eeacce437a55e, type: 3}
+  isSelected: 0
