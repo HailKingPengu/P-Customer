@@ -661,7 +661,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192398662}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2db1842f66e73264a9cf733d21827487, type: 3}
   m_Name: 
@@ -675,6 +675,11 @@ MonoBehaviour:
   theThingIAmMadAbout: 0
   timeTillUpdate: 0
   madAboutString: 
+--- !u!4 &192398669 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6118453631038615876, guid: 357f7fed9a5630345bd2b128708d7300, type: 3}
+  m_PrefabInstance: {fileID: 1251758541}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &216249845
 GameObject:
   m_ObjectHideFlags: 0
@@ -5245,7 +5250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25014302, y: 0.36838987, z: -0.10361265, w: 0.88937163}
+  m_LocalRotation: {x: 0.250143, y: 0.36838987, z: -0.10361263, w: 0.88937163}
   m_LocalPosition: {x: 0.50430965, y: 14.57, z: 0.50431156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6335,7 +6340,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113754699}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.250143, y: 0.36838982, z: -0.10361262, w: 0.88937163}
+  m_LocalRotation: {x: 0.25014296, y: 0.3683898, z: -0.1036126, w: 0.88937163}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7653,13 +7658,29 @@ MonoBehaviour:
   tutorialText:
   - text: Welcome, mayor, to your utopia!
     function: 0
+    action: 0
   - text: Let's get a better look at your city!
     function: 0
+    action: 0
   - text: Use the middle mouse button to rotate the camera, and scroll to zoom.
     function: 0
+    action: 0
+  - text: There seem to be some unhappy residents in your city. Let's see what they
+      have to say...
+    function: 0
+    action: 1
+  - text: It seems they need AMONGUS and uhhh, uhh, uh, balls?
+    function: 0
+    action: 2
+  - text: Let's see if we can help them out. click on a building to open the upgrade
+      menu.
+    function: 0
+    action: 0
   currentText: 0
   waitingOnTrigger: 0
   triggerType: 0
+  cameraMove: {fileID: 146927034}
+  protestLocation: {fileID: 192398669}
 --- !u!1 &1319293820
 GameObject:
   m_ObjectHideFlags: 0
@@ -11767,7 +11788,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132358266}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23396732, y: 0.3702089, z: -0.09691244, w: 0.89376324}
+  m_LocalRotation: {x: 0.23396733, y: 0.3702089, z: -0.096912436, w: 0.89376324}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

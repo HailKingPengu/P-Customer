@@ -39,6 +39,8 @@ public class UpgradeScript : MonoBehaviour
 
     [SerializeField] private CameraMove cameraMove;
 
+    public bool isSelected;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -322,6 +324,7 @@ public class UpgradeScript : MonoBehaviour
                 }
             }
 
+            isSelected = true;
             cameraMove.targetPosition = new Vector3(floorScr.transform.position.x, 1, floorScr.transform.position.z);
             overlayEffect.SetActive(true);
 
@@ -339,6 +342,7 @@ public class UpgradeScript : MonoBehaviour
                 }
             }
 
+            isSelected = false;
             cameraMove.ResetPosition();
             overlayEffect.SetActive(false);
         }

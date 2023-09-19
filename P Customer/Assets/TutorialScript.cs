@@ -11,18 +11,21 @@ public class TutorialScript : MonoBehaviour
     {
 
         [SerializeField] public string text;
-        [SerializeField] public int function;
+        [SerializeField] public int trigger;
+        [SerializeField] public int action;
 
-        public tutorialNext(string stext, int sfunction)
+        public tutorialNext(string stext, int strigger, int saction)
         {
             text = stext;
-            function = sfunction;
+            trigger = strigger;
+            action = saction;
         }
 
     }
 
     [SerializeField] private GameObject textPanel;
     [SerializeField] private TMP_Text text;
+    [SerializeField] private TMP_Text nextText;
     [SerializeField] private Vector3 targetPosition;
 
     [SerializeField] private Vector3 hiddenPos;
@@ -38,6 +41,11 @@ public class TutorialScript : MonoBehaviour
 
     [SerializeField] private bool waitingOnTrigger;
     [SerializeField] private int triggerType;
+
+    [SerializeField] private CameraMove cameraMove;
+    [SerializeField] private Transform protestLocation;
+
+    [SerializeField] private UpgradeScript upgradeScript;
 
     //0 = mouse input, 1 = 
 
@@ -67,7 +75,20 @@ public class TutorialScript : MonoBehaviour
             switch(triggerType)
             {
                 case 0:
-                    if(Input.GetKey(KeyCode.Space))
+
+                    nextText.text = "press space >";
+
+                    if (Input.GetKey(KeyCode.Space))
+                    {
+                        ShowNext(tutorialText[currentText]);
+                        currentText++;
+                    }
+                break;
+                case 1:
+
+                    nextText.text = "select a building";
+
+                    if (upgradeScript.isSelected)
                     {
                         ShowNext(tutorialText[currentText]);
                         currentText++;
@@ -75,20 +96,30 @@ public class TutorialScript : MonoBehaviour
                     break;
             }
         }
+        else
+        {
+            nextText.text = " ";
+        }
     }
 
     private void ShowUntil(tutorialNext next)
     {
-
+        
     }
 
     private void ShowNext(tutorialNext next)
     {
         targetPosition = hiddenPos;
-        triggerType = next.function;
+        triggerType = next.trigger;
         waitingOnTrigger = false;
 
         Invoke("ShowPanel", 0.5f);
+
+        if (next.action != 0)
+        {
+            Action(next.action);
+            //Debug.Log("JEEEEEEZ????");
+        }
     }
 
     private void ShowPanel()
@@ -101,5 +132,20 @@ public class TutorialScript : MonoBehaviour
     private void HidePanel()
     {
         targetPosition = hiddenPos;
+    }
+
+    private void Action(int action)
+    {
+        switch(action)
+        {
+            case 1:
+                // zoom in on protestors
+                cameraMove.targetPosition = protestLocation.position;
+                //Debug.Log("JEEEEEEZ");
+                break;
+            case 2:
+                cameraMove.ResetPosition();
+                break;
+        }
     }
 }
