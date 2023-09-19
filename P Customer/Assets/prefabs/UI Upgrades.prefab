@@ -3065,7 +3065,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.114975, y: -5.80002}
+  m_AnchoredPosition: {x: -8, y: -5.80002}
   m_SizeDelta: {x: 90, y: 22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6546535430609600822
@@ -3096,7 +3096,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Happiness:'
+  m_text: 'Pollution:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 04affc2aaea2ee44aa71559621a61c48, type: 2}
   m_sharedMaterial: {fileID: 6213904856516738112, guid: 04affc2aaea2ee44aa71559621a61c48, type: 2}
@@ -5235,7 +5235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +4
+  m_text: -4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 04affc2aaea2ee44aa71559621a61c48, type: 2}
   m_sharedMaterial: {fileID: 6213904856516738112, guid: 04affc2aaea2ee44aa71559621a61c48, type: 2}
@@ -5244,8 +5244,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278486784
-  m_fontColor: {r: 0, g: 0.5283019, b: 0.0142784845, a: 1}
+    rgba: 4278456232
+  m_fontColor: {r: 0.65882355, g: 0.05882353, b: 0.0142784845, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7334,7 +7334,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: -1
+  m_text: -10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 04affc2aaea2ee44aa71559621a61c48, type: 2}
   m_sharedMaterial: {fileID: 6213904856516738112, guid: 04affc2aaea2ee44aa71559621a61c48, type: 2}
@@ -7343,8 +7343,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278193576
-  m_fontColor: {r: 0.65882355, g: 0.050980397, b: 0, a: 1}
+    rgba: 4278486784
+  m_fontColor: {r: 0, g: 0.5294118, b: 0.015686275, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

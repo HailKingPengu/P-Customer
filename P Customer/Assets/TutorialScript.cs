@@ -56,7 +56,7 @@ public class TutorialScript : MonoBehaviour
 
         targetPosition = textPanel.transform.position;
         shownPos = new Vector3(Screen.width / 2, 20, 0);
-        hiddenPos = new Vector3(Screen.width/ 2, -100, 0);
+        hiddenPos = new Vector3(Screen.width/ 2, -150, 0);
 
         //Invoke("ShowPanel", 1f);
         //Invoke("HidePanel", 2f);
@@ -86,7 +86,7 @@ public class TutorialScript : MonoBehaviour
                 break;
                 case 1:
 
-                    nextText.text = "select a building";
+                    nextText.text = "select a building >";
 
                     if (upgradeScript.isSelected)
                     {
@@ -96,7 +96,7 @@ public class TutorialScript : MonoBehaviour
                     break;
                 case 2:
 
-                    nextText.text = "upgrade a floor";
+                    nextText.text = "upgrade a floor >";
 
                     if (upgradeScript.hasUpgraded)
                     {
