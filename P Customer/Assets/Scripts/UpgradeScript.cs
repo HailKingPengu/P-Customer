@@ -95,6 +95,10 @@ public class UpgradeScript : MonoBehaviour
             }
             //}
         }
+        else
+        {
+            lastHit = new RaycastHit();
+        }
 
         //Debug.Log(lastHit.transform);
 
