@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1687347433601790903}
   - component: {fileID: 4830819831595209455}
+  - component: {fileID: 5050897178769662991}
   m_Layer: 0
   m_Name: Gamemanager
   m_TagString: Untagged
@@ -68,3 +69,19 @@ MonoBehaviour:
   alertText: {fileID: 0}
   gameOverScreen: {fileID: 0}
   currentState: 0
+--- !u!114 &5050897178769662991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633145898361936955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25dc66f593753ec44b6a2c27f3f2d509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentRebellion: 0
+  maxRebellion: 300
+  gameOver: 0
+  rebellionModifier: 0
