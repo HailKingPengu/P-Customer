@@ -6,10 +6,20 @@ using UnityEngine;
 public class TutorialScript : MonoBehaviour
 {
 
-    //public struct tutorialText(){
+    [System.Serializable]
+    struct tutorialNext
+    {
 
+        [SerializeField] public string text;
+        [SerializeField] public int function;
 
+        public tutorialNext(string stext, int sfunction)
+        {
+            text = stext;
+            function = sfunction;
+        }
 
+    }
 
     [SerializeField] private GameObject textPanel;
     [SerializeField] private TMP_Text text;
@@ -21,7 +31,8 @@ public class TutorialScript : MonoBehaviour
 
     [SerializeField] private GameObject targetBuilding;
 
-    [SerializeField] private string[] tutorialText;
+    [Header("amongus")]
+    [SerializeField] private tutorialNext[] tutorialText;
 
     private int currentText;
 
@@ -41,6 +52,9 @@ public class TutorialScript : MonoBehaviour
 
         //Invoke("ShowPanel", 1f);
         //Invoke("HidePanel", 2f);
+
+        waitingOnTrigger = true;
+        ShowPanel();
     }
 
     // Update is called once per frame
@@ -55,31 +69,33 @@ public class TutorialScript : MonoBehaviour
                 case 0:
                     if(Input.GetMouseButtonDown(0))
                     {
-                        //ShowNext();
+                        ShowNext(tutorialText[currentText]);
+                        currentText++;
                     }
                     break;
             }
         }
     }
 
-    private void ShowUntil(string text, int action)
+    private void ShowUntil(tutorialNext next)
     {
-        switch(action)
-        {
-            case 0:
-                targetPosition = shownPos; 
-                break;
-        }
+
     }
 
-    private void ShowNext(string text, int action)
+    private void ShowNext(tutorialNext next)
     {
+        targetPosition = hiddenPos;
+        triggerType = next.function;
+        waitingOnTrigger = false;
 
+        Invoke("ShowPanel", 0.5f);
     }
 
     private void ShowPanel()
     {
+        text.text = tutorialText[currentText].text;
         targetPosition = shownPos;
+        waitingOnTrigger = true;
     }
 
     private void HidePanel()
