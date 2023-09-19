@@ -20,25 +20,25 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
-  m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: d0833dcd757a8564ab9835c4b412c5cd, type: 2}
+  m_AmbientIntensity: 0
+  m_AmbientMode: 3
+  m_SubtractiveShadowColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 2bd8959f5fbd3644aa33af1a155fc147, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 512
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0.412
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.26852533, g: 0.46447325, b: 0.6146784, a: 1}
+  m_IndirectSpecularColor: {r: 0.035841405, g: 0.19962531, b: 0.9836841, a: 0.412}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3028,7 +3028,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.250143, y: 0.36838987, z: -0.10361263, w: 0.88937163}
+  m_LocalRotation: {x: 0.25014302, y: 0.36838987, z: -0.10361265, w: 0.88937163}
   m_LocalPosition: {x: 0.50430965, y: 14.57, z: 0.50431156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3582,7 +3582,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113754699}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25014296, y: 0.3683898, z: -0.1036126, w: 0.88937163}
+  m_LocalRotation: {x: 0.250143, y: 0.36838982, z: -0.10361262, w: 0.88937163}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4191,6 +4191,7 @@ MonoBehaviour:
   mainCam: {fileID: 963194227}
   buildingCam: {fileID: 1856933784}
   overlayEffect: {fileID: 969622267}
+  target: {fileID: 0}
   menuOffset: -85
   distanceFac: 10
   buildingStats: {fileID: 260410275}
@@ -4200,6 +4201,7 @@ MonoBehaviour:
   upgradeLevel2: {fileID: 1965015463}
   level2Text: {fileID: 890624326}
   alertPopup: {fileID: 1462999753}
+  cameraMove: {fileID: 0}
 --- !u!1 &1498207891
 GameObject:
   m_ObjectHideFlags: 0
@@ -5221,7 +5223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132358266}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23396732, y: 0.3702089, z: -0.09691244, w: 0.89376324}
+  m_LocalRotation: {x: 0.23396733, y: 0.3702089, z: -0.096912436, w: 0.89376324}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5326,3 +5328,4 @@ SceneRoots:
   - {fileID: 595568079}
   - {fileID: 182359253}
   - {fileID: 1251758541}
+  - {fileID: 625189405}
