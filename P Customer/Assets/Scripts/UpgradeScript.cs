@@ -40,6 +40,8 @@ public class UpgradeScript : MonoBehaviour
     [SerializeField] private CameraMove cameraMove;
 
     public bool isSelected;
+    public bool hasUpgraded;
+    public bool scriptActivated = false;
 
     // Start is called before the first frame update
     void Start()
@@ -53,53 +55,58 @@ public class UpgradeScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, usedMask))
+
+        if (scriptActivated)
         {
 
-            bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
-            Console.WriteLine(isOverUI);
-
-
-            //if (!EventSystem.current.IsPointerOverGameObject())
-            //{
-            //    hit = new RaycastHit();
-            //}
-
-            //if (hit.transform != null)
-            //{
-            //    Debug.Log(hit.transform);
-            //}
-            //if (Input.GetMouseButtonDown(0))
-            //{
-            if (hit.transform.GetComponentInParent<floorScript>() != null && !isOverUI)
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            // Does the ray intersect any objects excluding the player layer
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, usedMask))
             {
-                lastHit = hit;
+
+                bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
+                Console.WriteLine(isOverUI);
 
 
-                hit.transform.GetComponentInParent<floorScript>().Hovered();
-                //if(Input.GetMouseButton(0))
+                //if (!EventSystem.current.IsPointerOverGameObject())
                 //{
-                //    //hit.transform.GetComponentInParent<floorScript>().Upgrade(1);
+                //    hit = new RaycastHit();
+                //}
+
+                //if (hit.transform != null)
+                //{
+                //    Debug.Log(hit.transform);
+                //}
+                //if (Input.GetMouseButtonDown(0))
+                //{
+                if (hit.transform.GetComponentInParent<floorScript>() != null && !isOverUI)
+                {
+                    lastHit = hit;
+
+
+                    hit.transform.GetComponentInParent<floorScript>().Hovered();
+                    //if(Input.GetMouseButton(0))
+                    //{
+                    //    //hit.transform.GetComponentInParent<floorScript>().Upgrade(1);
+                    //}
+                }
+                else if (isOverUI)
+                {
+                    //return;
+                }
+
+                if (hit.transform.GetComponentInParent<floorScript>() == null)
+                {
+                    lastHit = new RaycastHit();
+                    //lastFloorScript = null;
+                }
                 //}
             }
-            else if (isOverUI)
-            {
-                //return;
-            }
-
-            if (hit.transform.GetComponentInParent<floorScript>() == null)
+            else
             {
                 lastHit = new RaycastHit();
-                //lastFloorScript = null;
             }
-            //}
-        }
-        else
-        {
-            lastHit = new RaycastHit();
         }
 
         //Debug.Log(lastHit.transform);
@@ -108,104 +115,108 @@ public class UpgradeScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
 
-            bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
-            //lastFloorScript = lastHit.transform.GetComponentInParent<floorScript>();
+        if (scriptActivated) {
 
-            //Debug.Log(lastHit.transform.GetComponentInParent<floorScript>());
-            //Debug.Log(lastHit.transform.parent);
-
-            if (!isOverUI)
+            if (Input.GetMouseButtonDown(0))
             {
 
-                if (lastHit.transform != null)
-                {
-                    lastFloorScript = lastHit.transform.GetComponentInParent<floorScript>();
+                bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
+                //lastFloorScript = lastHit.transform.GetComponentInParent<floorScript>();
 
-                    if (targetedFloorScript != lastFloorScript && targetedFloorScript != null)
+                //Debug.Log(lastHit.transform.GetComponentInParent<floorScript>());
+                //Debug.Log(lastHit.transform.parent);
+
+                if (!isOverUI)
+                {
+
+                    if (lastHit.transform != null)
                     {
+                        lastFloorScript = lastHit.transform.GetComponentInParent<floorScript>();
+
+                        if (targetedFloorScript != lastFloorScript && targetedFloorScript != null)
+                        {
+                            ShowBuilding(false, targetedFloorScript);
+                        }
+
+                        targetedFloorScript = lastFloorScript;
+
+
+
+
+                        upgradeMenu.transform.position = Camera.main.WorldToScreenPoint(lastHit.transform.position);
+                        upgradeMenu.SetActive(true);
+                        buildingStats.SetActive(true);
+                        ShowBuilding(true, targetedFloorScript);
+                        usedMask = buildingMask;
+
+                        Values lVal0 = lastFloorScript.valuesArray[0];
+                        Values lVal1 = new Values();
+                        Values lVal2 = new Values();
+
+                        if (lastFloorScript.valuesArray.Length >= 2)
+                        {
+                            upgradeLevel1.SetActive(true);
+                            lVal1 = lastFloorScript.valuesArray[1];
+                        }
+                        else
+                        {
+                            upgradeLevel1.SetActive(false);
+                        }
+                        if (lastFloorScript.valuesArray.Length >= 3)
+                        {
+                            upgradeLevel2.SetActive(true);
+                            lVal2 = lastFloorScript.valuesArray[2];
+                        }
+                        else
+                        {
+                            upgradeLevel2.SetActive(false);
+                        }
+                        for (int i = 0; i < lastFloorScript.valuesArray.Length; i++)
+                        {
+
+                        }
+
+                        if (lVal0.powerUse >= 0)
+                        {
+                            level1Text.text =
+                            "power use:" + (lVal1.powerUse - lVal0.powerUse) + "\nhappiness:" + (lVal1.happiness - lVal0.happiness) + "\npollution:" + (lVal1.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[1];
+
+
+                            level2Text.text =
+                            "power use:" + (lVal2.powerUse - lVal0.powerUse) + "\nhappiness:" + (lVal2.happiness - lVal0.happiness) + "\npollution:" + (lVal2.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[2];
+                        }
+                        else
+                        {
+                            level1Text.text =
+                            "power production:" + (-lVal1.powerUse) + "\nhappiness:" + (lVal1.happiness - lVal0.happiness) + "\npollution:" + (lVal1.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[1];
+
+
+                            level2Text.text =
+                            "power production:" + (-lVal2.powerUse) + "\nhappiness:" + (lVal2.happiness - lVal0.happiness) + "\npollution:" + (lVal2.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[2];
+                        }
+                    }
+                    else
+                    {
+                        upgradeMenu.SetActive(false);
+                        buildingStats.SetActive(false);
                         ShowBuilding(false, targetedFloorScript);
-                    }
-
-                    targetedFloorScript = lastFloorScript;
-
-
-
-
-                    upgradeMenu.transform.position = Camera.main.WorldToScreenPoint(lastHit.transform.position);
-                    upgradeMenu.SetActive(true);
-                    buildingStats.SetActive(true);
-                    ShowBuilding(true, targetedFloorScript);
-                    usedMask = buildingMask;
-
-                    Values lVal0 = lastFloorScript.valuesArray[0];
-                    Values lVal1 = new Values();
-                    Values lVal2 = new Values();
-
-                    if(lastFloorScript.valuesArray.Length >= 2)
-                    {
-                        upgradeLevel1.SetActive(true);
-                        lVal1 = lastFloorScript.valuesArray[1];
-                    }
-                    else
-                    {
-                        upgradeLevel1.SetActive(false);
-                    }
-                    if (lastFloorScript.valuesArray.Length >= 3)
-                    {
-                        upgradeLevel2.SetActive(true);
-                        lVal2 = lastFloorScript.valuesArray[2];
-                    }
-                    else
-                    {
-                        upgradeLevel2.SetActive(false);
-                    }
-                    for (int i = 0; i < lastFloorScript.valuesArray.Length; i++)
-                    {
-
-                    }
-
-                    if (lVal0.powerUse >= 0)
-                    {
-                        level1Text.text =
-                        "power use:" + (lVal1.powerUse - lVal0.powerUse) + "\nhappiness:" + (lVal1.happiness - lVal0.happiness) + "\npollution:" + (lVal1.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[1];
-
-
-                        level2Text.text =
-                        "power use:" + (lVal2.powerUse - lVal0.powerUse) + "\nhappiness:" + (lVal2.happiness - lVal0.happiness) + "\npollution:" + (lVal2.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[2];
-                    }
-                    else
-                    {
-                        level1Text.text =
-                        "power production:" + (-lVal1.powerUse) + "\nhappiness:" + (lVal1.happiness - lVal0.happiness) + "\npollution:" + (lVal1.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[1];
-
-
-                        level2Text.text =
-                        "power production:" + (-lVal2.powerUse) + "\nhappiness:" + (lVal2.happiness - lVal0.happiness) + "\npollution:" + (lVal2.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[2];
+                        usedMask = defaultMask;
                     }
                 }
-                else
+                //else if(lastFloorScript == null && !isOverUI)
+                //{
+                //    lastFloorScript = lastHit.transform.GetComponentInParent<floorScript>();
+                //}
+                //if (lastFloorScript != null && !isOverUI)
+                //{
+                //    upgradeMenu.transform.position = Camera.main.WorldToScreenPoint(lastHit.transform.position);
+                //    upgradeMenu.SetActive(true);
+                //}
+                else if (isOverUI)
                 {
-                    upgradeMenu.SetActive(false);
-                    buildingStats.SetActive(false);
-                    ShowBuilding(false, targetedFloorScript);
-                    usedMask = defaultMask;
+                    //return;
                 }
-            }
-            //else if(lastFloorScript == null && !isOverUI)
-            //{
-            //    lastFloorScript = lastHit.transform.GetComponentInParent<floorScript>();
-            //}
-            //if (lastFloorScript != null && !isOverUI)
-            //{
-            //    upgradeMenu.transform.position = Camera.main.WorldToScreenPoint(lastHit.transform.position);
-            //    upgradeMenu.SetActive(true);
-            //}
-            else if (isOverUI)
-            {
-                //return;
             }
 
             //if (!isOverUI && lastHit.transform.GetComponentInParent<floorScript>() == null)
@@ -231,6 +242,9 @@ public class UpgradeScript : MonoBehaviour
         {
             if (gameManager.money >= lastFloorScript.cost[level] && level != lastFloorScript.currentLevel)
             {
+
+                hasUpgraded = true;
+
                 lastFloorScript.Upgrade(level);
                 lastFloorScript = lastFloorScript.transform.GetComponent<floorScript>();
 
@@ -283,6 +297,8 @@ public class UpgradeScript : MonoBehaviour
                         floors[i].UpgradeAfter(level, i * 0.1f);
                     }
                 }
+
+                hasUpgraded = true;
 
 
                 lastFloorScript = lastFloorScript.transform.GetComponent<floorScript>();

@@ -94,6 +94,16 @@ public class TutorialScript : MonoBehaviour
                         currentText++;
                     }
                     break;
+                case 2:
+
+                    nextText.text = "upgrade a floor";
+
+                    if (upgradeScript.hasUpgraded)
+                    {
+                        ShowNext(tutorialText[currentText]);
+                        currentText++;
+                    }
+                    break;
             }
         }
         else
@@ -145,6 +155,7 @@ public class TutorialScript : MonoBehaviour
                 break;
             case 2:
                 cameraMove.ResetPosition();
+                upgradeScript.scriptActivated = true;
                 break;
         }
     }
