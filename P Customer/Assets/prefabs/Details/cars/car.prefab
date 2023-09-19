@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 654538107031885713}
   - component: {fileID: 8224801186346404258}
   - component: {fileID: 487353293372475754}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pCylinder11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6492869877172665147}
   - component: {fileID: 922220469232427787}
   - component: {fileID: 3718667530375272964}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,6 +237,10 @@ PrefabInstance:
     - target: {fileID: 7449685138809905376, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
       propertyPath: m_Name
       value: Person Waving
+      objectReference: {fileID: 0}
+    - target: {fileID: 7690335438826507178, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5945403598472533835, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
