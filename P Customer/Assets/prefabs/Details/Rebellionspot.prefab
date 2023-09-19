@@ -317,6 +317,11 @@ MonoBehaviour:
   - We need more power!
   - Power is life!
   - Give us Power!
+  tutorialCritic:
+  - I wan't more apartments!
+  - Where are the nicer houses?
+  - Give me apartments!
+  - We need more room for housing!
   textmesh: {fileID: 4978693290035314441}
   protestSounds: {fileID: 5127815932805856612}
   theThingIAmMadAbout: 0

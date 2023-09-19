@@ -11,6 +11,7 @@ public class RebelSpawner : MonoBehaviour
     [SerializeField] private List<string> defaultCritic;
     [SerializeField] private List<string> happinessCritic;
     [SerializeField] private List<string> powerCritic;
+    [SerializeField] private List<string> tutorialCritic;
 
     [SerializeField] private TMPro.TextMeshProUGUI textmesh;
 
@@ -18,7 +19,8 @@ public class RebelSpawner : MonoBehaviour
     private enum thingsToBeMadAbout { 
         pollution,
         happiness,
-        power
+        power,
+        tutorial
     }
     [SerializeField] private thingsToBeMadAbout theThingIAmMadAbout;
 
@@ -53,6 +55,11 @@ public class RebelSpawner : MonoBehaviour
 
     void UpdateMadChoice()
     {
+        if (true)
+        {
+            theThingIAmMadAbout = thingsToBeMadAbout.tutorial;
+        }
+        else
         if (manager.powerUse > manager.powerProduction)
         {
 
@@ -76,6 +83,9 @@ public class RebelSpawner : MonoBehaviour
 
         switch (theThingIAmMadAbout)
         {
+            case thingsToBeMadAbout.tutorial:
+                chooseRandomString(tutorialCritic);
+                break;
             case thingsToBeMadAbout.power:
                 chooseRandomString(powerCritic);
                 break;
