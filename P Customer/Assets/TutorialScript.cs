@@ -34,10 +34,10 @@ public class TutorialScript : MonoBehaviour
     [Header("amongus")]
     [SerializeField] private tutorialNext[] tutorialText;
 
-    private int currentText;
+    [SerializeField] private int currentText;
 
-    private bool waitingOnTrigger;
-    private int triggerType;
+    [SerializeField] private bool waitingOnTrigger;
+    [SerializeField] private int triggerType;
 
     //0 = mouse input, 1 = 
 
@@ -67,7 +67,7 @@ public class TutorialScript : MonoBehaviour
             switch(triggerType)
             {
                 case 0:
-                    if(Input.GetMouseButtonDown(0))
+                    if(Input.GetKey(KeyCode.Space))
                     {
                         ShowNext(tutorialText[currentText]);
                         currentText++;
