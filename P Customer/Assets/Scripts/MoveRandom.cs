@@ -59,6 +59,9 @@ public class MoveRandom : MonoBehaviour
         if (doRotate)
         {
             Vector3 relativePos = desiredPosition - transform.position;
+
+            //transform.rotation = Quaternion.LookRotation(rb.velocity, Vector3.up);
+            //transform.rotation = Quaternion.Euler(0f, transform.rotation.y, transform.rotation.z);
             Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
             transform.rotation = rotation;
         }
