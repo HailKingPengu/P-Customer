@@ -267,6 +267,41 @@ public class UpgradeScript : MonoBehaviour
         }
     }
 
+    public void upgradeRoof(int level)
+    {
+        if (lastFloorScript != null)
+        {
+
+            Transform building = lastFloorScript.transform.parent;
+            floorScript roofScript = building.GetChild(building.childCount - 1).GetComponent<floorScript>();
+
+            if (gameManager.money >= roofScript.cost[level] && level != roofScript.currentLevel)
+            {
+
+                //hasUpgraded = true;
+
+                roofScript.Upgrade(level);
+                roofScript = roofScript.transform.GetComponent<floorScript>();
+
+                gameManager.money -= roofScript.cost[level];
+
+                ShowBuilding(true, roofScript);
+            }
+            else
+            {
+                alertPopup.Popup("You don't have enough money to do this.", 3f);
+
+                //Debug.Log(gameManager.money + "" + lastFloorScript.cost[level]);
+                //Debug.Log("BROKE");
+            }
+        }
+        else
+        {
+            Debug.Log(lastFloorScript);
+            Debug.Log("no floor script");
+        }
+    }
+
     public void upgradeBuilding(int level)
     {
         if (lastFloorScript != null)
@@ -277,7 +312,7 @@ public class UpgradeScript : MonoBehaviour
 
             int upgradeCost = 0;
 
-            for (int i = 0; i < building.childCount; i++)
+            for (int i = 0; i < building.childCount - 1; i++)
             {
                 floors[i] = building.GetChild(i).GetComponent<floorScript>();
                 if (floors[i].currentLevel != level)
@@ -290,7 +325,7 @@ public class UpgradeScript : MonoBehaviour
             if (gameManager.money >= upgradeCost)
             {
 
-                for(int i = 0; i < building.childCount; i++)
+                for(int i = 0; i < building.childCount - 1; i++)
                 {
                     if(floors[i].currentLevel != level)
                     {

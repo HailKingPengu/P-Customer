@@ -9921,7 +9921,7 @@ GameObject:
   - component: {fileID: 1617792447}
   - component: {fileID: 1617792446}
   m_Layer: 5
-  m_Name: Path 1 Building
+  m_Name: Path 2 Roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9991,9 +9991,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1483084840}
         m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
-        m_MethodName: upgradeBuilding
+        m_MethodName: upgradeRoof
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10397,7 +10397,7 @@ GameObject:
   - component: {fileID: 1780678583}
   - component: {fileID: 1780678582}
   m_Layer: 5
-  m_Name: Path 1 Floor
+  m_Name: Path 1 Roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10467,14 +10467,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1483084840}
         m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
-        m_MethodName: upgradeCurrent
+        m_MethodName: upgradeRoof
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -12012,7 +12012,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132358266}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23396733, y: 0.3702089, z: -0.096912436, w: 0.89376324}
+  m_LocalRotation: {x: 0.23396732, y: 0.3702089, z: -0.09691244, w: 0.89376324}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
