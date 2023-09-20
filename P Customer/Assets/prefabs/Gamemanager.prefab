@@ -60,8 +60,9 @@ MonoBehaviour:
   powerProduction: 0
   powerUse: 0
   powerNeeded: 0
+  powerDeficiencyMadness: 0
   powerDeficiencyHappinessInfluence: 30
-  powerDeficiencyMadnessIncrease: 0.0001
+  powerDeficiencyMadnessIncrease: 0.01
   happinessRageThreshold: 25
   rebellion: 0
   anger: 0
