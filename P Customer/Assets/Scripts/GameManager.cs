@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Money increasing")]
     public int money; // money goes up overtime
+    public int moneyChange;
     float moneyTime;
     public float moneyTimer;
     public int moneyAmountPerTime;
@@ -58,6 +59,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ClockScript clock;
     [SerializeField] private GameOverScript gameOverScript;
 
+    private Values currentValues;
+
     public enum Gamestate
     {
         Playing,
@@ -89,7 +92,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        Values currentValues = buildingDataHub.values;
+        currentValues = buildingDataHub.values;
 
         power = currentValues.powerUse;
         powerProduction = buildingDataHub.powerProduction;
@@ -100,6 +103,8 @@ public class GameManager : MonoBehaviour
 
         // RULE #3 REBELLION GOES UP OVER TIME
         rebellion = (Mathf.Round((Timer.currentRebellion)/3));
+
+        moneyChange = (int)currentValues.moneyGeneration;
 
         //pollution resistance
         //pollutionAnger = (pollution - 500) * (pollutionResistance * ((Time.time * Time.time) / 450));
@@ -207,7 +212,9 @@ public class GameManager : MonoBehaviour
         if (moneyTime >= moneyTimer)
         {
             moneyTime -= moneyTimer;
-            money += Mathf.RoundToInt(moneyIncrementor);
+            //money += Mathf.RoundToInt(moneyIncrementor);
+
+            money += (int)currentValues.moneyGeneration;
         }
     }
 

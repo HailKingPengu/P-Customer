@@ -13,9 +13,16 @@ namespace UnityEngine
 
         [SerializeField] public float pollution;
 
+        [SerializeField] public float moneyGeneration;
+
         public Values(float inPowerUse, float inHappiness, float inPollution)
         {
-            powerUse = inPowerUse; happiness = inHappiness; pollution = inPollution;
+            powerUse = inPowerUse; happiness = inHappiness; pollution = inPollution; moneyGeneration = 0;
+        }
+
+        public Values(float inPowerUse, float inHappiness, float inPollution, float inMoneyGeneration)
+        {
+            powerUse = inPowerUse; happiness = inHappiness; pollution = inPollution; moneyGeneration = inMoneyGeneration;
         }
 
     }

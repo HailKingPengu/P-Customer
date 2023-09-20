@@ -40,6 +40,7 @@ public class BuildingManager : MonoBehaviour
 
         values.powerUse = 0;
         values.pollution = 0;
+        values.moneyGeneration = 0;
 
         float totalHappiness = 0;
 
@@ -50,6 +51,7 @@ public class BuildingManager : MonoBehaviour
             values.powerUse += floorData.powerUse;
             totalHappiness += floorData.happiness;
             values.pollution += floorData.pollution;
+            values.moneyGeneration += floorData.moneyGeneration;
         }
 
         values.happiness = totalHappiness / floors.Length;

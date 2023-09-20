@@ -18,7 +18,8 @@ public class ChangeText : MonoBehaviour
         getPollution,
         getPollutionUnhappiness,
         getPowerlessUnhappiness,
-        getSustainability
+        getSustainability,
+        getMoneyChange
     }
 
     public Functions chosenfunction;
@@ -79,5 +80,24 @@ public class ChangeText : MonoBehaviour
     void getSustainability()
     {
         text = gameManager.anger.ToString();
+    }
+    void getMoneyChange()
+    {
+
+        int moneyChange = gameManager.moneyChange;
+
+        if (moneyChange < 0)
+        {
+            text = moneyChange.ToString();
+        }
+        if (moneyChange == 0)
+        {
+            text = "-";
+        }
+        if (moneyChange > 0)
+        {
+            text = "+" + moneyChange.ToString();
+        }
+
     }
 }

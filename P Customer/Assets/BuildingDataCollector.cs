@@ -38,6 +38,7 @@ public class BuildingDataCollector : MonoBehaviour
 
         values.powerUse = 0;
         values.pollution = 0;
+        values.moneyGeneration = 0;
 
         float totalHappiness = 0;
 
@@ -48,6 +49,7 @@ public class BuildingDataCollector : MonoBehaviour
             //values.powerUse += buildingData.powerUse;
             totalHappiness += buildingData.happiness;
             values.pollution += buildingData.pollution;
+            values.moneyGeneration += buildingData.moneyGeneration;
 
             if (buildingData.powerUse < 0) { powerProduction -= buildingData.powerUse; }
             if (buildingData.powerUse >= 0) { powerUse += buildingData.powerUse; }
@@ -58,6 +60,8 @@ public class BuildingDataCollector : MonoBehaviour
         //Debug.Log(powerProduction + " - " + powerUse + " - " + values.powerUse);
 
         values.happiness = totalHappiness / buildingManagers.Length;
+
+        Debug.Log(values.moneyGeneration);
 
     }
 }
