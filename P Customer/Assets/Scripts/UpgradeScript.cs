@@ -40,12 +40,19 @@ public class UpgradeScript : MonoBehaviour
 
     [SerializeField] private TMP_Text RoofLevel1;
     [SerializeField] private TMP_Text RoofLevel2;
+
+    [SerializeField] private TMP_Text PowerLevel1;
+    [SerializeField] private TMP_Text PowerLevel2;
     //[SerializeField] private GameObject upgradeLevel3;
     //[SerializeField] private TextMeshPro level3Text;
 
     [SerializeField] private AlertPopup alertPopup;
 
     [SerializeField] private CameraMove cameraMove;
+
+
+    [SerializeField] private GameObject buildingMenu;
+    [SerializeField] private GameObject powerMenu;
 
     public bool isSelected;
     public bool hasUpgraded;
@@ -187,32 +194,46 @@ public class UpgradeScript : MonoBehaviour
 
                         if (lVal0.powerUse >= 0)
                         {
-                            level1Text.text =
-                            "power use:" + (lVal1.powerUse - lVal0.powerUse) + "\nhappiness:" + (lVal1.happiness - lVal0.happiness) + "\npollution:" + (lVal1.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[1];
+
+                            buildingMenu.SetActive(true);
+                            powerMenu.SetActive(false);
+
+                            BuildingManager buildingManager = lastFloorScript.GetComponentInParent<BuildingManager>();
+
+                            PrizeLevel1.text = lastFloorScript.cost[1].ToString() + "$";
+                            PrizeLevel2.text = lastFloorScript.cost[2].ToString() + "$";
+                            PrizeLevel1Building.text = (lastFloorScript.cost[1] * (buildingManager.floors.Length - 1)).ToString() + "$";
+                            PrizeLevel2Building.text = (lastFloorScript.cost[2] * (buildingManager.floors.Length - 1)).ToString() + "$";
+
+                            RoofLevel1.text = (buildingManager.floors[buildingManager.floors.Length - 1].cost[1]).ToString() + "$";
+                            RoofLevel2.text = (buildingManager.floors[buildingManager.floors.Length - 1].cost[2]).ToString() + "$";
+
+                            //level1Text.text =
+                            //"power use:" + (lVal1.powerUse - lVal0.powerUse) + "\nhappiness:" + (lVal1.happiness - lVal0.happiness) + "\npollution:" + (lVal1.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[1];
 
 
-                            level2Text.text =
-                            "power use:" + (lVal2.powerUse - lVal0.powerUse) + "\nhappiness:" + (lVal2.happiness - lVal0.happiness) + "\npollution:" + (lVal2.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[2];
+                            //level2Text.text =
+                            //"power use:" + (lVal2.powerUse - lVal0.powerUse) + "\nhappiness:" + (lVal2.happiness - lVal0.happiness) + "\npollution:" + (lVal2.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[2];
                         }
                         else
                         {
-                            level1Text.text =
-                            "power production:" + (-lVal1.powerUse) + "\nhappiness:" + (lVal1.happiness - lVal0.happiness) + "\npollution:" + (lVal1.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[1];
+                            buildingMenu.SetActive(false);
+                            powerMenu.SetActive(true);
+
+                            //BuildingManager buildingManager = lastFloorScript.GetComponentInParent<BuildingManager>();
+
+                            PowerLevel1.text = lastFloorScript.cost[1].ToString() + "$";
+                            PowerLevel2.text = lastFloorScript.cost[2].ToString() + "$";
+
+                            //level1Text.text =
+                            //"power production:" + (-lVal1.powerUse) + "\nhappiness:" + (lVal1.happiness - lVal0.happiness) + "\npollution:" + (lVal1.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[1];
 
 
-                            level2Text.text =
-                            "power production:" + (-lVal2.powerUse) + "\nhappiness:" + (lVal2.happiness - lVal0.happiness) + "\npollution:" + (lVal2.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[2];
+                            //level2Text.text =
+                            //"power production:" + (-lVal2.powerUse) + "\nhappiness:" + (lVal2.happiness - lVal0.happiness) + "\npollution:" + (lVal2.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[2];
                         }
 
-                        BuildingManager buildingManager = lastFloorScript.GetComponentInParent<BuildingManager>();
 
-                        PrizeLevel1.text = lastFloorScript.cost[1].ToString() + "$";
-                        PrizeLevel2.text = lastFloorScript.cost[2].ToString() + "$";
-                        PrizeLevel1Building.text = (lastFloorScript.cost[1] * (buildingManager.floors.Length - 1)).ToString() + "$";
-                        PrizeLevel2Building.text = (lastFloorScript.cost[2] * (buildingManager.floors.Length - 1)).ToString() + "$";
-
-                        RoofLevel1.text = (buildingManager.floors[buildingManager.floors.Length - 1].cost[1]).ToString() + "$";
-                        RoofLevel2.text = (buildingManager.floors[buildingManager.floors.Length - 1].cost[2]).ToString() + "$";
 
                     }
                     else
