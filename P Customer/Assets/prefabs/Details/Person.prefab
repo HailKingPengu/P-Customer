@@ -269,4 +269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 8
+  canStop: 1
+  followSidewalks: 0
+  doRotate: 0
+  prevNavMover: {fileID: 0}
   mymover: {fileID: 0}

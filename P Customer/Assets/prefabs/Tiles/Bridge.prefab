@@ -405,6 +405,10 @@ PrefabInstance:
       propertyPath: mymover
       value: 
       objectReference: {fileID: 1382837055448243261}
+    - target: {fileID: 922220469232427787, guid: c848fbe8b61fe6044b0e53e1c1644b7b, type: 3}
+      propertyPath: prevNavMover
+      value: 
+      objectReference: {fileID: 5445816268994624580}
     - target: {fileID: 2356388469862651645, guid: c848fbe8b61fe6044b0e53e1c1644b7b, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -473,6 +477,11 @@ PrefabInstance:
 --- !u!4 &4107199629597519762 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2356388469862651645, guid: c848fbe8b61fe6044b0e53e1c1644b7b, type: 3}
+  m_PrefabInstance: {fileID: 1750816795813214575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5445816268994624580 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6043632316940305707, guid: c848fbe8b61fe6044b0e53e1c1644b7b, type: 3}
   m_PrefabInstance: {fileID: 1750816795813214575}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6988160188754958032

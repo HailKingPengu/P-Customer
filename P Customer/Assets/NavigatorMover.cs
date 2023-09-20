@@ -18,6 +18,7 @@ public class NavigatorMover : MonoBehaviour
     public GameObject SouthPath; // -1,0,0
     public GameObject EastPath; // 0,0,-1
     public GameObject WestPath; // 0,0,1
+    public List<GameObject> Paths = new List<GameObject>();
 
     public Vector3 myposition;
     // Start is called before the first frame update
@@ -36,6 +37,11 @@ public class NavigatorMover : MonoBehaviour
             SouthPath = HitOtherNavs(new Vector3(-1f, 0f, 0f));
             EastPath = HitOtherNavs(new Vector3(0f, 0f, 1f));
             WestPath = HitOtherNavs(new Vector3(0f, 0f, -1f));
+
+            if(NorthPath!=null){Paths.Add(NorthPath);}
+            if(SouthPath!=null){Paths.Add(SouthPath);}
+            if(EastPath!=null){Paths.Add(EastPath);}
+            if(WestPath!=null){Paths.Add(WestPath);}
 
             findNav = false;
             ready = true;
@@ -58,34 +64,32 @@ public class NavigatorMover : MonoBehaviour
 
 
 
-    public NavigatorMover GetNewLocation()
+    public NavigatorMover GetNewLocation(GameObject prevNavMover)
     {
         GameObject returnal = null;
         int tries = 0;
 
-        if (NorthPath == null && SouthPath == null && EastPath == null && WestPath == null) { /*Debug.Log("HEEELPEF");*/ }
 
-        while (returnal == null && tries < 100) {
-            tries++;
-            int r = Random.Range(0, 4);
 
-            switch (r) {
-                case 0:
-                    returnal = NorthPath;
-                   break;
-                case 1:
-                    returnal = SouthPath;
-                    break;
-                case 2:
-                    returnal = EastPath;
-                    break;
-                case 3:
-                    returnal= WestPath;
-                    break;
+            if(Paths.Count>1){
+                while(returnal==null){
+                    int r = Random.Range(0, Paths.Count);
+                    Debug.Log(r);
+                    returnal = Paths[r];
+                    if(GameObject.ReferenceEquals( returnal, prevNavMover)){returnal = null;};
+                }
+            } else
+            if(Paths.Count==1) {
+                returnal = Paths[0];
             }
-        }
-        if (returnal == null) { returnal = transform.gameObject; }
+
+            if (returnal == null) { returnal = transform.gameObject; }
+
 
         return (returnal.GetComponent<NavigatorMover>() );
+    }
+
+    public GameObject getObject() {
+        return gameObject;
     }
 }
