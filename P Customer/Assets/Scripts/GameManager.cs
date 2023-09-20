@@ -54,6 +54,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AlertPopup alertText;
     [SerializeField] private GameObject gameOverScreen;
 
+    [Header("GameOver UI")]
+    [SerializeField] private ClockScript clock;
+    [SerializeField] private GameOverScript gameOverScript;
 
     public enum Gamestate
     {
@@ -119,11 +122,6 @@ public class GameManager : MonoBehaviour
             alertText.Popup("Your city has run out of power!", 0.1f);
         }
 
-        if(happiness < 0)
-        {
-            gameOverScreen.SetActive(true);
-        }
-
         switch (currentState)
         {
         case Gamestate.Playing:
@@ -139,6 +137,33 @@ public class GameManager : MonoBehaviour
             //case Gamestate.Title:
             //    Debug.Log("We're so Barack");
             //    break;
+        }
+
+
+        //Game over stuff
+        if (clock.targetReached)
+        {
+            if (happiness < 30)
+            {
+                gameOverScript.GameOver(0);
+            }
+            else if (happiness < 60)
+            {
+                gameOverScript.GameOver(1);
+            }
+            else if (happiness < 90)
+            {
+                gameOverScript.GameOver(2);
+            }
+            else
+            {
+                gameOverScript.GameOver(3);
+            }
+        }
+
+        if (happiness < 0)
+        {
+            gameOverScript.GameOver(0);
         }
 
     }

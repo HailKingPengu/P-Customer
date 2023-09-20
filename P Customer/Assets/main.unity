@@ -8702,9 +8702,9 @@ MonoBehaviour:
   - {fileID: 5026697178960796803, guid: f03b212c15266f94eaae3bf6682e16d3, type: 3}
   powerPlantPrefab: {fileID: 8490117261656662554, guid: 35c9c2506fde53446ad6f1c5b74d0f70, type: 3}
   numPowerPlants: 3
-  mapXSize: 30
-  mapYSize: 30
-  centerPoint: {x: 15, y: 15}
+  mapXSize: 31
+  mapYSize: 31
+  centerPoint: {x: 16, y: 16}
   riverPosition: 18
   buildingDataHub: {fileID: 182359254}
 --- !u!4 &968046992
