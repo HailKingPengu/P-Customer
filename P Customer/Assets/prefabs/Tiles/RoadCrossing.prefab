@@ -214,6 +214,10 @@ PrefabInstance:
       propertyPath: navObject
       value: 
       objectReference: {fileID: 3713534137370858812}
+    - target: {fileID: 260842242910327632, guid: 44ac67daef210d64797ea7aef7038319, type: 3}
+      propertyPath: prevNavMover
+      value: 
+      objectReference: {fileID: 3713534137370858812}
     - target: {fileID: 2056833338724633764, guid: 44ac67daef210d64797ea7aef7038319, type: 3}
       propertyPath: m_Name
       value: Person

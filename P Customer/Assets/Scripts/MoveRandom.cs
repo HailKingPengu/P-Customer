@@ -16,8 +16,9 @@ public class MoveRandom : MonoBehaviour
     float wait = 0;
     Vector3 dirChange = new Vector3(0f,0f,0f);
 
-    float objectdistance = 0.5f;
+    float objectdistance = 0.1f;
 
+    [SerializeField] private GameObject prevNavMover;
     [SerializeField] private NavigatorMover mymover;
 
 
@@ -34,34 +35,14 @@ public class MoveRandom : MonoBehaviour
     {
 
 
-        if (Vector3.Distance(this.transform.position, desiredPosition) <= objectdistance)
-        {
-            // choose something new to do
-            if (canStop)
-            {
-                if (Random.Range(0, 10) > 7)
-                {
-                    wait = Random.Range(20, 80);
-                }
-            }
 
-            mymover = mymover.GetNewLocation();
-
-            float difference = 0.2f;
-            desiredPosition = getPosition(mymover);
-            if (followSidewalks)
-            {
-                desiredPosition += new Vector3(Random.Range(-difference, difference), 0f, Random.Range(-difference, difference));
-            }
-            
-
-        }
         if (doRotate)
         {
             Vector3 relativePos = desiredPosition - transform.position;
 
             //transform.rotation = Quaternion.LookRotation(rb.velocity, Vector3.up);
             //transform.rotation = Quaternion.Euler(0f, transform.rotation.y, transform.rotation.z);
+            relativePos.y = 0;
             Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
             transform.rotation = rotation;
         }
@@ -75,6 +56,15 @@ public class MoveRandom : MonoBehaviour
         dir = getDirection(desiredPosition)+dirChange;
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("navpoint")){
+            NavigatorMover mover = other.GetComponent<NavigatorMover>();
+            if(mover == mymover){
+                chooseNewNav();
+            }
+        }
+    }
 
 
     private void FixedUpdate()
@@ -108,5 +98,25 @@ public class MoveRandom : MonoBehaviour
         return new Vector3(p.x, this.transform.position.y, p.z);
     }
 
+    void chooseNewNav() {
+                    // choose something new to do
+            if (canStop)
+            {
+                if (Random.Range(0, 10) > 7)
+                {
+                    wait = Random.Range(20, 80);
+                }
+            }
 
+            mymover = mymover.GetNewLocation(prevNavMover);
+            prevNavMover = mymover.getObject();
+
+
+            desiredPosition = getPosition(mymover);
+            if (followSidewalks)
+            {
+                float difference = 0.2f;
+                desiredPosition += new Vector3(Random.Range(-difference, difference), 0f, Random.Range(-difference, difference));
+            }
+    }
 }
