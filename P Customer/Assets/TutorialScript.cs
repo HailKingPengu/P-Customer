@@ -47,6 +47,8 @@ public class TutorialScript : MonoBehaviour
 
     [SerializeField] private UpgradeScript upgradeScript;
 
+    [SerializeField] private RebelSpawner rebelSpawner;
+
     //0 = mouse input, 1 = 
 
     // Start is called before the first frame update
@@ -158,7 +160,7 @@ public class TutorialScript : MonoBehaviour
                 upgradeScript.scriptActivated = true;
                 break;
             case 3:
-
+                rebelSpawner.inTutorial = false;
                 break;
         }
     }

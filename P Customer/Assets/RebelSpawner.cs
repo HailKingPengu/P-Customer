@@ -34,6 +34,8 @@ public class RebelSpawner : MonoBehaviour
 
     float rebelsCreated = 0;
 
+    public bool inTutorial = true;
+
    // Start is called before the first frame update
    void Start()
     {
@@ -55,7 +57,7 @@ public class RebelSpawner : MonoBehaviour
 
     void UpdateMadChoice()
     {
-        if (true)
+        if (inTutorial)
         {
             theThingIAmMadAbout = thingsToBeMadAbout.tutorial;
         }

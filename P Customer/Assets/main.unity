@@ -676,11 +676,23 @@ MonoBehaviour:
   theThingIAmMadAbout: 0
   timeTillUpdate: 0
   madAboutString: 
+  inTutorial: 1
 --- !u!4 &192398669 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6118453631038615876, guid: 357f7fed9a5630345bd2b128708d7300, type: 3}
   m_PrefabInstance: {fileID: 1251758541}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &192398671 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8575922135670908901, guid: 357f7fed9a5630345bd2b128708d7300, type: 3}
+  m_PrefabInstance: {fileID: 1251758541}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192398662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db1842f66e73264a9cf733d21827487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &216249845
 GameObject:
   m_ObjectHideFlags: 0
@@ -8200,7 +8212,7 @@ MonoBehaviour:
     action: 0
   - text: Next up, upgrade a floor to an apartment.
     trigger: 0
-    action: 0
+    action: 3
   - text: Nice work! that will give our rowdy inhabitant a bit of piece of mind.
     trigger: 0
     action: 1
@@ -8217,6 +8229,7 @@ MonoBehaviour:
   cameraMove: {fileID: 146927034}
   protestLocation: {fileID: 192398669}
   upgradeScript: {fileID: 1483084840}
+  rebelSpawner: {fileID: 192398671}
 --- !u!1 &1319293820
 GameObject:
   m_ObjectHideFlags: 0
