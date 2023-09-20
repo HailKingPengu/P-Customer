@@ -48,8 +48,10 @@ MonoBehaviour:
   debugMode: 0
   buildingDataHub: {fileID: 0}
   happiness: 0
+  sustainability: 0
   happinessNeeded: 75
   pollution: 0
+  maxPollution: 0
   money: 0
   moneyTimer: 20
   moneyAmountPerTime: 20
@@ -59,8 +61,8 @@ MonoBehaviour:
   powerUse: 0
   powerNeeded: 0
   powerDeficiencyHappinessInfluence: 30
+  powerDeficiencyMadnessIncrease: 0.0001
   happinessRageThreshold: 25
-  sustainability: 0
   rebellion: 0
   anger: 0
   angerReduction: 0

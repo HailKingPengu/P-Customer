@@ -17,7 +17,8 @@ public class ChangeText : MonoBehaviour
         getRebellion,
         getPollution,
         getPollutionUnhappiness,
-        getPowerlessUnhappiness
+        getPowerlessUnhappiness,
+        getSustainability
     }
 
     public Functions chosenfunction;
@@ -46,10 +47,10 @@ public class ChangeText : MonoBehaviour
         text = gameManager.money.ToString();
     }
     void getHappiness() {  
-        text = gameManager.happiness.ToString();
+        text = Mathf.Round(gameManager.happiness).ToString();
     }
     void getPower() {  
-        text = gameManager.power.ToString();
+        text = Mathf.Round(gameManager.power).ToString();
     }
     void getPowerProduction()
     {
@@ -72,6 +73,10 @@ public class ChangeText : MonoBehaviour
         text = gameManager.pollutionAnger.ToString();
     }
     void getPowerlessUnhappiness()
+    {
+        text = gameManager.anger.ToString();
+    }
+    void getSustainability()
     {
         text = gameManager.anger.ToString();
     }

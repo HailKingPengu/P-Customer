@@ -15,10 +15,11 @@ public class GameManager : MonoBehaviour
 
     [Header("Variable part 1")]
     public float happiness;
-
+    public float sustainability;
 
     public float happinessNeeded; // power thats needed to be sustainable
     public float pollution; // 
+    public float maxPollution;
 
     [Header("Money increasing")]
     public int money; // money goes up overtime
@@ -34,12 +35,13 @@ public class GameManager : MonoBehaviour
     public float powerUse;
     public float powerNeeded; // power thats needed to be sustainable
     float powerDeficiency;
+    public float powerDeficiencyMadness = 0;
     public float powerDeficiencyHappinessInfluence;
+    public float powerDeficiencyMadnessIncrease;
     public float happinessRageThreshold;
     float rageThreshold;
 
     [Header("Variable part 2")]
-    public float sustainability; // sustainability is when power is over power needed
     public float rebellion; // rebellion goes up over time
 
     [Header("other affectors")]
@@ -160,6 +162,8 @@ public class GameManager : MonoBehaviour
 
         HappinessUpdateBehavior();
 
+        sustainability = 1 - (pollution/maxPollution);
+
 
         // RULE #2 GAME OVER WHEN REBELLION TOO MUCH
         if (Timer.gameOver)
@@ -185,11 +189,19 @@ public class GameManager : MonoBehaviour
     void PowerUpdateBehavior ()
     {
         powerDeficiency = Mathf.Max(powerUse - powerProduction, 0f);
+
+        if(powerDeficiency>0){
+            powerDeficiencyMadness += powerDeficiencyMadnessIncrease*Time.deltaTime;
+        }else
+        {
+            powerDeficiencyMadness -= powerDeficiencyMadnessIncrease*2*Time.deltaTime;
+        }
+        powerDeficiencyMadness = Mathf.Max(0,powerDeficiencyMadness);
     }
 
     void HappinessUpdateBehavior ()
     {
-        happiness = happiness - (powerDeficiency / powerDeficiencyHappinessInfluence);
+        happiness = happiness - ((powerDeficiency / powerDeficiencyHappinessInfluence)*powerDeficiencyMadness);
 
         rageThreshold = Mathf.Max(happinessRageThreshold - happiness, 0);
 
