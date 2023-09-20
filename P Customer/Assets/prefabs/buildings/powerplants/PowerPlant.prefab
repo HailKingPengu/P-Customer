@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 000000007800000090010000
   levelModels:
-  - {fileID: 8377500675018298725, guid: 5c564a2d4b7896c4ab4b6e2b9c768b4c, type: 3}
+  - {fileID: 6552192265461677848, guid: a6cb904cd43f6c246987b30fc6aab484, type: 3}
   - {fileID: 3077753782995959644, guid: 2ae1030bdced07144a2b90c2feefc38c, type: 3}
   - {fileID: 7362744238669779968, guid: 0249ef5f30a22e445aacbf7935c3a664, type: 3}
   currentLevel: 0

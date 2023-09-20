@@ -6766,7 +6766,7 @@ MonoBehaviour:
   - {fileID: 3249985820262209054, guid: 9df1281a9d834d544b4fd5f5c23f0ba9, type: 3}
   - {fileID: 5026697178960796803, guid: f03b212c15266f94eaae3bf6682e16d3, type: 3}
   powerPlantPrefab: {fileID: 8490117261656662554, guid: 35c9c2506fde53446ad6f1c5b74d0f70, type: 3}
-  numPowerPlants: 0
+  numPowerPlants: 3
   mapXSize: 30
   mapYSize: 30
   centerPoint: {x: 15, y: 15}
@@ -14664,7 +14664,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132358266}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23396732, y: 0.3702089, z: -0.09691244, w: 0.89376324}
+  m_LocalRotation: {x: 0.23396733, y: 0.3702089, z: -0.09691244, w: 0.89376324}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
