@@ -1652,7 +1652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &365264976
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2738,7 +2738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &518578356
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6555,7 +6555,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.250143, y: 0.36838987, z: -0.10361263, w: 0.88937163}
+  m_LocalRotation: {x: 0.25014302, y: 0.36838987, z: -0.10361265, w: 0.88937163}
   m_LocalPosition: {x: 0.50430965, y: 14.57, z: 0.50431156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7658,7 +7658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113754699}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25014296, y: 0.3683898, z: -0.1036126, w: 0.88937163}
+  m_LocalRotation: {x: 0.250143, y: 0.36838982, z: -0.10361262, w: 0.88937163}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10323,6 +10323,12 @@ MonoBehaviour:
   level1Text: {fileID: 1192122392}
   upgradeLevel2: {fileID: 1965015463}
   level2Text: {fileID: 890624326}
+  PrizeLevel1: {fileID: 1991494289}
+  PrizeLevel2: {fileID: 1577579997}
+  PrizeLevel1Building: {fileID: 1377472862}
+  PrizeLevel2Building: {fileID: 1372358311}
+  RoofLevel1: {fileID: 1901367071}
+  RoofLevel2: {fileID: 1901060789}
   alertPopup: {fileID: 1462999753}
   cameraMove: {fileID: 146927034}
   isSelected: 0
