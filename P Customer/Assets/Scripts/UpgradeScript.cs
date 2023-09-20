@@ -32,6 +32,14 @@ public class UpgradeScript : MonoBehaviour
     [SerializeField] private TMP_Text level1Text;
     [SerializeField] private GameObject upgradeLevel2;
     [SerializeField] private TMP_Text level2Text;
+
+    [SerializeField] private TMP_Text PrizeLevel1;
+    [SerializeField] private TMP_Text PrizeLevel2;
+    [SerializeField] private TMP_Text PrizeLevel1Building;
+    [SerializeField] private TMP_Text PrizeLevel2Building;
+
+    [SerializeField] private TMP_Text RoofLevel1;
+    [SerializeField] private TMP_Text RoofLevel2;
     //[SerializeField] private GameObject upgradeLevel3;
     //[SerializeField] private TextMeshPro level3Text;
 
@@ -195,6 +203,17 @@ public class UpgradeScript : MonoBehaviour
                             level2Text.text =
                             "power production:" + (-lVal2.powerUse) + "\nhappiness:" + (lVal2.happiness - lVal0.happiness) + "\npollution:" + (lVal2.pollution - lVal0.pollution) + "\n\ncost:" + lastFloorScript.cost[2];
                         }
+
+                        BuildingManager buildingManager = lastFloorScript.GetComponentInParent<BuildingManager>();
+
+                        PrizeLevel1.text = lastFloorScript.cost[1].ToString() + "$";
+                        PrizeLevel2.text = lastFloorScript.cost[2].ToString() + "$";
+                        PrizeLevel1Building.text = (lastFloorScript.cost[1] * (buildingManager.floors.Length - 1)).ToString() + "$";
+                        PrizeLevel2Building.text = (lastFloorScript.cost[2] * (buildingManager.floors.Length - 1)).ToString() + "$";
+
+                        RoofLevel1.text = (buildingManager.floors[buildingManager.floors.Length - 1].cost[1]).ToString() + "$";
+                        RoofLevel2.text = (buildingManager.floors[buildingManager.floors.Length - 1].cost[2]).ToString() + "$";
+
                     }
                     else
                     {
