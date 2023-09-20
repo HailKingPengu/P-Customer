@@ -33,6 +33,10 @@ public class GridGeneration : MonoBehaviour
     //[SerializeField] private GameObject[] industryPrefabs;
     //[SerializeField] private GameObject[] industryRoofPrefabs;
     [SerializeField] private GameObject powerPlantPrefab;
+    [SerializeField] private int numPowerPlants;
+    private int builtPowerPlants;
+    //always [locationNumber][0 = x - 1 = y]
+    private List<int[]> potentialPowerPlantLocations;
 
     private int[,] tileState;
     private float[,] builtOnDegree;
@@ -61,6 +65,8 @@ public class GridGeneration : MonoBehaviour
         tileState = new int[mapXSize, mapYSize];
 
         builtOnDegree = new float[mapXSize, mapYSize];
+
+        potentialPowerPlantLocations = new List<int[]>();
 
         for (int x = 0; x < mapXSize; x++)
         {
@@ -162,6 +168,9 @@ public class GridGeneration : MonoBehaviour
                     {
                         if (powerPlantBuilt == false && tileState[x - 1, y] == 1 && tileState[x - 1, y - 1] == 1 && tileState[x - 1, y - 1] == 1 && x - 1 != riverPosition)
                         {
+
+                            potentialPowerPlantLocations.Add(new int[] { x, y });
+
                             if (buildingDataHub.buildingManagersGrid[x - 1, y] != null)
                             {
                                 buildingDataHub.buildingManagersGrid[x - 1, y].transform.gameObject.SetActive(false);
