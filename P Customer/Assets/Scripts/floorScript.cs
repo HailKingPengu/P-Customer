@@ -8,10 +8,13 @@ public class floorScript : ValuesScript
 
     private GameObject model;
     [SerializeField] private ParticleSystem UpgradeParticles;
+    [SerializeField] private AudioSource UpgradeSound;
 
     private int upgradeTo;
 
     public bool isSelected;
+
+    
 
     //private BuildingManager connectedManager;
 
@@ -44,6 +47,9 @@ public class floorScript : ValuesScript
             Destroy(model);
             model = Instantiate(levelModels[level], transform);
 
+            UpgradeSound.pitch = 1f;
+            UpgradeSound.Play();
+
             currentLevel = level;
 
             if (UpgradeParticles != null)
@@ -57,6 +63,7 @@ public class floorScript : ValuesScript
     public void UpgradeAfter(int level, float delay)
     {
         upgradeTo = level;
+        UpgradeSound.pitch = 1f+(delay*2f);
         Invoke("UpgradeDelay", delay);
 
         //for (int i = 0; i < transform.childCount; i++)
@@ -78,6 +85,9 @@ public class floorScript : ValuesScript
             }
 
             currentLevel = upgradeTo;
+
+            UpgradeSound.pitch += 0.1f;
+            UpgradeSound.Play();
 
             if (UpgradeParticles != null)
             {
