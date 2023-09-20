@@ -35,6 +35,22 @@ public class SmileyModifier : MonoBehaviour
     void Update()
     {
         UpdateSprite();
+
+        if (followingVariableChosen == followingVariable.happiness) {
+            if (gameManager.happiness > 0 && gameManager.happiness < 100)
+            {
+                m_RawImage.texture = m_Textures[(int)(gameManager.happiness / 100 * m_Textures.Length)];
+            }
+            else if (gameManager.happiness <= 0)
+            {
+                m_RawImage.texture = m_Textures[0];
+            }
+            else
+            {
+                m_RawImage.texture = m_Textures[m_Textures.Length - 1];
+            }
+        }
+
     }
 
     void UpdateSprite () {
