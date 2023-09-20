@@ -292,34 +292,34 @@ public class GridGeneration : MonoBehaviour
 
             for (int j = 0; j < potentialPowerPlantLocations.Count; j++)
             {
-                if (potentialPowerPlantLocations[i].x == x && potentialPowerPlantLocations[i].y == y + 1)
+                if (potentialPowerPlantLocations[j].x == x && potentialPowerPlantLocations[j].y == y + 1)
                 {
                     Debug.Log("dumbass!X");
-                    potentialPowerPlantLocations.RemoveAt(i);
+                    potentialPowerPlantLocations.RemoveAt(j);
                 }
             }
             for (int j = 0; j < potentialPowerPlantLocations.Count; j++)
             {
-                if (potentialPowerPlantLocations[i].x == x && potentialPowerPlantLocations[i].y == y - 1)
+                if (potentialPowerPlantLocations[j].x == x && potentialPowerPlantLocations[j].y == y - 1)
                 {
                     Debug.Log("dumbass!Y");
-                    potentialPowerPlantLocations.RemoveAt(i);
+                    potentialPowerPlantLocations.RemoveAt(j);
                 }
             }
             for (int j = 0; j < potentialPowerPlantLocations.Count; j++)
             {
-                if (potentialPowerPlantLocations[i].x == x + 1 && potentialPowerPlantLocations[i].y == y)
+                if (potentialPowerPlantLocations[j].x == x + 1 && potentialPowerPlantLocations[j].y == y)
                 {
                     Debug.Log("dumbass!X");
-                    potentialPowerPlantLocations.RemoveAt(i);
+                    potentialPowerPlantLocations.RemoveAt(j);
                 }
             }
             for (int j = 0; j < potentialPowerPlantLocations.Count; j++)
             {
-                if (potentialPowerPlantLocations[i].x == x - 1 && potentialPowerPlantLocations[i].y == y)
+                if (potentialPowerPlantLocations[j].x == x - 1 && potentialPowerPlantLocations[j].y == y)
                 {
                     Debug.Log("dumbass!Y");
-                    potentialPowerPlantLocations.RemoveAt(i);
+                    potentialPowerPlantLocations.RemoveAt(j);
                 }
             }
 
