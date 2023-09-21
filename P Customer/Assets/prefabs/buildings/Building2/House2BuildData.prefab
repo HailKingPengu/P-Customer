@@ -9,6 +9,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6901925059561683464, guid: b43ae187bb8f2fa4ca0687fe5f3d976d, type: 3}
+      propertyPath: cost.Array.data[1]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6901925059561683464, guid: b43ae187bb8f2fa4ca0687fe5f3d976d, type: 3}
+      propertyPath: cost.Array.data[2]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6901925059561683464, guid: b43ae187bb8f2fa4ca0687fe5f3d976d, type: 3}
       propertyPath: levelModels.Array.data[0]
       value: 
       objectReference: {fileID: 8899263985218978129, guid: e60bc4a753c8d724b9a7810ce41d8a19, type: 3}
@@ -54,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7834789187070106997, guid: b43ae187bb8f2fa4ca0687fe5f3d976d, type: 3}
       propertyPath: m_Name
-      value: House2BuildData 1
+      value: House2BuildData
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

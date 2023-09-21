@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc25b8b86220db459d3be38c4a61362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 000000007800000090010000
+  cost: 000000002c010000e8030000
   levelModels:
   - {fileID: 5404529020350206305, guid: 368d00bf008c4ec45b0e641895a461e8, type: 3}
   - {fileID: 8633957723761633492, guid: f797a7908dade0c4999351b4922118bb, type: 3}
@@ -55,12 +55,15 @@ MonoBehaviour:
   - powerUse: -3000
     happiness: 50
     pollution: 2000
+    moneyGeneration: 0
   - powerUse: -1500
     happiness: 70
     pollution: 10
+    moneyGeneration: 0
   - powerUse: -4000
     happiness: 20
     pollution: 10
+    moneyGeneration: 0
   UpgradeParticles: {fileID: 2576916445792989148, guid: bef0ac835ea3cd145b5eeacce437a55e, type: 3}
   UpgradeSound: {fileID: 1167192977726871838}
   isSelected: 0
