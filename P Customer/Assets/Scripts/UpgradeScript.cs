@@ -296,19 +296,23 @@ public class UpgradeScript : MonoBehaviour
     {
         if (lastFloorScript != null)
         {
-            if (gameManager.money >= lastFloorScript.cost[level] && level != lastFloorScript.currentLevel)
+            if (gameManager.money >= lastFloorScript.cost[level])
             {
+                if (level != lastFloorScript.currentLevel)
+                {
 
-                hasUpgraded = true;
+                    hasUpgraded = true;
 
-                lastFloorScript.Upgrade(level);
-                lastFloorScript = lastFloorScript.transform.GetComponent<floorScript>();
+                    lastFloorScript.Upgrade(level);
+                    lastFloorScript = lastFloorScript.transform.GetComponent<floorScript>();
 
 
-                gameManager.money -= lastFloorScript.cost[level];
-                CreateEffectsText("-"+lastFloorScript.cost[level].ToString());
+                    gameManager.money -= lastFloorScript.cost[level];
+                    CreateEffectsText("-" + lastFloorScript.cost[level].ToString());
 
-                ShowBuilding(true, targetedFloorScript);
+                    ShowBuilding(true, targetedFloorScript);
+                }
+                soundDenied.Play();
             }
             else
             {
@@ -333,19 +337,22 @@ public class UpgradeScript : MonoBehaviour
             Transform building = lastFloorScript.transform.parent;
             floorScript roofScript = building.GetChild(building.childCount - 1).GetComponent<floorScript>();
 
-            if (gameManager.money >= roofScript.cost[level] && level != roofScript.currentLevel)
+            if (gameManager.money >= roofScript.cost[level])
             {
+                if (level != roofScript.currentLevel)
+                {
+                    //hasUpgraded = true;
 
-                //hasUpgraded = true;
-
-                roofScript.Upgrade(level);
-                roofScript = roofScript.transform.GetComponent<floorScript>();
+                    roofScript.Upgrade(level);
+                    roofScript = roofScript.transform.GetComponent<floorScript>();
 
 
-                gameManager.money -= roofScript.cost[level];
-                CreateEffectsText("-"+roofScript.cost[level].ToString());
+                    gameManager.money -= roofScript.cost[level];
+                    CreateEffectsText("-" + roofScript.cost[level].ToString());
 
-                ShowBuilding(true, roofScript);
+                    ShowBuilding(true, roofScript);
+                }
+                soundDenied.Play();
             }
             else
             {
