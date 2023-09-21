@@ -60,6 +60,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ClockScript clock;
     [SerializeField] private GameOverScript gameOverScript;
 
+    private bool firstFrame = true;
+    private float startPollution;
+
     private Values currentValues;
 
     public enum Gamestate
@@ -94,6 +97,13 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         currentValues = buildingDataHub.values;
+
+        if (firstFrame)
+        {
+
+
+            firstFrame = false;
+        }
 
         power = currentValues.powerUse;
         powerProduction = buildingDataHub.powerProduction;

@@ -79,7 +79,7 @@ public class ChangeText : MonoBehaviour
     }
     void getSustainability()
     {
-        text = gameManager.anger.ToString();
+        text = gameManager.sustainability.ToString();
     }
     void getMoneyChange()
     {
