@@ -11,7 +11,8 @@ public class SmileyModifier : MonoBehaviour
 
     private enum followingVariable {
         power,
-        happiness
+        happiness,
+        sustainability
     };
     [SerializeField] private followingVariable followingVariableChosen;
     [SerializeField] private int CorrectSpriteIndex;
@@ -61,6 +62,9 @@ public class SmileyModifier : MonoBehaviour
         break;
         case followingVariable.happiness :
             calc =  (gameManager.happiness / gameManager.happinessNeeded) * (CorrectSpriteIndex) ;
+        break;
+        case followingVariable.sustainability :
+            calc = (gameManager.sustainability / 1) * (CorrectSpriteIndex) ;
         break;
     }
         calc = Mathf.Clamp(calc,0,listCount-1);

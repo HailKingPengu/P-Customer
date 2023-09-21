@@ -4337,13 +4337,16 @@ MonoBehaviour:
   shownPos: {x: 0, y: 0, z: 0}
   smoothing: 0.03
   targetBuilding: {fileID: 0}
-  tutorialText:
-  - text: Congrats
-    trigger: 0
-    action: 0
+  tutorialText: []
   currentText: 0
   waitingOnTrigger: 0
   triggerType: 0
+  sustainableOslo: 90
+  sustainableRotterdam: 80
+  sustainableHongKong: 54
+  sustainableDetroit: 23
+  sustainableGotmessage: 0
+  newSustainability: 0
 --- !u!1 &339682467
 GameObject:
   m_ObjectHideFlags: 0
@@ -11710,8 +11713,8 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 05122780e756d384690baf4271a323ad, type: 3}
   - {fileID: 2800000, guid: 73f4f5c3614eab246aae34872dd75b6b, type: 3}
   - {fileID: 2800000, guid: 0694e94b350378044a81a3ae781472e3, type: 3}
-  followingVariableChosen: 0
-  CorrectSpriteIndex: 2
+  followingVariableChosen: 2
+  CorrectSpriteIndex: 4
 --- !u!114 &889773016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29236,7 +29239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132358266}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23396733, y: 0.3702089, z: -0.096912436, w: 0.89376324}
+  m_LocalRotation: {x: 0.23396733, y: 0.3702089, z: -0.09691244, w: 0.89376324}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
