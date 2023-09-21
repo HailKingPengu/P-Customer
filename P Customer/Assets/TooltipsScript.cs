@@ -9,7 +9,7 @@ public class ToolTipsScript : MonoBehaviour
     [System.Serializable]
     struct tutorialNext
     {
-
+    
         [SerializeField] public string text;
         [SerializeField] public int trigger;
         [SerializeField] public int action;
@@ -42,11 +42,23 @@ public class ToolTipsScript : MonoBehaviour
     [SerializeField] private bool waitingOnTrigger;
     [SerializeField] private int triggerType;
 
+    [SerializeField] private float sustainableOslo;
+    [SerializeField] private float sustainableRotterdam;
+    [SerializeField] private float sustainableHongKong;
+    [SerializeField] private float sustainableDetroit;
+
+    public int sustainableGotmessage = 0;
+    public float newSustainability;
+
+    private GameManager gameManager;
+
+
     //0 = mouse input, 1 = 
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.Instance;
         textPanel.SetActive(true);
 
         targetPosition = textPanel.transform.position;
@@ -65,6 +77,8 @@ public class ToolTipsScript : MonoBehaviour
     {
         textPanel.transform.position = Vector3.Lerp(textPanel.transform.position, targetPosition, smoothing);
 
+        CheckForUpdate();
+
         if(waitingOnTrigger)
         {
             switch(triggerType)
@@ -75,30 +89,12 @@ public class ToolTipsScript : MonoBehaviour
 
                     if (Input.GetKey(KeyCode.Space))
                     {
-                        ShowNext(tutorialText[currentText]);
-                        currentText++;
+                        //ShowNext(tutorialText[currentText]);
+                        //currentText++;
+                        HidePanel();
                     }
                 break;
-                case 1:
 
-                    nextText.text = "select a building >";
-
-                    //if (upgradeScript.isSelected)
-                    {
-                        ShowNext(tutorialText[currentText]);
-                        currentText++;
-                    }
-                    break;
-                case 2:
-
-                    nextText.text = "upgrade a floor >";
-
-                    //if (upgradeScript.hasUpgraded)
-                    {
-                        ShowNext(tutorialText[currentText]);
-                        currentText++;
-                    }
-                    break;
             }
         }
         else
@@ -129,7 +125,7 @@ public class ToolTipsScript : MonoBehaviour
 
     private void ShowPanel()
     {
-        text.text = tutorialText[currentText].text;
+        //text.text = tutorialText[currentText].text;
         targetPosition = shownPos;
         waitingOnTrigger = true;
     }
@@ -156,5 +152,48 @@ public class ToolTipsScript : MonoBehaviour
                 //rebelSpawner.inTutorial = false;
                 break;
         }
+    }
+
+    void CheckForUpdate () {
+        newSustainability = gameManager.sustainability*100f;
+
+        switch(sustainableGotmessage){
+            case 0:
+                if(newSustainability>sustainableDetroit){
+                    NewSustain("Your city just passed Detroit in sustainability!");
+                    sustainableGotmessage++;
+                    Debug.Log("HI");
+                }
+            break;
+            case 1:
+                if(newSustainability>sustainableHongKong){
+                    NewSustain("Good news! Your city is now more sustainable than Hong Kong!");
+                    sustainableGotmessage++;
+                }
+            break;
+            case 2:
+                if(newSustainability>sustainableRotterdam){
+                    NewSustain("What an achievement! Your city is even more sustainable than Rotterdam!");
+                    sustainableGotmessage++;
+                }
+            break;
+            case 3:
+                if(newSustainability>sustainableOslo){
+                    NewSustain("Your city is now so sustainable, that it passed Oslo! That is amazing!");
+                    sustainableGotmessage++;
+                }
+            break;
+            case 4:
+
+            break;
+        }
+
+
+
+    }
+
+    void NewSustain(string newText) {
+        text.text = newText;
+        ShowPanel();
     }
 }
