@@ -318,7 +318,7 @@ MonoBehaviour:
   - Power is life!
   - Give us Power!
   tutorialCritic:
-  - I wan't more apartments!
+  - I want more apartments!
   - Where are the nicer houses?
   - Give me apartments!
   - We need more room for housing!
@@ -327,6 +327,7 @@ MonoBehaviour:
   theThingIAmMadAbout: 0
   timeTillUpdate: 5
   madAboutString: 
+  inTutorial: 1
 --- !u!82 &5127815932805856612
 AudioSource:
   m_ObjectHideFlags: 0
