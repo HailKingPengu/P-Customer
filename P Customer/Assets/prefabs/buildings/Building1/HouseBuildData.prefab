@@ -59,8 +59,8 @@ MonoBehaviour:
   - powerUse: 40
     happiness: 110
     pollution: 0
-  - powerUse: 40
     moneyGeneration: 1
+  - powerUse: 40
     happiness: 50
     pollution: 0
     moneyGeneration: 3
