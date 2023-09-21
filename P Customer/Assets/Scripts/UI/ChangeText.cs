@@ -79,7 +79,7 @@ public class ChangeText : MonoBehaviour
     }
     void getSustainability()
     {
-        text = gameManager.sustainability.ToString();
+        text = (gameManager.sustainability * 100).ToString("F1");
     }
     void getMoneyChange()
     {
