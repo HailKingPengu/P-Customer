@@ -473,6 +473,7 @@ public class UpgradeScript : MonoBehaviour
         var effectObject = Instantiate(effectsText);
         effectObject.transform.parent = gameObject.transform;
         effectObject.GetComponent<TMP_Text>().text = str;
-        effectObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0f,0f,0f);
+        //effectObject.GetComponent<RectTransform>().anchoredPosition = Input.mousePosition;
+        effectObject.transform.position = Input.mousePosition;
     }
 }

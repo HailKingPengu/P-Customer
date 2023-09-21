@@ -9,6 +9,7 @@ public class GameOverScript : MonoBehaviour
     [SerializeField] private GameObject badEnding;
     [SerializeField] private GameObject betterEnding;
     [SerializeField] private GameObject bestEnding;
+    [SerializeField] private GameObject menuButton;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class GameOverScript : MonoBehaviour
         badEnding.SetActive(false);
         betterEnding.SetActive(false);
         bestEnding.SetActive(false);
+        menuButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,7 +32,9 @@ public class GameOverScript : MonoBehaviour
 
         Time.timeScale = 0;
 
-        switch(ending)
+        menuButton.SetActive(false);
+
+        switch (ending)
         {
             case 0:
                 worstEnding.SetActive(true); break;
