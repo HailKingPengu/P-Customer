@@ -10395,8 +10395,6 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -136.00006, y: -50}
   m_SizeDelta: {x: 220, y: 70}
-  m_AnchoredPosition: {x: -330, y: -50}
-  m_SizeDelta: {x: 200, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &763597676
 MonoBehaviour:
@@ -11622,6 +11620,37 @@ RectTransform:
   m_AnchoredPosition: {x: -34.085022, y: -28.699993}
   m_SizeDelta: {x: 57.135666, y: 23.065834}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &887279138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 887279139}
+  m_Layer: 0
+  m_Name: IndustryLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &887279139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887279138}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.11, y: 0.44, z: 15.88}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &889773013
 GameObject:
   m_ObjectHideFlags: 0
@@ -13257,7 +13286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.250143, y: 0.36838987, z: -0.10361263, w: 0.88937163}
+  m_LocalRotation: {x: 0.25014302, y: 0.36838987, z: -0.10361265, w: 0.88937163}
   m_LocalPosition: {x: 0.50430965, y: 14.57, z: 0.50431156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14205,7 +14234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1035225287
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14887,7 +14916,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113754699}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25014296, y: 0.3683898, z: -0.1036126, w: 0.88937163}
+  m_LocalRotation: {x: 0.250143, y: 0.36838982, z: -0.10361262, w: 0.88937163}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -17563,9 +17592,19 @@ MonoBehaviour:
     action: 3
   - text: Nice work! that will give our rowdy inhabitant a bit of peace of mind.
     trigger: 0
+    action: 0
+  - text: Your citizens will also want you to increase their sustainability.
+    trigger: 0
+    action: 4
+  - text: Pollution is produced in the industrial disrict by factories and power
+      plants.
+    trigger: 0
+    action: 0
+  - text: Upgrading these buildings will be expensive, but your citizens will thank
+      you for it!
+    trigger: 0
     action: 1
-  - text: Your citizens will continue to provide you with feedback on what they want
-      changed.
+  - text: They will continue to provide you with feedback on what they want changed.
     trigger: 0
     action: 2
   - text: Keep this in mind as you improve your city. Good luck, mayor!
@@ -17576,6 +17615,7 @@ MonoBehaviour:
   triggerType: 0
   cameraMove: {fileID: 146927034}
   protestLocation: {fileID: 6118453632273555593}
+  industryLocation: {fileID: 887279139}
   upgradeScript: {fileID: 1483084840}
   rebelSpawner: {fileID: 8575922134705944104}
 --- !u!1 &1310558857
@@ -29196,7 +29236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132358266}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23396732, y: 0.3702089, z: -0.09691244, w: 0.89376324}
+  m_LocalRotation: {x: 0.23396733, y: 0.3702089, z: -0.096912436, w: 0.89376324}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -45957,3 +45997,4 @@ SceneRoots:
   - {fileID: 6118453632273555593}
   - {fileID: 625189405}
   - {fileID: 1654049727}
+  - {fileID: 887279139}

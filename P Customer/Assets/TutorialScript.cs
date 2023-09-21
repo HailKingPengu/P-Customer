@@ -44,6 +44,7 @@ public class TutorialScript : MonoBehaviour
 
     [SerializeField] private CameraMove cameraMove;
     [SerializeField] private Transform protestLocation;
+    [SerializeField] private Transform industryLocation;
 
     [SerializeField] private UpgradeScript upgradeScript;
 
@@ -161,6 +162,9 @@ public class TutorialScript : MonoBehaviour
                 break;
             case 3:
                 rebelSpawner.inTutorial = false;
+                break;
+            case 4:
+                cameraMove.targetPosition = industryLocation.position;
                 break;
         }
     }
