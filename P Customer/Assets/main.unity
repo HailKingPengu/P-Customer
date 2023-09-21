@@ -5571,8 +5571,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 540, y: -50}
-  m_SizeDelta: {x: 200, y: 70}
+  m_AnchoredPosition: {x: 561, y: -50}
+  m_SizeDelta: {x: 215.8, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &409763480
 MonoBehaviour:
@@ -10393,10 +10393,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -136.00006, y: -50}
+  m_AnchoredPosition: {x: -319, y: -50}
   m_SizeDelta: {x: 220, y: 70}
-  m_AnchoredPosition: {x: -330, y: -50}
-  m_SizeDelta: {x: 200, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &763597676
 MonoBehaviour:
@@ -12440,7 +12438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 847.55304, y: -437.35672}
+  m_AnchoredPosition: {x: 788.85, y: 454.8}
   m_SizeDelta: {x: 160.3238, y: 61.7366}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &933435446
@@ -24670,7 +24668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -668, y: -50}
+  m_AnchoredPosition: {x: -678, y: -50}
   m_SizeDelta: {x: 300, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1859206407
@@ -26841,8 +26839,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 250, y: -50}
-  m_SizeDelta: {x: 200, y: 70}
+  m_AnchoredPosition: {x: 242, y: -50}
+  m_SizeDelta: {x: 214.1, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1930385850
 MonoBehaviour:
@@ -35360,7 +35358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 84, y: -21}
+  m_AnchoredPosition: {x: 84, y: -27}
   m_SizeDelta: {x: 0, y: 1}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &3420334911670786190
