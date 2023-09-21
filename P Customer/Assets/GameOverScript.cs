@@ -32,7 +32,7 @@ public class GameOverScript : MonoBehaviour
 
         Time.timeScale = 0;
 
-        menuButton.SetActive(false);
+        menuButton.SetActive(true);
 
         switch (ending)
         {
