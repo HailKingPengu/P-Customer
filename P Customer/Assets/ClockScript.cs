@@ -31,7 +31,7 @@ public class ClockScript : MonoBehaviour
         float currentYear = currentTime / (targetTime / numYears);
         float currentMonth = (currentYear % 1) * 12;
 
-        clockText.text = (1 + (int)currentMonth) + " - " + (1980 + (int)currentYear);
+        clockText.text = (1980 + (int)currentYear).ToString();
 
         if(currentTime >= targetTime) targetReached = true;
     }

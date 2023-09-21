@@ -43,6 +43,9 @@ public class UpgradeScript : MonoBehaviour
 
     [SerializeField] private TMP_Text PowerLevel1;
     [SerializeField] private TMP_Text PowerLevel2;
+
+    [SerializeField] private TMP_Text IndustryLevel1;
+    [SerializeField] private TMP_Text IndustryLevel2;
     //[SerializeField] private GameObject upgradeLevel3;
     //[SerializeField] private TextMeshPro level3Text;
 
@@ -53,6 +56,7 @@ public class UpgradeScript : MonoBehaviour
 
     [SerializeField] private GameObject buildingMenu;
     [SerializeField] private GameObject powerMenu;
+    [SerializeField] private GameObject industryMenu;
 
     [SerializeField] private GameObject effectsText;
 
@@ -208,10 +212,22 @@ public class UpgradeScript : MonoBehaviour
 
                         }
 
-                        if (lVal0.powerUse >= 0)
+                        if (lVal0.powerUse > 45)
+                        {
+                            buildingMenu.SetActive(false);
+                            industryMenu.SetActive(true);
+                            powerMenu.SetActive(false);
+
+                            //BuildingManager buildingManager = lastFloorScript.GetComponentInParent<BuildingManager>();
+
+                            IndustryLevel1.text = lastFloorScript.cost[1].ToString() + "$";
+                            IndustryLevel2.text = lastFloorScript.cost[2].ToString() + "$";
+                        }
+                        else if (lVal0.powerUse >= 0)
                         {
 
                             buildingMenu.SetActive(true);
+                            industryMenu.SetActive(false);
                             powerMenu.SetActive(false);
 
                             BuildingManager buildingManager = lastFloorScript.GetComponentInParent<BuildingManager>();
@@ -234,6 +250,7 @@ public class UpgradeScript : MonoBehaviour
                         else
                         {
                             buildingMenu.SetActive(false);
+                            industryMenu.SetActive(false);
                             powerMenu.SetActive(true);
 
                             //BuildingManager buildingManager = lastFloorScript.GetComponentInParent<BuildingManager>();

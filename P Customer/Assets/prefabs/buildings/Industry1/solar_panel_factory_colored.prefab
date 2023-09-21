@@ -10,11 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e15f3d1a0c22d264c85944ff9021b6ef, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.429
+      value: 11.33
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e15f3d1a0c22d264c85944ff9021b6ef, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.429
+      value: 11.33
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e15f3d1a0c22d264c85944ff9021b6ef, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 7.9286213
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e15f3d1a0c22d264c85944ff9021b6ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56,6 +60,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e15f3d1a0c22d264c85944ff9021b6ef, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e15f3d1a0c22d264c85944ff9021b6ef, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e15f3d1a0c22d264c85944ff9021b6ef, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -4226328663231313880, guid: 560fcb8e2b292f348831b8b9c15ba705, type: 3}
+    - target: {fileID: -7511558181221131132, guid: e15f3d1a0c22d264c85944ff9021b6ef, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -490234199999013509, guid: 560fcb8e2b292f348831b8b9c15ba705, type: 3}
+    - target: {fileID: -7511558181221131132, guid: e15f3d1a0c22d264c85944ff9021b6ef, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: -3446339310715084947, guid: 560fcb8e2b292f348831b8b9c15ba705, type: 3}
+    - target: {fileID: -7511558181221131132, guid: e15f3d1a0c22d264c85944ff9021b6ef, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: -3354271955619046302, guid: 560fcb8e2b292f348831b8b9c15ba705, type: 3}
+    - target: {fileID: -7511558181221131132, guid: e15f3d1a0c22d264c85944ff9021b6ef, type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: -7965264003302306982, guid: 560fcb8e2b292f348831b8b9c15ba705, type: 3}
+    - target: {fileID: -7511558181221131132, guid: e15f3d1a0c22d264c85944ff9021b6ef, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 560fcb8e2b292f348831b8b9c15ba705, type: 3}
+    - target: {fileID: -7511558181221131132, guid: e15f3d1a0c22d264c85944ff9021b6ef, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: -2505642851634945670, guid: 560fcb8e2b292f348831b8b9c15ba705, type: 3}
+    - target: {fileID: -5754084199372789682, guid: e15f3d1a0c22d264c85944ff9021b6ef, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4493585093827132993, guid: 560fcb8e2b292f348831b8b9c15ba705, type: 3}
     - target: {fileID: 919132149155446097, guid: e15f3d1a0c22d264c85944ff9021b6ef, type: 3}
       propertyPath: m_Name
       value: solar_panel_factory_colored
@@ -92,5 +136,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0800458, y: 1.0608947, z: 0.6130165}
-  m_Center: {x: 0, y: 0.000000029802317, z: 0.30508208}
+  m_Size: {x: 0.10800462, y: 0.10608951, z: 0.061301664}
+  m_Center: {x: 0, y: 0.0000000018626448, z: 0.030508216}
