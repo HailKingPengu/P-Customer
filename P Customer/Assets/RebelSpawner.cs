@@ -13,7 +13,7 @@ public class RebelSpawner : MonoBehaviour
     [SerializeField] private List<string> powerCritic;
     [SerializeField] private List<string> tutorialCritic;
 
-    [SerializeField] private TMPro.TextMeshProUGUI textmesh;
+    [SerializeField] private TMP_Text textmesh;
 
     [SerializeField] private AudioSource protestSounds;
     private enum thingsToBeMadAbout { 
