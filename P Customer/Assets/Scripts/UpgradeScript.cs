@@ -54,6 +54,8 @@ public class UpgradeScript : MonoBehaviour
     [SerializeField] private GameObject buildingMenu;
     [SerializeField] private GameObject powerMenu;
 
+    [SerializeField] private GameObject effectsText;
+
 
     [SerializeField] private AudioSource soundUpgrade;
     [SerializeField] private AudioSource soundDenied;
@@ -304,6 +306,7 @@ public class UpgradeScript : MonoBehaviour
 
 
                 gameManager.money -= lastFloorScript.cost[level];
+                CreateEffectsText("-"+lastFloorScript.cost[level].ToString());
 
                 ShowBuilding(true, targetedFloorScript);
             }
@@ -340,6 +343,7 @@ public class UpgradeScript : MonoBehaviour
 
 
                 gameManager.money -= roofScript.cost[level];
+                CreateEffectsText("-"+roofScript.cost[level].ToString());
 
                 ShowBuilding(true, roofScript);
             }
@@ -396,6 +400,7 @@ public class UpgradeScript : MonoBehaviour
                 lastFloorScript = lastFloorScript.transform.GetComponent<floorScript>();
 
                 gameManager.money -= upgradeCost;
+                CreateEffectsText("-"+upgradeCost.ToString());
 
                 ShowBuilding(true, targetedFloorScript);
             }
@@ -461,5 +466,13 @@ public class UpgradeScript : MonoBehaviour
         soundSelect.Play();
         soundSelect.pitch = Mathf.Min(soundSelect.pitch+0.1f,2f);
         soundLastSelectedSomething = soundSelectReset;
+    }
+
+    void CreateEffectsText(String str){
+
+        var effectObject = Instantiate(effectsText);
+        effectObject.transform.parent = gameObject.transform;
+        effectObject.GetComponent<TMP_Text>().text = str;
+        effectObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0f,0f,0f);
     }
 }
