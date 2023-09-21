@@ -227,7 +227,7 @@ public class GridGeneration : MonoBehaviour
                             //newTile.transform.position = new Vector3(x, 0, y);
 
                             //SpawnBuilding(industryPrefabs, industryRoofPrefabs, newTile, randomizedWildness, x, y, 12, bmList);
-                            SpawnSingleBuilding(industryPrefabs[0].floor[1], newTile, x, y, bmList);
+                            SpawnSingleBuilding(industryPrefabs[0].floor[1], newTile, x, y, bmList, true);
 
                             tileState[x, y] = 1;
 
@@ -324,7 +324,7 @@ public class GridGeneration : MonoBehaviour
                 }
             }
 
-            SpawnSingleBuilding(powerPlantPrefab, spawnLocation.linkedGameObject, x, y, bmList);
+            SpawnSingleBuilding(powerPlantPrefab, spawnLocation.linkedGameObject, x, y, bmList, false);
 
             tileState[x, y] = 1;
 
@@ -342,12 +342,16 @@ public class GridGeneration : MonoBehaviour
         return buildingManager;
     }
 
-    private GameObject InitializeSingleBuildingManager(Transform parent)
+    private GameObject InitializeSingleBuildingManager(Transform parent, bool rotate)
     {
         GameObject buildingManager = Instantiate(buildingManagerPrefab, parent);
 
         buildingManager.transform.parent = buildingDataHub.transform;
-        //buildingManager.transform.rotation = Quaternion.Euler(0, 90 * (int)Random.Range(0, 4), 0);
+
+        if (rotate)
+        {
+            buildingManager.transform.rotation = Quaternion.Euler(0, 90 * (int)Random.Range(0, 4), 0);
+        }
 
         return buildingManager;
     }
@@ -395,10 +399,10 @@ public class GridGeneration : MonoBehaviour
         connectedManager.floors[connectedManager.floors.Length - 1] = newRoof.gameObject.GetComponent<floorScript>();
     }
 
-    private void SpawnSingleBuilding(GameObject building, GameObject parentTile, int x, int y, List<BuildingManager> bmList)
+    private void SpawnSingleBuilding(GameObject building, GameObject parentTile, int x, int y, List<BuildingManager> bmList, bool rotate)
     {
 
-        GameObject buildingManager = InitializeSingleBuildingManager(parentTile.transform);
+        GameObject buildingManager = InitializeSingleBuildingManager(parentTile.transform, rotate);
         BuildingManager connectedManager = buildingManager.GetComponent<BuildingManager>();
 
 

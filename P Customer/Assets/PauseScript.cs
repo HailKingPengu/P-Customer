@@ -10,6 +10,7 @@ public class PauseScript : MonoBehaviour
     bool isPaused;
 
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject settingsMenu;
 
     // Update is called once per frame
     void Update()
@@ -39,6 +40,12 @@ public class PauseScript : MonoBehaviour
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+    }
+
+    public void OpenSettings()
+    {
+        settingsMenu.SetActive(true);
+        pauseMenu.SetActive(false);
     }
 
     public void LoadMenu()
