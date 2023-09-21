@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public float happinessNeeded; // power thats needed to be sustainable
     public float pollution; // 
     public float maxPollution;
+    bool countedMaxPollution = false;
 
     [Header("Money increasing")]
     public int money; // money goes up overtime
@@ -100,6 +101,14 @@ public class GameManager : MonoBehaviour
 
         happiness = currentValues.happiness;
         pollution = currentValues.pollution;
+
+        if (!countedMaxPollution)
+        {
+            maxPollution = pollution;
+
+
+            countedMaxPollution = true;
+        }
 
         // RULE #3 REBELLION GOES UP OVER TIME
         rebellion = (Mathf.Round((Timer.currentRebellion)/3));
