@@ -3,7 +3,37 @@ guid: e15f3d1a0c22d264c85944ff9021b6ef
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Booger
+    second: {fileID: -490234199999013509, guid: 05ac43ca1b978504ea8bc855a8022cb8, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ClearSky
+    second: {fileID: -4226328663231313880, guid: 03e9895358c7e1f4c9d69adca1858b3d, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DeepSea
+    second: {fileID: -3354271955619046302, guid: d165516ca959e734d8b21d50d4cda3a7, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Green
+    second: {fileID: -2505642851634945670, guid: 03e9895358c7e1f4c9d69adca1858b3d, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Olive
+    second: {fileID: -3446339310715084947, guid: 03e9895358c7e1f4c9d69adca1858b3d, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Yellow.001
+    second: {fileID: -7034930345439225115, guid: d165516ca959e734d8b21d50d4cda3a7, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
