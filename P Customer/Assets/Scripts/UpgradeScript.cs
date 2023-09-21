@@ -312,7 +312,10 @@ public class UpgradeScript : MonoBehaviour
 
                     ShowBuilding(true, targetedFloorScript);
                 }
-                soundDenied.Play();
+                else
+                {
+                    soundDenied.Play();
+                }
             }
             else
             {
@@ -352,7 +355,10 @@ public class UpgradeScript : MonoBehaviour
 
                     ShowBuilding(true, roofScript);
                 }
-                soundDenied.Play();
+                else
+                {
+                    soundDenied.Play();
+                }
             }
             else
             {

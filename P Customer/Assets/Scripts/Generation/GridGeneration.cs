@@ -226,7 +226,8 @@ public class GridGeneration : MonoBehaviour
 
                             //newTile.transform.position = new Vector3(x, 0, y);
 
-                            SpawnBuilding(industryPrefabs, industryRoofPrefabs, newTile, randomizedWildness, x, y, 12, bmList);
+                            //SpawnBuilding(industryPrefabs, industryRoofPrefabs, newTile, randomizedWildness, x, y, 12, bmList);
+                            SpawnSingleBuilding(industryPrefabs[0].floor[1], newTile, x, y, bmList);
 
                             tileState[x, y] = 1;
 
