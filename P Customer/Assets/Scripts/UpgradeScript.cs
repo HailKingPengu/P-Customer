@@ -54,6 +54,15 @@ public class UpgradeScript : MonoBehaviour
     [SerializeField] private GameObject buildingMenu;
     [SerializeField] private GameObject powerMenu;
 
+    [SerializeField] private GameObject effectsText;
+
+
+    [SerializeField] private AudioSource soundUpgrade;
+    [SerializeField] private AudioSource soundDenied;
+    [SerializeField] private AudioSource soundSelect;
+    private float soundLastSelectedSomething = 0;
+    private float soundSelectReset = 0.8f;
+
     public bool isSelected;
     public bool hasUpgraded;
     public bool scriptActivated = false;
@@ -130,6 +139,14 @@ public class UpgradeScript : MonoBehaviour
 
     private void Update()
     {
+        // resetting pitch
+        if(soundLastSelectedSomething>0){
+            soundLastSelectedSomething -= Time.deltaTime;
+            if(soundLastSelectedSomething<=0){
+                soundSelect.pitch = 1f;
+                soundLastSelectedSomething = 0;
+            }
+        }
 
         if (scriptActivated) {
 
@@ -156,8 +173,7 @@ public class UpgradeScript : MonoBehaviour
 
                         targetedFloorScript = lastFloorScript;
 
-
-
+                        PlaySelectSound();
 
                         upgradeMenu.transform.position = Camera.main.WorldToScreenPoint(lastHit.transform.position);
                         upgradeMenu.SetActive(true);
@@ -288,14 +304,16 @@ public class UpgradeScript : MonoBehaviour
                 lastFloorScript.Upgrade(level);
                 lastFloorScript = lastFloorScript.transform.GetComponent<floorScript>();
 
+
                 gameManager.money -= lastFloorScript.cost[level];
+                CreateEffectsText("-"+lastFloorScript.cost[level].ToString());
 
                 ShowBuilding(true, targetedFloorScript);
             }
             else
             {
                 alertPopup.Popup("You don't have enough money to do this.", 3f);
-
+                soundDenied.Play();
                 //Debug.Log(gameManager.money + "" + lastFloorScript.cost[level]);
                 //Debug.Log("BROKE");
             }
@@ -323,13 +341,16 @@ public class UpgradeScript : MonoBehaviour
                 roofScript.Upgrade(level);
                 roofScript = roofScript.transform.GetComponent<floorScript>();
 
+
                 gameManager.money -= roofScript.cost[level];
+                CreateEffectsText("-"+roofScript.cost[level].ToString());
 
                 ShowBuilding(true, roofScript);
             }
             else
             {
                 alertPopup.Popup("You don't have enough money to do this.", 3f);
+                soundDenied.Play();
 
                 //Debug.Log(gameManager.money + "" + lastFloorScript.cost[level]);
                 //Debug.Log("BROKE");
@@ -379,12 +400,14 @@ public class UpgradeScript : MonoBehaviour
                 lastFloorScript = lastFloorScript.transform.GetComponent<floorScript>();
 
                 gameManager.money -= upgradeCost;
+                CreateEffectsText("-"+upgradeCost.ToString());
 
                 ShowBuilding(true, targetedFloorScript);
             }
             else
             {
                 alertPopup.Popup("You don't have enough money to do this.", 3f);
+                soundDenied.Play();
 
                 //Debug.Log(gameManager.money + "" + lastFloorScript.cost[level]);
                 //Debug.Log("BROKE");
@@ -437,5 +460,19 @@ public class UpgradeScript : MonoBehaviour
             cameraMove.ResetPosition();
             overlayEffect.SetActive(false);
         }
+    }
+
+    void PlaySelectSound() {
+        soundSelect.Play();
+        soundSelect.pitch = Mathf.Min(soundSelect.pitch+0.1f,2f);
+        soundLastSelectedSomething = soundSelectReset;
+    }
+
+    void CreateEffectsText(String str){
+
+        var effectObject = Instantiate(effectsText);
+        effectObject.transform.parent = gameObject.transform;
+        effectObject.GetComponent<TMP_Text>().text = str;
+        effectObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0f,0f,0f);
     }
 }
