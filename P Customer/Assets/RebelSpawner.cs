@@ -36,6 +36,8 @@ public class RebelSpawner : MonoBehaviour
 
     public bool inTutorial = true;
 
+    [SerializeField] private bool manuallySpawnProtestor;
+
    // Start is called before the first frame update
    void Start()
     {
@@ -52,6 +54,12 @@ public class RebelSpawner : MonoBehaviour
         {
             timer -= timeTillUpdate;
             UpdateMadChoice();
+        }
+
+        if (manuallySpawnProtestor)
+        {
+            CreateRebel();
+            manuallySpawnProtestor = false;
         }
     }
 
@@ -121,7 +129,7 @@ public class RebelSpawner : MonoBehaviour
 
     public void CreateRebel()
     {
-         GameObject newObject = Instantiate(rebelObject, transform.position + new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)), transform.rotation);
+         GameObject newObject = Instantiate(rebelObject, transform.position + new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)), transform.rotation * Quaternion.Euler(0, Random.Range(-180, 180), 0));
          rebelsCreated++;
     }
 

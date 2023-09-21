@@ -165,6 +165,7 @@ MonoBehaviour:
   canStop: 0
   followSidewalks: 0
   doRotate: 1
+  prevNavMover: {fileID: 0}
   mymover: {fileID: 0}
 --- !u!54 &3718667530375272964
 Rigidbody:
@@ -244,6 +245,10 @@ PrefabInstance:
     - target: {fileID: 7449685138809905376, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
       propertyPath: m_Name
       value: Person Waving
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449685138809905376, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7690335438826507178, guid: 873b0884c1de6a7438192a78a425be43, type: 3}
       propertyPath: m_Layer
