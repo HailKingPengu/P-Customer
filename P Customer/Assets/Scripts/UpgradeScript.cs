@@ -325,7 +325,7 @@ public class UpgradeScript : MonoBehaviour
 
 
                     gameManager.money -= lastFloorScript.cost[level];
-                    CreateEffectsText("-" + lastFloorScript.cost[level].ToString());
+                    CreateEffectsText("-$" + lastFloorScript.cost[level].ToString());
 
                     ShowBuilding(true, targetedFloorScript);
                 }
@@ -368,7 +368,7 @@ public class UpgradeScript : MonoBehaviour
 
 
                     gameManager.money -= roofScript.cost[level];
-                    CreateEffectsText("-" + roofScript.cost[level].ToString());
+                    CreateEffectsText("-$" + roofScript.cost[level].ToString());
 
                     ShowBuilding(true, roofScript);
                 }
@@ -430,7 +430,7 @@ public class UpgradeScript : MonoBehaviour
                 lastFloorScript = lastFloorScript.transform.GetComponent<floorScript>();
 
                 gameManager.money -= upgradeCost;
-                CreateEffectsText("-"+upgradeCost.ToString());
+                CreateEffectsText("-$"+upgradeCost.ToString());
 
                 ShowBuilding(true, targetedFloorScript);
             }
