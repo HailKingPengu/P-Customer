@@ -14,6 +14,7 @@ public class ClockScript : MonoBehaviour
     [SerializeField] float numYears;
 
     public bool targetReached;
+    public bool isCounting = false;
 
     //1980 - 2030
 
@@ -26,13 +27,20 @@ public class ClockScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isCounting)
+        {
+            float currentTime = Time.time - StartTime;
+            float currentYear = currentTime / (targetTime / numYears);
+            float currentMonth = (currentYear % 1) * 12;
 
-        float currentTime = Time.time - StartTime;
-        float currentYear = currentTime / (targetTime / numYears);
-        float currentMonth = (currentYear % 1) * 12;
+            clockText.text = "year: " + (1980 + (int)currentYear).ToString();
 
-        clockText.text = "year: " + (1980 + (int)currentYear).ToString();
-
-        if(currentTime >= targetTime) targetReached = true;
+            if (currentTime >= targetTime) targetReached = true;
+        }
+        else
+        {
+            clockText.text = "year: " + (1980);
+            StartTime = Time.time;
+        }
     }
 }

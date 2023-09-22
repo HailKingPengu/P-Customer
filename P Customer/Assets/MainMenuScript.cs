@@ -10,4 +10,9 @@ public class MainMenuScript : MonoBehaviour
         SceneManager.LoadScene("Main");
         Time.timeScale = 1.0f;
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

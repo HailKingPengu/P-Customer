@@ -49,6 +49,7 @@ public class TutorialScript : MonoBehaviour
     [SerializeField] private UpgradeScript upgradeScript;
 
     [SerializeField] private RebelSpawner rebelSpawner;
+    [SerializeField] private ClockScript clock;
 
     //0 = mouse input, 1 = 
 
@@ -165,6 +166,12 @@ public class TutorialScript : MonoBehaviour
                 break;
             case 4:
                 cameraMove.targetPosition = industryLocation.position;
+                break;
+            case 5:
+                clock.isCounting = true;
+                break;
+            case 6:
+                upgradeScript.scriptActivated = false;
                 break;
         }
     }

@@ -12039,11 +12039,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Textures:
-  - {fileID: 2800000, guid: 88194fafa58a7174ab57b0c54bf043be, type: 3}
-  - {fileID: 2800000, guid: 11a72b3d87f56854c8bf83227becbb5b, type: 3}
-  - {fileID: 2800000, guid: 05122780e756d384690baf4271a323ad, type: 3}
-  - {fileID: 2800000, guid: 73f4f5c3614eab246aae34872dd75b6b, type: 3}
-  - {fileID: 2800000, guid: 0694e94b350378044a81a3ae781472e3, type: 3}
+  - {fileID: 2800000, guid: 6246399de6c112249ad522e0f98e6453, type: 3}
+  - {fileID: 2800000, guid: 5fe87adf3e469b94ebc3f6db4ab34981, type: 3}
+  - {fileID: 2800000, guid: 69f8c810fd924374a9e9f06c6c7772ce, type: 3}
+  - {fileID: 2800000, guid: a104419de278c83489bde6dccc9ad266, type: 3}
+  - {fileID: 2800000, guid: 844928836df22694aaabd62d12ca634c, type: 3}
   followingVariableChosen: 2
   CorrectSpriteIndex: 4
 --- !u!114 &889773016
@@ -12066,7 +12066,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 0694e94b350378044a81a3ae781472e3, type: 3}
+  m_Texture: {fileID: 2800000, guid: 844928836df22694aaabd62d12ca634c, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -13620,7 +13620,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25014302, y: 0.36838987, z: -0.10361265, w: 0.88937163}
+  m_LocalRotation: {x: 0.250143, y: 0.36838987, z: -0.10361263, w: 0.88937163}
   m_LocalPosition: {x: 0.50430965, y: 14.57, z: 0.50431156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15129,8 +15129,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.31
-  m_fontSizeBase: 44.31
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -15250,7 +15250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113754699}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.250143, y: 0.36838982, z: -0.10361262, w: 0.88937163}
+  m_LocalRotation: {x: 0.25014296, y: 0.3683898, z: -0.1036126, w: 0.88937163}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15942,6 +15942,7 @@ MonoBehaviour:
   targetTime: 300
   numYears: 50
   targetReached: 0
+  isCounting: 0
 --- !u!1 &1182576817
 GameObject:
   m_ObjectHideFlags: 0
@@ -17926,7 +17927,7 @@ MonoBehaviour:
     action: 3
   - text: Nice work! that will give our rowdy inhabitant a bit of peace of mind.
     trigger: 0
-    action: 0
+    action: 6
   - text: Your citizens will also want you to increase their sustainability.
     trigger: 0
     action: 4
@@ -17944,7 +17945,7 @@ MonoBehaviour:
   - text: Keep this in mind as you improve your city. Your score will be tallied
       in the year 2030. Until then and good luck, mayor!
     trigger: 0
-    action: 0
+    action: 5
   currentText: 0
   waitingOnTrigger: 0
   triggerType: 0
@@ -17953,6 +17954,7 @@ MonoBehaviour:
   industryLocation: {fileID: 887279139}
   upgradeScript: {fileID: 1483084840}
   rebelSpawner: {fileID: 8575922134705944104}
+  clock: {fileID: 1170892774}
 --- !u!1 &1310558857
 GameObject:
   m_ObjectHideFlags: 0
