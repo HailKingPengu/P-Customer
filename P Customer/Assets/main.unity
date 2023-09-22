@@ -17641,7 +17641,8 @@ MonoBehaviour:
   - text: They will continue to provide you with feedback on what they want changed.
     trigger: 0
     action: 2
-  - text: Keep this in mind as you improve your city. Good luck, mayor!
+  - text: Keep this in mind as you improve your city. Your score will be tallied
+      in the year 2030. Until then and good luck, mayor!
     trigger: 0
     action: 0
   currentText: 0
