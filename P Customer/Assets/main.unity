@@ -2296,6 +2296,37 @@ MonoBehaviour:
   madAboutString: 
   inTutorial: 1
   manuallySpawnProtestor: 0
+--- !u!1 &194498694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 194498695}
+  m_Layer: 0
+  m_Name: MAKE HAPPINESS DECREASE OVER POLLUTION
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &194498695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194498694}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.391655, y: -8.309442, z: 20.20707}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &194817663
 GameObject:
   m_ObjectHideFlags: 0
@@ -46001,3 +46032,4 @@ SceneRoots:
   - {fileID: 625189405}
   - {fileID: 1654049727}
   - {fileID: 887279139}
+  - {fileID: 194498695}
